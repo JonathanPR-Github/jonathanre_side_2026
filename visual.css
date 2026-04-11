@@ -1,0 +1,132 @@
+body {
+    /* COLOR SECTION */
+  background-color: rgb(80, 95, 145);
+    /* SIZE SECTION */
+  width: auto;
+  height: 2000vh;
+    /* TO GET COMPLETE SPACE OF SITE */
+  margin: 0; 
+  padding: 0;
+
+    /* DOTS */
+  background-image: url(images/background/background_spaced_dots.png);
+  background-size: 3vw;
+
+}
+
+/* TOP SECTION / HEADER */
+
+.container_header_top {
+    position: fixed;
+}
+
+.header_top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    background-color: #323c64 ;
+
+    width: 100vw ;
+    max-width: 100% ;
+    height: 8vh ;
+    max-height: 100%;
+    
+}
+
+.header_top_fake {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100vw ;
+    max-width: 100% ;
+    height: 8vh ;
+    max-height: 100%;
+
+    margin-bottom: 4% ;
+    
+}
+
+
+.header_top_button {
+    display: flex;
+    flex-wrap: wrap;
+
+    /* FOR THE TEXT */
+    align-content: center;
+    justify-content: center;
+
+    background-color: #646464 ;
+    width: 10% ;
+    height: 80% ;
+
+    margin-right: 5%;
+    margin-left: 5%;
+    
+}
+
+.header_top_button_text {
+    color: wheat;
+    font-size: 130% ;
+}
+
+/* ABOUT ME SECTION / INTRO SECTION */
+
+.about_me_box {
+    display: flex;
+    flex-wrap: wrap;
+
+    /* FOR THE TEXT */
+    align-content: flex-start;
+    justify-content: flex-start;
+
+    background-color: #646464 ;
+    width: 25% ;
+    height: 5% ;
+    
+    margin-left: 15% ;
+}
+.container_about_me_box_text {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    padding-left: 5% ;
+    padding-right: 5% ;
+    padding-top: 5% ;
+}
+
+.header_about_me_box_text {
+    color: wheat;
+    font-size: 170% ;
+}
+
+.about_me_box_text {
+    color: wheat;
+    font-size: 130% ;
+}
+
+.about_me_line {
+    display: flex;
+    flex-wrap: wrap;
+
+    /* FOR THE TEXT */
+    align-content: flex-start;
+    justify-content: flex-start;
+
+    background-color: wheat;
+
+    width: 45% ;
+    height: 1% ;
+}
+
+.about_me_picture {
+    display: flex;
+
+    width: 35%;
+    height: 35%;
+    border-radius: 50%;
+    background-color: royalblue;
+}
+
