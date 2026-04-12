@@ -3,7 +3,7 @@ body {
   background-color: rgb(80, 95, 145);
     /* SIZE SECTION */
   width: auto;
-  height: 2000vh;
+  height: 150vh;
     /* TO GET COMPLETE SPACE OF SITE */
   margin: 0; 
   padding: 0;
@@ -71,7 +71,19 @@ body {
     font-size: 130% ;
 }
 
-/* ABOUT ME SECTION / INTRO SECTION */
+/* ABOUT ME SECTION / INTRO SECTION START */
+
+.container_tab_1 {
+    display: block;
+}
+
+.container_about_me_box {
+    display: flex;
+    justify-content: center;
+
+    width: fit-content ;
+    height: 100% ;
+}
 
 .about_me_box {
     display: flex;
@@ -83,10 +95,11 @@ body {
 
     background-color: #646464 ;
     width: 25% ;
-    height: 5% ;
+    height: 100% ;
     
-    margin-left: 15% ;
+   /*  margin-left: 15% ; */
 }
+
 .container_about_me_box_text {
     display: flex;
     justify-content: center;
@@ -95,6 +108,7 @@ body {
     padding-left: 5% ;
     padding-right: 5% ;
     padding-top: 5% ;
+    padding-bottom: 5% ;
 }
 
 .header_about_me_box_text {
@@ -121,12 +135,50 @@ body {
     height: 1% ;
 }
 
-.about_me_picture {
+.container_about_me_pl {
     display: flex;
+    flex-direction: column;
+    align-items: center;
 
-    width: 35%;
-    height: 35%;
-    border-radius: 50%;
-    background-color: royalblue;
+    margin-left: 10% ;
 }
 
+.about_me_picture {
+
+    width: 25vw ;
+    height: 50vh ;
+    border-radius: 50% ;
+    background-color: royalblue;
+
+    background-image: url(images/profile_picture.jpg);
+    background-size: cover;
+    box-shadow: black 0vw 0vw 5vw;
+}
+
+.about_me_links {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: #646464 ;
+    width: 120% ;
+    height: 15% ;
+
+    margin-top: 10% ;
+
+    padding-left: 15% ;
+    padding-right: 15% ;
+}
+
+.contact_button {
+    height: 100% ;
+    width: 100% ;
+
+    /* box-shadow: black 0vw 0vw 1vw; */
+}
+
+/* ABOUT ME SECTION / INTRO SECTION END */
+
+.container_tab_2 {
+    display: none;
+}
