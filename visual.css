@@ -14,6 +14,15 @@ body {
 
 }
 
+button:hover {
+  border: 10px solid black ;
+  border-style: double;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
 /* TOP SECTION / HEADER */
 
 .container_header_top {
@@ -73,7 +82,7 @@ body {
 
 /* ABOUT ME SECTION / INTRO SECTION START */
 
-.container_tab_1 {
+#container_tab_1 {
     display: block;
 }
 
@@ -105,10 +114,7 @@ body {
     justify-content: center;
     flex-direction: column;
 
-    padding-left: 5% ;
-    padding-right: 5% ;
-    padding-top: 5% ;
-    padding-bottom: 5% ;
+    padding: 5%;
 }
 
 .header_about_me_box_text {
@@ -170,15 +176,162 @@ body {
     padding-right: 15% ;
 }
 
-.contact_button {
-    height: 100% ;
-    width: 100% ;
+.contact_button_1 {
+    display: inline-block;
+    height: 80% ;
+    width: 80% ;
+    background-image: url('images/icons/contact_icon_1.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
 
-    /* box-shadow: black 0vw 0vw 1vw; */
+.contact_button_1:hover {
+    display: inline-block;
+    background-image: url('images/icons/contact_icon_1_hover.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform: scale(0.95);
+}
+
+.contact_button_2 {
+    display: inline-block;
+    height: 80% ;
+    width: 80% ;
+    background-image: url('images/icons/contact_icon_2.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.contact_button_2:hover {
+    display: inline-block;
+    background-image: url('images/icons/contact_icon_2_hover.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.contact_button_3 {
+    display: inline-block;
+    height: 80% ;
+    width: 80% ;
+    background-image: url('images/icons/contact_icon_3.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.contact_button_3:hover {
+    display: inline-block;
+    background-image: url('images/icons/contact_icon_3_hover.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.contact_button_4 {
+    display: inline-block;
+    height: 80% ;
+    width: 80% ;
+    background-image: url('images/icons/contact_icon_4.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.contact_button_4:hover {
+    display: inline-block;
+    background-image: url('images/icons/contact_icon_4_hover.png');
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 /* ABOUT ME SECTION / INTRO SECTION END */
 
-.container_tab_2 {
+/* TIMELINE SECTION START */
+
+#container_tab_2 {
     display: none;
+}
+
+.container_timeline_tutorial_box {
+    display: flex;
+    justify-content: center;
+}
+
+.timeline_tutorial_box {
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    background-color: #646464 ;
+    width: 60%;
+    height: 60%;
+
+    margin-bottom: 5%;
+    
+}
+
+.container_timeline_tutorial_box_text {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    padding: 2%;
+}
+
+/* TIMELINE LINE */
+
+.container_timeline_line {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 40px;
+    height: 80vh;
+
+    margin-left: 20%;
+}
+
+.timeline_row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.timeline_circle {
+    width: 1.5vw;
+    height: 3vh;
+    border-radius: 50%;
+    background-color: black;
+    flex-shrink: 0;
+}
+
+.timeline_content {
+    margin-left: 20px;
+    font-size: 130%;
+}
+
+.timeline_box {
+
+    background-color: #646464 ;
+    width: 10vw ;
+    height: 10vh ;
+
+    margin-top: 5% ;
+    margin-bottom: 5% ;
+    
+}
+
+.timeline_year_text {
+    background-color: wheat ;
+    padding: 2%;
+
+    color: black ;
+    margin-right: 20px;
+    font-size: 200% ;
+    font-weight: bold;
+
+    width: 22vw;
+    min-width: 22vw;
+    text-align: center;
+    white-space: nowrap;
+    box-sizing: border-box;
 }
