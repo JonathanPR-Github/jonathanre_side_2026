@@ -14,6 +14,75 @@
 <!-- BODY VISUALS ARE DONE BY CSS-->
 <body> 
 
+    <!-- TIMELINE POPUP MESSAGES -->
+    <div class="container_timeline_popup">
+        <div class="timeline_popup" id="container_tab_popup"> <!-- SET TO NONE OTHERWISE TOLD SO -->
+
+            <!-- EXIT BUTTON -->
+            <button class="timeline_popup_exit" onclick="ClosePopup()">X</button>
+
+            <!-- POPUP CONTENT AREA -->
+
+            <div class="timeline_popup_content" style="display: none;"> <!-- POPUP COPYPASTE, ALWAYS SET TO NONE -->
+                
+                <!-- LEFT SIDE: BLACK BOXES GRID -->
+                <div class="timeline_popup_boxes">
+                    <button class="timeline_popup_box"></button>
+                    <button class="timeline_popup_box"></button>
+                    <button class="timeline_popup_box"></button>
+                    <button class="timeline_popup_box"></button>
+                </div>
+
+                <!-- RIGHT SIDE: ORANGE TEXT BOX WITH SCROLLBAR -->
+                <div class="timeline_popup_textbox">
+                    <div class="timeline_popup_textbox_inner">
+                        <div class="timeline_popup_text_content">
+                            <p class="timeline_popup_header">HEADER</p>
+                            <div class="timeline_popup_line"></div>
+                            <p class="timeline_popup_subheader">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- POPUP COPYPASTE, ALWAYS SET TO NONE -->
+
+            <!-- POPUP FIRST TRIES -->
+            <div class="timeline_popup_content" id="container_popup_1"> 
+                
+                <!-- LEFT SIDE: BLACK BOXES GRID -->
+                <div class="timeline_popup_boxes">
+                    <div class="timeline_popup_box_img" style="background-image: url(images/buttons/big/first_try_img_1.jpg); background-size: cover;"></div>
+                    <div class="timeline_popup_box_img" style="background-image: url(images/buttons/big/first_try_img_2.jpg); background-size: cover;"></div>
+                    <div class="timeline_popup_box_img" style="background-image: url(images/buttons/big/first_try_img_3.jpg); background-size: cover;"></div>
+                    <button class="timeline_popup_box_steam" style="background-image: url(images/buttons/big/steam_img.jpg); background-size: cover;"></button>
+                </div>
+
+                <!-- RIGHT SIDE: ORANGE TEXT BOX WITH SCROLLBAR -->
+                <div class="timeline_popup_textbox">
+                    <div class="timeline_popup_textbox_inner">
+                        <div class="timeline_popup_text_content">
+                            <p class="timeline_popup_header">"THE FIRST TRIES"</p>
+                            <div class="timeline_popup_line"></div>
+                            <p class="timeline_popup_subheader">The First Tries, we're the first batch of maps i created and released around 2018, at that time i was 15 years old.</p>
+                            <p class="timeline_popup_subheader">Beginning around 2017 and ending late in 2018 during a time when i made these in my free time after school, i created 5 quite simple maps in the world builder for the Source Engine called "Hammer", that initially begun as curiouseness and shortly fell into being fun. This was about the first time when i realized how fun i found development to be, as throughout the time i made them, i found making them more enjoyable for whatever i was doing during that time at school</p>
+                            <p class="timeline_popup_subheader">Unfortently however it would take me quite some time to realize that i should have put most of my work into building a career, so for must of that time i was only curious</p>
+                            <p class="timeline_popup_subheader">Prior to creating these 5 maps, at which a time i saw nothing too the engine, i was making small levels with friends in Roblox based around things i played on that platform, but these we're merely early attempts</p>
+                            <p class="timeline_popup_header">COMPETANSE</p>
+                            <div class="timeline_popup_line"></div>
+                            <p class="timeline_popup_subheader">• SDK Hammer Engine</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+
+        </div>
+    </div>
+
     <!-- TOP SECTION / HEADER -->
 
     <div class="container_header_top">
@@ -24,6 +93,7 @@
     </div>
 
     <div class="header_top_fake"></div>
+    
 
     <!-- ABOUT ME SECTION / INTRO SECTION -->
     <div> <!-- TAB 1 START -->
@@ -80,10 +150,10 @@
             <div class="about_me_box_text">
                 <p>ABOUT THE TIMELINE</p>
                 <div class="about_me_line"></div>
-                <p>The Timeline is a row of years of development i've done throughout my career, in it you will find a set of mods i made to video games and projects that i've been involved within the last few years. It consists of a long line of dots and years, and image boxes related to the project </p
+                <p>The Timeline is a few sections and rows of development i've done throughout my career, in it you will find a set of mods i made to video games and projects that i've been involved within the last few years alongside some other mixed elements of what i've worked on. </p
                 <p>HOW TO INTERACT</p>
                 <div class="about_me_line"></div>
-                <p>To interact with the timeline, find a dot year listed on the page, hover over one of the boxes/images on the side of the dots, then click on them.</p>
+                <p>To interact with the timeline, find a section listed on the page, hover over one of the boxes/images on the side sections, then click on them.</p>
                 <p>As soon as you've clicked on them, a popup message will tell you about the project/mod/game was related too, with information and video descriptions about it</p>
                 <p>You can close the popup message by clicking the X on top of the side of the popup message</p>
             </div>
@@ -91,120 +161,57 @@
     </div>
 
     </div>
-    
-    
-    <div class="container_timeline_line">
+    <!-- TIMELINE START -->
 
-    <div class="timeline_row">  <!-- 2016 - 2017 -->
-        <p class="timeline_year_text">2016 - 2017</p>
-        <div class="timeline_circle"></div>
+    <div class="container_timeline">
 
-        <div class="timeline_content"> <!-- ROBLOX FUN -->
-            <div class="timeline_box"></div>
-        </div>
-    </div>
-
-    <div class="timeline_row">  <!-- 2018 -->
-        <p class="timeline_year_text">2018</p> 
-        <div class="timeline_circle"></div>
-
-        <div class="timeline_content"> <!-- FIRST TRIES -->
-            <div class="timeline_box"></div>
-        </div>
-    </div>
-
-    <div class="timeline_row">  <!-- 2019 - 2022 -->
-        <p class="timeline_year_text">2019 - 2022</p>
-        <div class="timeline_circle"></div>
-
-        <div class="timeline_content"> <!-- SCHOOL YEARS -->
-            <div class="timeline_box"></div>
+        <!-- MODS/PROJECTS SECTION -->
+        <div class="timeline-section">
+            <div class="timeline-label">MODS/PROJECTS</div>
+            <div class="timeline-line-and-boxes">
+                <div class="timeline-line"></div>
+                <div class="container_timeline_box">
+                    <button onclick="OpenPopup(); popup_1();" class="timeline_box"; style="background-image: url(images/buttons/small/timeline_box_1.jpg); background-size: cover;"></button>
+                    <div class="timeline_box"></div>
+                    <div class="timeline_box"></div>
+                    <div class="timeline_box"></div>
+                    <div class="timeline_box"></div>
+                    <div class="timeline_box"></div>
+                    <div class="timeline_box"></div>
+                    <div class="timeline_box"></div>
+                    <div class="timeline_box"></div>
+                </div>
+            </div>
         </div>
 
-    </div>
+        <!-- GAMES SECTION -->
+        <div class="timeline-section">
+            <div class="timeline-label">GAMES</div>
+            <div class="timeline-line-and-boxes">
+                <div class="timeline-line"></div>
 
-    <div class="timeline_row">  <!-- 2023 -->
-        <p class="timeline_year_text">2023 </p>
-        <div class="timeline_circle"></div>
-        
-        <div class="timeline_content"> <!-- FIRST PORTFOLIO -->
-            <div class="timeline_box"></div>
+                <div class="container_timeline_box">
+                    <div class="timeline_box"></div>
+                    <div class="timeline_box"></div>
+
+                </div>
+            </div>
         </div>
 
-        <div class="timeline_content"> <!-- FOLKEHØGSKOLEN -->
-            <div class="timeline_box"></div>
-        </div>
+        <!-- MIX SECTION -->
+        <div class="timeline-section">
+            <div class="timeline-label">MIX</div>
+            <div class="timeline-line-and-boxes">
+                <div class="timeline-line"></div>
 
-    </div>
-
-    <div class="timeline_row">  <!-- 2024 -->
-        <p class="timeline_year_text">2024 </p>
-        <div class="timeline_circle"></div>
-        
-        <div class="timeline_content"> <!-- HOI4 JOHN COLLECTION  -->
-            <div class="timeline_box"></div>
-        </div>
-        
-        <div class="timeline_content"> <!-- DUSTGROWL -->
-            <div class="timeline_box"></div>
-        </div>
-
-        <div class="timeline_content"> <!-- DOVREGUBBEN -->
-            <div class="timeline_box"></div>
+                <div class="container_timeline_box">
+                    <div class="timeline_box"></div>
+             
+                </div>
+            </div>
         </div>
 
     </div>
-
-    <div class="timeline_row">  <!-- 2025 -->
-        <p class="timeline_year_text">2025 </p>
-        <div class="timeline_circle"></div>
-
-        <div class="timeline_content"> 
-            <div class="timeline_box"></div> <!-- RED DUSK -->
-            <div class="timeline_box"></div> <!-- STALKER MOD -->
-            <div class="timeline_box"></div> <!-- Battlefront 2 MOD -->
-        </div>
-        
-        <div class="timeline_content"> 
-            <div class="timeline_box"></div> <!-- TIMB -->
-            <div class="timeline_box"></div> <!-- SPIRAL -->
-        </div>
-
-        <div class="timeline_content"> 
-            <div class="timeline_box"></div> <!-- GULLYPASS -->
-            <div class="timeline_box"></div> <!-- GULLYCREAK -->
-        </div>
-
-        <div class="timeline_content"> 
-            <div class="timeline_box"></div> <!-- RUSH GAMEMODE -->
-            <div class="timeline_box"></div> <!-- FLOWERPOT -->
-        </div>
-
-    </div>
-
-    <div class="timeline_row">  <!-- 2026 -->
-        <p class="timeline_year_text">2026 </p>
-        <div class="timeline_circle"></div>
-
-        <div class="timeline_content"> 
-            <div class="timeline_box"></div> <!-- THE LOW PROFILE COLLECTION UPDATE -->
-            <div class="timeline_box"></div>  <!-- MONOCEROS -->
-        </div>
-        
-        <div class="timeline_content"> <!-- HOLT -->
-            <div class="timeline_box"></div>
-        </div>
-
-        <div class="timeline_content"> 
-            <div class="timeline_box"></div> <!-- VIPR GAMEMODE -->
-            <div class="timeline_box"></div> <!-- THE GRENADE MODE -->
-        </div>
-
-    </div>
-
-
-    </div>
-
 
     </div> 
 

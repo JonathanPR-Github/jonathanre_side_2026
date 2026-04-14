@@ -3,7 +3,7 @@ body {
   background-color: rgb(80, 95, 145);
     /* SIZE SECTION */
   width: auto;
-  height: 150vh;
+  height: 120vh;
     /* TO GET COMPLETE SPACE OF SITE */
   margin: 0; 
   padding: 0;
@@ -12,15 +12,6 @@ body {
   background-image: url(images/background/background_spaced_dots.png);
   background-size: 3vw;
 
-}
-
-button:hover {
-  border: 10px solid black ;
-  border-style: double;
-}
-
-button:active {
-  transform: scale(0.95);
 }
 
 /* TOP SECTION / HEADER */
@@ -75,6 +66,16 @@ button:active {
     
 }
 
+.header_top_button:active {
+    transform: scale(0.95);
+}
+
+.header_top_button:hover {
+    cursor: pointer;
+    border: 10px solid black ;
+    border-style: double;
+}
+
 .header_top_button_text {
     color: wheat;
     font-size: 130% ;
@@ -119,7 +120,9 @@ button:active {
 
 .header_about_me_box_text {
     color: wheat;
-    font-size: 170% ;
+    font-size: 1.5vw;
+    font-family: Impact, 'Arial Black', sans-serif;
+    text-transform: uppercase;
 }
 
 .about_me_box_text {
@@ -138,7 +141,7 @@ button:active {
     background-color: wheat;
 
     width: 45% ;
-    height: 1% ;
+    height: 0.5vh ;
 }
 
 .container_about_me_pl {
@@ -276,62 +279,274 @@ button:active {
     padding: 2%;
 }
 
-/* TIMELINE LINE */
+/* TIMELINE START */
 
-.container_timeline_line {
+.container_timeline {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: 40px;
-    height: 80vh;
 
-    margin-left: 20%;
+    gap: 60px;
+
+    padding-bottom: 5%;
+    margin-left: 20% ;
 }
 
-.timeline_row {
+.timeline-section {
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-top: 40px;
-    margin-bottom: 40px;
 }
 
-.timeline_circle {
-    width: 1.5vw;
-    height: 3vh;
-    border-radius: 50%;
-    background-color: black;
+.timeline-label {
+    color: wheat;
+    font-size: 1.6vw;
+    font-weight: 900;
+    font-family: Impact, 'Arial Black', sans-serif;
+    text-transform: uppercase;
+    white-space: nowrap;
+    width: 12vw;
+    text-align: center;
     flex-shrink: 0;
+
+    background-color: black;
+    margin: 2% ;
+    padding: 2% ;
 }
 
-.timeline_content {
-    margin-left: 20px;
-    font-size: 130%;
+.timeline-line-and-boxes {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
 }
 
-.timeline_box {
+.timeline-line {
+    width: 8px;
+    background-color: black;
+    border-radius: 4px;
+    flex-shrink: 0;
+    margin-right: 15px;
+}
+
+.container_timeline_box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    width: calc(3 * 5.5vw + 2 * 12px);
+}
+
+/* TIMELINE BOXES */
+
+.timeline_box {  /* */
+    width: 5.5vw;
+    height: 3.5vw;
+    background-color: #00ff00;
+    cursor: pointer;
+    transition: transform 0.15s ease;
+
+    background-image: url(images/buttons/timeline_box_2.jpg);
+    background-size: cover;
+}
+.timeline_box:hover {
+    transform: scale(1.05);
+}
+
+.timeline_box:active{
+    transform: scale(1.00);
+}
+
+/* TIMELINE POPUP MESSAGE */
+
+#container_tab_popup {
+    display: none;
+}
+
+.container_timeline_popup {
+    display: flex;
+    justify-content: center;
+}
+
+.timeline_popup {
+    position: fixed;
+    z-index: 1;
 
     background-color: #646464 ;
-    width: 10vw ;
-    height: 10vh ;
+    width: 80% ;
+    height: 80% ;
 
-    margin-top: 5% ;
-    margin-bottom: 5% ;
-    
+    margin-top: 7%;
+
+    padding: 3%;
+    box-sizing: border-box;
+
+    box-shadow: 0px 0px 20px 5px black;
 }
 
-.timeline_year_text {
-    background-color: wheat ;
-    padding: 2%;
+/* POPUP EXIT BUTTON */
 
-    color: black ;
-    margin-right: 20px;
-    font-size: 200% ;
+.timeline_popup_exit {
+    position: absolute;
+    top: 2%;
+    right: 2%;
+
+    width: 4vw;
+    height: 4vw;
+
+    background-color: wheat;
+
+    color: black;
+    font-size: 1.5vw;
     font-weight: bold;
 
-    width: 22vw;
-    min-width: 22vw;
-    text-align: center;
-    white-space: nowrap;
+    border: none;
+    cursor: pointer;
+}
+
+.timeline_popup_exit:hover {
+    cursor: pointer;
+    border: 10px solid black ;
+    border-style: double;
+}
+
+.timeline_popup_exit:active {
+    transform: scale(0.95);
+}
+
+/* POPUP CONTENT LAYOUT */
+
+.timeline_popup_content {
+    display: flex;
+    flex-direction: row;
+
+    width: 100%;
+    height: 100%;
+
+    margin-top: 4%;
+    gap: 3%;
+}
+
+#container_popup_1 {
+    display: none;
+}
+
+/* POPUP LEFT SIDE: BLACK BOXES */
+
+.timeline_popup_boxes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3%;
+    align-content: flex-start;
+
+    width: 60%;
+    height: 100%;
+}
+
+.timeline_popup_box {
+    width: 48%;
+    height: 45%;
+
+    background-color: wheat;
+    cursor: pointer;
+    transition: transform 0.15s ease;
+}
+
+.timeline_popup_box:hover {
+    transform: scale(1.02);
+}
+
+.timeline_popup_box_steam {
+    width: 48%;
+    height: 45%;
+
+    background-color: #232730 ;
+    cursor: pointer;
+    transition: transform 0.15s ease;
+}
+
+.timeline_popup_box_steam:hover {
+    transform: scale(1.02);
+    border: 8px solid black ;
+}
+
+.timeline_popup_box_steam:active {
+    transform: scale(1.00);
+    border: 8px solid black ;
+}
+
+.timeline_popup_box_img {
+    width: 48%;
+    height: 45%;
+    background-color: wheat;
+}
+
+/* POPUP RIGHT SIDE: ORANGE TEXT BOX */
+
+.timeline_popup_textbox {
+    display: flex;
+    flex-direction: row;
+
+    width: 35%;
+    height: 100%;
+
+    margin-bottom: 50%;
+}
+
+.timeline_popup_textbox_inner {
+    flex: 1;
+
+    background-color: #323c64;
+    overflow-y: auto;
+
+    padding: 5%;
     box-sizing: border-box;
+
+    margin-bottom: 5%;
+
+    background-image: url(images/background/background_spaced_dots.png);
+    background-size: 5vw;
+}
+
+/* Webkit scrollbar styling for Chrome/Safari */
+.timeline_popup_textbox_inner::-webkit-scrollbar {
+    width: 15px;
+}
+
+.timeline_popup_textbox_inner::-webkit-scrollbar-track {
+    background: #2c2c2c ;
+}
+
+.timeline_popup_textbox_inner::-webkit-scrollbar-thumb {
+    background-color: #9f9f9f ;
+    border-radius: 0;
+}
+
+/* POPUP TEXT CONTENT */
+
+.timeline_popup_text_content {
+    width: 100%;
+}
+
+.timeline_popup_header {
+    color: wheat;
+    font-size: 2vw;
+    font-weight: 900;
+    font-family: Impact, 'Arial Black', sans-serif;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.timeline_popup_line {
+    width: 65%;
+    height: 4px;
+
+    background-color: wheat;
+    margin-top: 2%;
+    margin-bottom: 3%;
+}
+
+.timeline_popup_subheader {
+    color: wheat;
+    font-size: 1.3vw;
+    margin-bottom: 5%;
+
 }
