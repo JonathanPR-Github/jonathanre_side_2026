@@ -18,6 +18,7 @@ body {
 
 .container_header_top {
     position: fixed;
+    z-index: 1;
 }
 
 .header_top {
@@ -364,11 +365,45 @@ body {
 .container_timeline_popup {
     display: flex;
     justify-content: center;
+    z-index: 2;
+
+    /* Overlay setup - only activates when body has popup_active */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0);
+    pointer-events: none;
+    transition: background-color 0.3s ease;
+}
+
+/* When popup is active: dark overlay + block background interaction */
+body.popup_active .container_timeline_popup {
+    background-color: rgba(0, 0, 0, 0.6);
+    pointer-events: auto;
+}
+
+/* Blur all body children EXCEPT the popup overlay when active */
+body.popup_active > *:not(.container_timeline_popup) {
+    filter: blur(5px);
+    pointer-events: none;
+}
+
+/* Prevent scrolling when popup is open */
+body.popup_active {
+    overflow: hidden;
+}
+
+/* Also blur the fixed header */
+body.popup_active .container_header_top {
+    filter: blur(5px);
+    pointer-events: none;
 }
 
 .timeline_popup {
     position: fixed;
-    z-index: 1;
 
     background-color: #646464 ;
     width: 80% ;
@@ -380,6 +415,8 @@ body {
     box-sizing: border-box;
 
     box-shadow: 0px 0px 20px 5px black;
+
+    pointer-events: auto;
 }
 
 /* POPUP EXIT BUTTON */
@@ -434,8 +471,9 @@ body {
 .timeline_popup_boxes {
     display: flex;
     flex-wrap: wrap;
-    gap: 3%;
+    gap: 2%;
     align-content: flex-start;
+    flex-direction: column;
 
     width: 60%;
     height: 100%;
@@ -459,24 +497,26 @@ body {
     height: 45%;
 
     background-color: #232730 ;
-    cursor: pointer;
     transition: transform 0.15s ease;
+    
+    border: 5px solid black ;
+    box-shadow: 0px 0px 20px 2px black;
 }
 
 .timeline_popup_box_steam:hover {
     transform: scale(1.02);
-    border: 8px solid black ;
 }
 
 .timeline_popup_box_steam:active {
     transform: scale(1.00);
-    border: 8px solid black ;
 }
 
 .timeline_popup_box_img {
     width: 48%;
     height: 45%;
     background-color: wheat;
+
+    border: 5px solid black ;
 }
 
 /* POPUP RIGHT SIDE: ORANGE TEXT BOX */
@@ -503,7 +543,7 @@ body {
     margin-bottom: 5%;
 
     background-image: url(images/background/background_spaced_dots.png);
-    background-size: 5vw;
+    background-size: 4vw;
 }
 
 /* Webkit scrollbar styling for Chrome/Safari */

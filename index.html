@@ -16,6 +16,7 @@
 
     <!-- TIMELINE POPUP MESSAGES -->
     <div class="container_timeline_popup">
+
         <div class="timeline_popup" id="container_tab_popup"> <!-- SET TO NONE OTHERWISE TOLD SO -->
 
             <!-- EXIT BUTTON -->
@@ -54,7 +55,7 @@
                     <div class="timeline_popup_box_img" style="background-image: url(images/buttons/big/first_try_img_1.jpg); background-size: cover;"></div>
                     <div class="timeline_popup_box_img" style="background-image: url(images/buttons/big/first_try_img_2.jpg); background-size: cover;"></div>
                     <div class="timeline_popup_box_img" style="background-image: url(images/buttons/big/first_try_img_3.jpg); background-size: cover;"></div>
-                    <button class="timeline_popup_box_steam" style="background-image: url(images/buttons/big/steam_img.jpg); background-size: cover;"></button>
+                    <a href="https://steamcommunity.com/workshop/filedetails/?id=3513567869" target="_blank" class="timeline_popup_box_steam" style="background-image: url(images/buttons/big/steam_img.jpg); background-size: cover;"></a>
                 </div>
 
                 <!-- RIGHT SIDE: ORANGE TEXT BOX WITH SCROLLBAR -->
@@ -69,7 +70,9 @@
                             <p class="timeline_popup_subheader">Prior to creating these 5 maps, at which a time i saw nothing too the engine, i was making small levels with friends in Roblox based around things i played on that platform, but these we're merely early attempts</p>
                             <p class="timeline_popup_header">COMPETANSE</p>
                             <div class="timeline_popup_line"></div>
-                            <p class="timeline_popup_subheader">• SDK Hammer Engine</p>
+                            <ul class="timeline_popup_subheader">
+                                <li>SDK Hammer Engine</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -87,8 +90,8 @@
 
     <div class="container_header_top">
         <div class="header_top">
-            <button onclick="ShowTab_1()"   class="header_top_button"> <p class="header_top_button_text">INTRO</p> </button>
-            <button onclick="ShowTab_2()"   class="header_top_button"> <p class="header_top_button_text">GAME DEVELOPMENT</p> </button>
+            <button onclick="ShowTab_1(); OnClickSound()" onmouseenter="OnHoverSound()" onmousedown="OnHoldSound()"    class="header_top_button"> <p class="header_top_button_text">INTRO</p> </button>
+            <button onclick="ShowTab_2(); OnClickSound()" onmouseenter="OnHoverSound()"     class="header_top_button"> <p class="header_top_button_text">GAME DEVELOPMENT</p> </button>
         </div>
     </div>
 
@@ -126,10 +129,10 @@
     <div class="container_about_me_pl">
         <div class="about_me_picture"></div>
         <div class="about_me_links">
-            <a href="https://no.linkedin.com/in/jonathan-erik-reppen-0915642a0/en?trk=people-guest_people_search-card" target="_blank" class="contact_button_1"></a>
-            <a href="mailto: jonathan.reppen@outlook.com" target="_blank" class="contact_button_2"></a>
-            <a href="https://github.com/JonathanPR-Github?tab=repositories" target="_blank" class="contact_button_3"></a>
-            <a href="https://www.youtube.com/@jonathnpr5934/videos" target="_blank" class="contact_button_4"></a>
+            <a href="https://no.linkedin.com/in/jonathan-erik-reppen-0915642a0/en?trk=people-guest_people_search-card" target="_blank" class="contact_button_1"     onclick="OnClickSound()" onmouseenter="OnHoverSound()"></a>
+            <a href="mailto: jonathan.reppen@outlook.com" target="_blank" class="contact_button_2"  onclick="OnClickSound()" onmouseenter="OnHoverSound()"></a>
+            <a href="https://github.com/JonathanPR-Github?tab=repositories" target="_blank" class="contact_button_3"    onclick="OnClickSound()" onmouseenter="OnHoverSound()"></a>
+            <a href="https://www.youtube.com/@jonathnpr5934/videos" target="_blank" class="contact_button_4"    onclick="OnClickSound()" onmouseenter="OnHoverSound()"></a>
         </div>
     </div>
 
@@ -150,12 +153,18 @@
             <div class="about_me_box_text">
                 <p>ABOUT THE TIMELINE</p>
                 <div class="about_me_line"></div>
-                <p>The Timeline is a few sections and rows of development i've done throughout my career, in it you will find a set of mods i made to video games and projects that i've been involved within the last few years alongside some other mixed elements of what i've worked on. </p
+                <p>The Timeline is a few sections and rows of development i've done throughout my career, in it you will find a set of mods i made to video games and projects that i've been involved within the last few years alongside some other mixed elements of what i've worked on. 
+                <br>The rows of boxes with images are the projects i've done, with icons on the top of the box related to the game its linked too. Once clicked on, it will open a popup with relevant information about what the project was about.</p
+
+                <p>The popups consists of information about what the project was related too, images and video explonations, links to any sites like Steam, the lenght of the development and what it was coded in. 
+                <br>On the bottom of the site, there is a section for competanse related to what was used in the project such as the programming language</p
+
                 <p>HOW TO INTERACT</p>
                 <div class="about_me_line"></div>
                 <p>To interact with the timeline, find a section listed on the page, hover over one of the boxes/images on the side sections, then click on them.</p>
-                <p>As soon as you've clicked on them, a popup message will tell you about the project/mod/game was related too, with information and video descriptions about it</p>
-                <p>You can close the popup message by clicking the X on top of the side of the popup message</p>
+                <p>As soon as you've clicked on them, a popup message will tell you about the project/mod/game was related too, with information and video descriptions about it. 
+                <br>While being in the popup, you cannot interact with anything outside of the popup, so you have to close it in order to do something else on the page.</p>
+                <p>You can close the popup message by clicking the X on top of the side of the popup message, or hitting ESC which will close it instantly</p>
             </div>
         </div>
     </div>
