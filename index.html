@@ -20,7 +20,7 @@
         <div class="timeline_popup" id="container_tab_popup"> <!-- SET TO NONE OTHERWISE TOLD SO -->
 
             <!-- EXIT BUTTON -->
-            <button class="timeline_popup_exit" onclick="ClosePopup()">X</button>
+            <button class="timeline_popup_exit" onclick="ClosePopup(); OnClickSound()" onmouseenter="OnHoverSound()" onmousedown="OnHoldSound()">X</button>
 
             <!-- POPUP CONTENT AREA -->
 
@@ -34,7 +34,7 @@
                     <button class="timeline_popup_box"></button>
                 </div>
 
-                <!-- RIGHT SIDE: ORANGE TEXT BOX WITH SCROLLBAR -->
+                <!-- RIGHT SIDE: -->
                 <div class="timeline_popup_textbox">
                     <div class="timeline_popup_textbox_inner">
                         <div class="timeline_popup_text_content">
@@ -52,32 +52,216 @@
                 
                 <!-- LEFT SIDE: BLACK BOXES GRID -->
                 <div class="timeline_popup_boxes">
-                    <div class="timeline_popup_box_img" style="background-image: url(images/buttons/big/first_try_img_1.jpg); background-size: cover;"></div>
-                    <div class="timeline_popup_box_img" style="background-image: url(images/buttons/big/first_try_img_2.jpg); background-size: cover;"></div>
-                    <div class="timeline_popup_box_img" style="background-image: url(images/buttons/big/first_try_img_3.jpg); background-size: cover;"></div>
-                    <a href="https://steamcommunity.com/workshop/filedetails/?id=3513567869" target="_blank" class="timeline_popup_box_steam" style="background-image: url(images/buttons/big/steam_img.jpg); background-size: cover;"></a>
+                    <div class="timeline_popup_box_img" style="background-image: url(images/buttons/big/first_try_img_1.jpg); background-size: cover; background-position: center;"></div>
+                    <div class="timeline_popup_box_img" style="background-image: url(images/buttons/big/first_try_img_2.jpg); background-size: cover; background-position: center;"></div>
+                    <div class="timeline_popup_box_img" style="background-image: url(images/buttons/big/first_try_img_3.jpg); background-size: cover; background-position: center;"></div>
+                    <a onclick="OnClickSound()" onmouseenter="OnHoverSound()" onmousedown="OnHoldSound()" href="https://steamcommunity.com/workshop/filedetails/?id=3513567869" target="_blank" class="timeline_popup_box_steam" style="background-image: url(images/buttons/big/steam_img.jpg); background-size: cover; background-position: center;"></a>
                 </div>
 
-                <!-- RIGHT SIDE: ORANGE TEXT BOX WITH SCROLLBAR -->
+                <!-- RIGHT SIDE: -->
                 <div class="timeline_popup_textbox">
                     <div class="timeline_popup_textbox_inner">
                         <div class="timeline_popup_text_content">
                             <p class="timeline_popup_header">"THE FIRST TRIES"</p>
                             <div class="timeline_popup_line"></div>
+                            <p class="timeline_popup_header">2016 - 2018</p>
+
                             <p class="timeline_popup_subheader">The First Tries, we're the first batch of maps i created and released around 2018, at that time i was 15 years old.</p>
                             <p class="timeline_popup_subheader">Beginning around 2017 and ending late in 2018 during a time when i made these in my free time after school, i created 5 quite simple maps in the world builder for the Source Engine called "Hammer", that initially begun as curiouseness and shortly fell into being fun. This was about the first time when i realized how fun i found development to be, as throughout the time i made them, i found making them more enjoyable for whatever i was doing during that time at school</p>
                             <p class="timeline_popup_subheader">Unfortently however it would take me quite some time to realize that i should have put most of my work into building a career, so for must of that time i was only curious</p>
                             <p class="timeline_popup_subheader">Prior to creating these 5 maps, at which a time i saw nothing too the engine, i was making small levels with friends in Roblox based around things i played on that platform, but these we're merely early attempts</p>
+                            
                             <p class="timeline_popup_header">COMPETANSE</p>
                             <div class="timeline_popup_line"></div>
                             <ul class="timeline_popup_subheader">
                                 <li>SDK Hammer Engine</li>
                             </ul>
+
                         </div>
                     </div>
                 </div>
 
             </div>
+
+            <!-- FIRST PORTFOLIO SITE -->
+            <div class="timeline_popup_content" id="container_popup_2"> 
+                
+                <!-- LEFT SIDE: BLACK BOXES GRID -->
+                <div class="timeline_popup_boxes">
+                    <div class="timeline_popup_box_img" style="background-image: url(images/buttons/big/first_site_img_1.jpg); background-size: cover; background-position: center;"></div>
+                    <div class="timeline_popup_box_img" style="background-image: url(images/buttons/big/first_site_img_2.jpg); background-size: cover; background-position: center;"></div>
+                    <div class="timeline_popup_box_img" style="background-image: url(images/buttons/big/first_site_img_3.jpg); background-size: cover; background-position: center;"></div>
+                    <a onclick="OnClickSound()" onmouseenter="OnHoverSound()" onmousedown="OnHoldSound()" href="https://github.com/JonathanPR-Github/jonathanre_side_2023" target="_blank" class="timeline_popup_box_steam" style="background-image: url(images/buttons/big/github_img.jpg); background-size: cover; background-position: center;"></a>
+                </div>
+
+                <!-- RIGHT SIDE: -->
+                <div class="timeline_popup_textbox">
+                    <div class="timeline_popup_textbox_inner">
+                        <div class="timeline_popup_text_content">
+                            <p class="timeline_popup_header">"THE FIRST PORTFOLIO"</p>
+                            <div class="timeline_popup_line"></div>
+                            <p class="timeline_popup_header">2022 - 2023</p>
+
+                            <p class="timeline_popup_subheader">The First Portoflio i created, started around the time i coined the idea originally during my time at Folkhighschool</p>
+                            <p class="timeline_popup_subheader">However it would take me until i was at the NAV connected guidance company named "Funkweb" that i would take the initiative to build myself a portfolio site that would showcase the work i had done so far, which at the time wasn't particuarly much</p>
+                            <p class="timeline_popup_subheader">The site grapichs consisted of looking a lot like the map i was developing at the time, with a lot of yellow and stripes to match the look. While the site itself consisted of 5 tabs
+                                <ul class="timeline_popup_subheader">
+                                    <li>The Intro</li>
+                                    <li>Game Development</li>
+                                    <li>Blender</li>
+                                    <li>Video Editing</li>
+                                    <li>Grapichal Work</li>
+                                </ul>
+                            </p>
+                            <p class="timeline_popup_subheader">The site was designed to get as much info as possible for any potential people with interests, which in one sense however bloated the site too much. Behind the grapichs, there was a huge line of code that i spent over two weeks coding by hand back in 2023</p>
+                            <p class="timeline_popup_subheader">The Portfolio did help me several times to gain a job or close to one, one notable time being when i was in two interviews with Snowcastle Games</p>
+                            <p class="timeline_popup_subheader">Though after creating it, i never really updated it afterwards becouse i felt like i didn't have enough yet to showcase. It was only in 2026 when i then again made a new Portfolio</p>
+
+                            <p class="timeline_popup_header">COMPETANSE</p>
+                            <div class="timeline_popup_line"></div>
+                            <ul class="timeline_popup_subheader">
+                                <li>HTML</li>
+                                <li>CSS</li>
+                                <li>JS</li>
+                                <li>VSCode</li>
+                            </ul>
+                        
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- POPUP HOI4 JOHN COLLECTION -->
+            <div class="timeline_popup_content" id="container_popup_3"> 
+                
+                <!-- LEFT SIDE: BLACK BOXES GRID -->
+                <div class="timeline_popup_boxes">
+                    <div class="timeline_popup_box_img" style="background-image: url(images/buttons/big/hoi4_img_1.jpg); background-size: cover; background-position: center;"></div>
+                    <div class="timeline_popup_box_img" style="background-image: url(images/buttons/big/hoi4_img_2.jpg); background-size: cover; background-position: center;"></div>
+                    <div class="timeline_popup_box_img" style="background-image: url(images/buttons/big/hoi4_img_3.jpg); background-size: cover; background-position: center;"></div>
+                    <a onclick="OnClickSound()" onmouseenter="OnHoverSound()" onmousedown="OnHoldSound()" href="https://steamcommunity.com/workshop/filedetails/?id=3267219089" target="_blank" class="timeline_popup_box_steam" style="background-image: url(images/buttons/big/steam_img.jpg); background-size: cover; background-position: center;"></a>
+                </div>
+
+                <!-- RIGHT SIDE: -->
+                <div class="timeline_popup_textbox">
+                    <div class="timeline_popup_textbox_inner">
+                        <div class="timeline_popup_text_content">
+                            <p class="timeline_popup_header">"THE HOI4 JOHN COLLECTION"</p>
+                            <div class="timeline_popup_line"></div>
+                            <p class="timeline_popup_header">2024 - ONGOING</p>
+
+                            <p class="timeline_popup_subheader">The HOI4 JOHN Collection is a collection 31 Mods for the game "Heart's of Iron 4" that i developed within a span of a year</p>
+                            <p class="timeline_popup_subheader">Developed in the bracket language used by Paradox games, it initially started as a few grapichal mods but then gradually became more advanced mods adding functionalities to the game as time passed on</p>
+                            <p class="timeline_popup_subheader">The Most famous mod in the collection is the "Minimalistic Battle Plans" mod, that has over 1.000 Ratings, 50.000 subscribers and over 220,500 views on Steam! It really shows to tell that even the simplest things are somethimes the best</p>
+                            <p class="timeline_popup_subheader">Other notable mods in the collection is the "OWB: Special Projects" mod, adding technologies to the Total overhaul mod "Old World Blues", and "Expanded Helicopter Technologies" that adds expanded technolgies to Vanilla HOI4</p>
+                            <p class="timeline_popup_subheader">Throughout the mods development i learned a lot of coding with the Paradox Bracket language and further insight within game grapichs. The collection also eventually led me to become a developer within the Total Conversation mod "Red Dusk"</p>
+
+
+                            <p class="timeline_popup_header">COMPETANSE</p>
+                            <div class="timeline_popup_line"></div>
+                            <ul class="timeline_popup_subheader">
+                                <li>Paradox Bracket Language</li>
+                                <li>GIMP</li>
+                                <li>Inkscape</li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- POPUP DEATHRUN SAGA COLLECTION -->
+            <div class="timeline_popup_content" id="container_popup_4"> 
+                
+                <!-- LEFT SIDE: BLACK BOXES GRID -->
+                <div class="timeline_popup_boxes">
+                    <div class="timeline_popup_box_img"">
+                         <iframe
+                            src="https://www.youtube.com/embed/8Ks-l-wc5TM"
+                            title="YouTube video"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="timeline_popup_box_img"">
+                         <iframe
+                            src="https://www.youtube.com/embed/3duGIx3d2aE"
+                            title="YouTube video"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="timeline_popup_box_img"">
+                         <iframe
+                            src="https://www.youtube.com/embed/Q-RNo91Yfs4"
+                            title="YouTube video"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <a onclick="OnClickSound()" onmouseenter="OnHoverSound()" onmousedown="OnHoldSound()" href="https://steamcommunity.com/workshop/filedetails/?id=3437419757" target="_blank" class="timeline_popup_box_steam" style="background-image: url(images/buttons/big/steam_img.jpg); background-size: cover; background-position: center;"></a>
+                </div>
+
+                <!-- RIGHT SIDE: -->
+                <div class="timeline_popup_textbox">
+                    <div class="timeline_popup_textbox_inner">
+                        <div class="timeline_popup_text_content">
+                            <p class="timeline_popup_header">"THE DEATHRUN SAGA COLLECTION"</p>
+                            <div class="timeline_popup_line"></div>
+                            <p class="timeline_popup_header">2018 - 2025 </p>
+
+                            <p class="timeline_popup_subheader">The Deathrun Saga Collection was a collection of 3 Deathrun maps for "Team Fortress 2" developed within the span of 2024 and 2025</p>
+                            <p class="timeline_popup_subheader">Deathrun is a community created game mode in which where one player controls traps in an obstacle course while the rest of the players attempt to survive and reach the end of the map. It emphasizes timing, player interaction, and asymmetrical gameplay design, with adventure designing heavily emphasised.</p>
+                            <p class="timeline_popup_subheader">Starting right after i finished my first attempts at making maps in 2018, i felt at the time like i wanted to try to create something that wasn't going to try to follow the offical modes, but that i wanted to expand to the custom modes made by the playerbase. It would still take me some time to go back to the Hammer as i was going back and forth with school, and with that i paused the map for a whole two years before contiuning on it</p>
+                            <p class="timeline_popup_subheader">But around 2020 i finally came around to finish what would become my first proper map with its alpha. After finishing it i contiuned to develop on it over the next 3 years, to note this was also around a time where i was simultaneously learning the engine, so it would natrually also take a bit of time for me to work things around</p>
+                            <p class="timeline_popup_subheader">During the maps development, i learnt the value of teamwork even as i was making it myself, when i was helped by various people internationally that was simiarly also making Deathrun maps, in which i could also lend help by teaching people things they didn't know. This was also when i learnt the value of playtesting and taking feedback, as whe playtested my map everytime it had a new addition to it, i would rescive valuable negative and positive feedback that would help me shape how i could improve my projects for the best</p>
+                            <p class="timeline_popup_subheader">Due to something i can only describe as a Dilemma, i had a constant worry that i had to perfect the map as much as possible, which is also why it took so long to develop. This is where i also developed a thought process a project should always be developed within a certain timeframe and never to be developed for unnecessary amounts of lenghts of time. In the end i had to set my foot down, and decide that the map had to be released, in which in 2024 Dustgrowl was finally released. From there map development would go much faster, as the next dr maps i would release would only take a few weeks</p>
+
+                            <p class="timeline_popup_header">DUSTGROWL</p>
+                            <div class="timeline_popup_line"></div>
+                            <p class="timeline_popup_header">2024</p>
+
+                            <p class="timeline_popup_subheader">Dustgrowl was designed very special, as all of the other deathrun maps i would create, they would have something unique that would make them stand out, and that included the first proper map i made</p>
+                            <p class="timeline_popup_subheader">It is made unique by that there is two whole course levels in the map, meaning that after playing 3 rounds, or winning the game it switches over the map to an entierely new course with completely different traps to change up the gameplay, and so back to the first course by the same gameplay loop. This map made it stand out between other deathrun maps, besides its obvious higher quality in vision and grapichs from other deathrun maps at the time</p>
+                            <p class="timeline_popup_subheader">Dustgrowl released to quite favorable reviews from the playtesters who had played it, as most of the maps playerbase came from those who tested the map. It was praised for both it looks and gameplay mechanics</p>
+
+                            <p class="timeline_popup_header">TIMBERCROVE</p>
+                            <div class="timeline_popup_line"></div>
+                            <p class="timeline_popup_header">2024</p>
+
+                            <p class="timeline_popup_subheader">Timercrove was designed to try to see if an open world for a deathrun map would work, with different builds building upon that idea gradually as i was making the map over the span of 2 months</p>
+                            <p class="timeline_popup_subheader">It is made unique by that the players spawn around a hut which is the main objective around a arena of obstacle courses that are explorable by completing each one of them seperatly, and then to beat each course, you must complete a puzzle by each end of the areas</p>
+                            <p class="timeline_popup_subheader">Timbercrove released to favorable reviews from the playtesters who had played it. However it was never truly added to any of the remaining servers at the time hosting the gamemode, so it was never truly praised</p>
+
+                            <p class="timeline_popup_header">SPIRALSTOVE</p>
+                            <div class="timeline_popup_line"></div>
+                            <p class="timeline_popup_header">2025</p>
+                            <p class="timeline_popup_subheader">Spiralstove was designed around a "pick your adventure" type of gameplay, with the map building upon allowing players to choose their own deathrun course, with the making of the map over the span of 2 months</p>
+                            <p class="timeline_popup_subheader">It is made unique by that a singular player at the start of the match gets to pick out a course of 3 portals infront of them, that eventually leads them to playing a course with completely unique themes to them</p>
+                            <p class="timeline_popup_subheader">Spiralstove released to favorable reviews from the playtesters who had played it and both the players playing it.</p>
+
+                            <p class="timeline_popup_header">COMPETANSE</p>
+                            <div class="timeline_popup_line"></div>
+                            <ul class="timeline_popup_subheader">
+                                <li>SDK Hammer Engine</li>
+                                <li>Vscript</li>
+                                <li>GIMP</li>
+                                <li>Inkscape</li>
+                                <li>VSCode</li>
+                                <li>DaVinci Resolve</li>
+                                <li>Discord</li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
 
 
 
@@ -91,7 +275,7 @@
     <div class="container_header_top">
         <div class="header_top">
             <button onclick="ShowTab_1(); OnClickSound()" onmouseenter="OnHoverSound()" onmousedown="OnHoldSound()"    class="header_top_button"> <p class="header_top_button_text">INTRO</p> </button>
-            <button onclick="ShowTab_2(); OnClickSound()" onmouseenter="OnHoverSound()"     class="header_top_button"> <p class="header_top_button_text">GAME DEVELOPMENT</p> </button>
+            <button onclick="ShowTab_2(); OnClickSound()" onmouseenter="OnHoverSound()" onmousedown="OnHoldSound()"    class="header_top_button"> <p class="header_top_button_text">GAME DEVELOPMENT</p> </button>
         </div>
     </div>
 
@@ -129,11 +313,12 @@
     <div class="container_about_me_pl">
         <div class="about_me_picture"></div>
         <div class="about_me_links">
-            <a href="https://no.linkedin.com/in/jonathan-erik-reppen-0915642a0/en?trk=people-guest_people_search-card" target="_blank" class="contact_button_1"     onclick="OnClickSound()" onmouseenter="OnHoverSound()"></a>
-            <a href="mailto: jonathan.reppen@outlook.com" target="_blank" class="contact_button_2"  onclick="OnClickSound()" onmouseenter="OnHoverSound()"></a>
-            <a href="https://github.com/JonathanPR-Github?tab=repositories" target="_blank" class="contact_button_3"    onclick="OnClickSound()" onmouseenter="OnHoverSound()"></a>
-            <a href="https://www.youtube.com/@jonathnpr5934/videos" target="_blank" class="contact_button_4"    onclick="OnClickSound()" onmouseenter="OnHoverSound()"></a>
+            <a href="https://no.linkedin.com/in/jonathan-erik-reppen-0915642a0/en?trk=people-guest_people_search-card" target="_blank" class="contact_button_1"     onclick="OnClickSound()" onmouseenter="OnHoverSound()" onmousedown="OnHoldSound()"></a>
+            <a href="mailto: jonathan.reppen@outlook.com" target="_blank" class="contact_button_2"  onclick="OnClickSound()" onmouseenter="OnHoverSound()" onmousedown="OnHoldSound()"></a>
+            <a href="https://github.com/JonathanPR-Github?tab=repositories" target="_blank" class="contact_button_3"    onclick="OnClickSound()" onmouseenter="OnHoverSound()" onmousedown="OnHoldSound()"></a>
+            <a href="https://www.youtube.com/@jonathnpr5934/videos" target="_blank" class="contact_button_4"    onclick="OnClickSound()" onmouseenter="OnHoverSound()" onmousedown="OnHoldSound()"></a>
         </div>
+
     </div>
 
     </div> 
@@ -180,9 +365,9 @@
             <div class="timeline-line-and-boxes">
                 <div class="timeline-line"></div>
                 <div class="container_timeline_box">
-                    <button onclick="OpenPopup(); popup_1();" class="timeline_box"; style="background-image: url(images/buttons/small/timeline_box_1.jpg); background-size: cover;"></button>
-                    <div class="timeline_box"></div>
-                    <div class="timeline_box"></div>
+                    <button onclick="OpenPopup(); popup_1(); OnClickSound()" onmouseenter="OnHoverSound()" onmousedown="OnHoldSound()" class="timeline_box"; style="background-image: url(images/buttons/small/timeline_box_1.jpg); background-size: cover;"></button>
+                    <button onclick="OpenPopup(); popup_3(); OnClickSound()" onmouseenter="OnHoverSound()" onmousedown="OnHoldSound()" class="timeline_box"; style="background-image: url(images/buttons/small/timeline_box_3.jpg); background-size: cover;"></button>
+                    <button onclick="OpenPopup(); popup_4(); OnClickSound()" onmouseenter="OnHoverSound()" onmousedown="OnHoldSound()" class="timeline_box"; style="background-image: url(images/buttons/small/timeline_box_4.jpg); background-size: cover; background-position: center;"></button>
                     <div class="timeline_box"></div>
                     <div class="timeline_box"></div>
                     <div class="timeline_box"></div>
@@ -214,7 +399,7 @@
                 <div class="timeline-line"></div>
 
                 <div class="container_timeline_box">
-                    <div class="timeline_box"></div>
+                    <button onclick="OpenPopup(); popup_2(); OnClickSound()" onmouseenter="OnHoverSound()" onmousedown="OnHoldSound()" class="timeline_box"; style="background-image: url(images/buttons/small/timeline_box_2.jpg); background-size: cover;"></button>
              
                 </div>
             </div>

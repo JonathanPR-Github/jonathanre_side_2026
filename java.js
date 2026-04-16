@@ -20,10 +20,30 @@ function ClosePopup() {   // NOTAT: Leg til alle videre popup specific meldinger
 
   // Timeline functions for Popup
   document.getElementById('container_popup_1').style.display = 'none';
+  document.getElementById('container_popup_2').style.display = 'none';
+  document.getElementById('container_popup_3').style.display = 'none';
+  document.getElementById('container_popup_4').style.display = 'none';
+
+  // Stop & reset all YouTube videos inside the popup
+  const youtubeIframes = document.querySelectorAll('#container_tab_popup iframe[src*="youtube.com"], #container_tab_popup iframe[src*="youtu.be"]');
+  youtubeIframes.forEach(iframe => {
+    const src = iframe.src;
+    iframe.src = '';      // unload the player
+    iframe.src = src;     // reload it in a paused/reset state
+  });
 }
 
 function popup_1() {
   document.getElementById('container_popup_1').style.display = 'flex';
+}
+function popup_2() {
+  document.getElementById('container_popup_2').style.display = 'flex';
+}
+function popup_3() {
+  document.getElementById('container_popup_3').style.display = 'flex';
+}
+function popup_4() {
+  document.getElementById('container_popup_4').style.display = 'flex';
 }
 
 /// Button Sounds
