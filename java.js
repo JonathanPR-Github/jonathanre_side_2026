@@ -23,6 +23,11 @@ function ClosePopup() {   // NOTAT: Leg til alle videre popup specific meldinger
   document.getElementById('container_popup_2').style.display = 'none';
   document.getElementById('container_popup_3').style.display = 'none';
   document.getElementById('container_popup_4').style.display = 'none';
+  document.getElementById('container_popup_5').style.display = 'none';
+  document.getElementById('container_popup_6').style.display = 'none';
+  document.getElementById('container_popup_7').style.display = 'none';
+  document.getElementById('container_popup_8').style.display = 'none';
+  document.getElementById('container_popup_9').style.display = 'none';
 
   // Stop & reset all YouTube videos inside the popup
   const youtubeIframes = document.querySelectorAll('#container_tab_popup iframe[src*="youtube.com"], #container_tab_popup iframe[src*="youtu.be"]');
@@ -31,6 +36,7 @@ function ClosePopup() {   // NOTAT: Leg til alle videre popup specific meldinger
     iframe.src = '';      // unload the player
     iframe.src = src;     // reload it in a paused/reset state
   });
+
 }
 
 function popup_1() {
@@ -44,6 +50,21 @@ function popup_3() {
 }
 function popup_4() {
   document.getElementById('container_popup_4').style.display = 'flex';
+}
+function popup_5() {
+  document.getElementById('container_popup_5').style.display = 'flex';
+}
+function popup_6() {
+  document.getElementById('container_popup_6').style.display = 'flex';
+}
+function popup_7() {
+  document.getElementById('container_popup_7').style.display = 'flex';
+}
+function popup_8() {
+  document.getElementById('container_popup_8').style.display = 'flex';
+}
+function popup_9() {
+  document.getElementById('container_popup_9').style.display = 'flex';
 }
 
 /// Button Sounds
