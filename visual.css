@@ -472,16 +472,10 @@ body.popup_active .container_header_top {
     gap: 3%;
 }
 
-#container_popup_1,
-#container_popup_2,
-#container_popup_3,
-#container_popup_4,
-#container_popup_5,
-#container_popup_6,
-#container_popup_7,
-#container_popup_8,
-#container_popup_9 {
-    display: none;
+/* WARNING! IF YOU WANT THE POPUPS TO WORK, YOU MUST ADD THE CONTAINERS TO THE LIST */
+
+[id^="container_popup_"] {
+  display: none;
 }
 
 /* POPUP LEFT SIDE: BLACK BOXES */
@@ -637,6 +631,24 @@ body.popup_active .container_header_top {
 }
 
 .timeline_popup_subheader_box iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    position: absolute;
+    inset: 0;
+}
+
+.timeline_popup_subheader_video {
+    position: relative;
+    height: 30vh;
+    background-color: wheat;
+
+    border: 5px solid black ;
+
+    margin-bottom: 5%;
+}
+
+.timeline_popup_subheader_video iframe {
     width: 100%;
     height: 100%;
     border: 0;

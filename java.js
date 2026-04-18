@@ -18,16 +18,10 @@ function ClosePopup() {   // NOTAT: Leg til alle videre popup specific meldinger
   document.getElementById('container_tab_popup').style.display = 'none';
   document.body.classList.remove('popup_active');
 
-  // Timeline functions for Popup
-  document.getElementById('container_popup_1').style.display = 'none';
-  document.getElementById('container_popup_2').style.display = 'none';
-  document.getElementById('container_popup_3').style.display = 'none';
-  document.getElementById('container_popup_4').style.display = 'none';
-  document.getElementById('container_popup_5').style.display = 'none';
-  document.getElementById('container_popup_6').style.display = 'none';
-  document.getElementById('container_popup_7').style.display = 'none';
-  document.getElementById('container_popup_8').style.display = 'none';
-  document.getElementById('container_popup_9').style.display = 'none';
+  // Timeline popup hider. Increase the i <= per new box
+  for (let i = 1; i <= 13; i++) {
+    document.getElementById(`container_popup_${i}`).style.display = 'none';
+  }
 
   // Stop & reset all YouTube videos inside the popup
   const youtubeIframes = document.querySelectorAll('#container_tab_popup iframe[src*="youtube.com"], #container_tab_popup iframe[src*="youtu.be"]');
@@ -40,7 +34,7 @@ function ClosePopup() {   // NOTAT: Leg til alle videre popup specific meldinger
 }
 
 function popup_1() {
-  document.getElementById('container_popup_1').style.display = 'flex';
+document.getElementById('container_popup_1').style.display = 'flex';
 }
 function popup_2() {
   document.getElementById('container_popup_2').style.display = 'flex';
@@ -65,6 +59,18 @@ function popup_8() {
 }
 function popup_9() {
   document.getElementById('container_popup_9').style.display = 'flex';
+}
+function popup_10() {
+  document.getElementById('container_popup_10').style.display = 'flex';
+}
+function popup_11() {
+  document.getElementById('container_popup_11').style.display = 'flex';
+}
+function popup_12() {
+  document.getElementById('container_popup_12').style.display = 'flex';
+}
+function popup_13() {
+  document.getElementById('container_popup_13').style.display = 'flex';
 }
 
 /// Button Sounds
