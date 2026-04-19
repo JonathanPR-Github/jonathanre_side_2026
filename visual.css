@@ -82,6 +82,37 @@ body {
     font-size: 130% ;
 }
 
+.header_top_language_button {
+    width: 3.5vw ;
+    height: 3.5vw ;
+    border-radius: 50%;
+
+    background-color: green;
+    background-size: cover;
+    box-shadow: black 0vw 0vw 5vw;
+}
+
+.header_top_language_button:active {
+    transform: scale(0.95);
+}
+
+.header_top_language_button:hover {
+    cursor: pointer;
+    border: 3px solid black ;
+}
+
+#language_en {
+    background-image: url(images/buttons/icons/flag_no.avif);
+    background-position: center;
+    background-size: contain;
+}
+
+#language_no {
+    background-image: url(images/buttons/icons/flag_en.avif);
+    background-position: center;
+    background-size: contain;
+}
+
 /* ABOUT ME SECTION / INTRO SECTION START */
 
 #container_tab_1 {
@@ -185,14 +216,14 @@ body {
     display: inline-block;
     height: 80% ;
     width: 80% ;
-    background-image: url('images/icons/contact_icon_1.png');
+    background-image: url('images/buttons/icons/contact_icon_1.png');
     background-size: contain;
     background-repeat: no-repeat;
 }
 
 .contact_button_1:hover {
     display: inline-block;
-    background-image: url('images/icons/contact_icon_1_hover.png');
+    background-image: url('images/buttons/icons/contact_icon_1_hover.png');
     background-size: contain;
     background-repeat: no-repeat;
     transform: scale(0.95);
@@ -202,14 +233,14 @@ body {
     display: inline-block;
     height: 80% ;
     width: 80% ;
-    background-image: url('images/icons/contact_icon_2.png');
+    background-image: url('images/buttons/icons/contact_icon_2.png');
     background-size: contain;
     background-repeat: no-repeat;
 }
 
 .contact_button_2:hover {
     display: inline-block;
-    background-image: url('images/icons/contact_icon_2_hover.png');
+    background-image: url('images/buttons/icons/contact_icon_2_hover.png');
     background-size: contain;
     background-repeat: no-repeat;
 }
@@ -218,14 +249,14 @@ body {
     display: inline-block;
     height: 80% ;
     width: 80% ;
-    background-image: url('images/icons/contact_icon_3.png');
+    background-image: url('images/buttons/icons/contact_icon_3.png');
     background-size: contain;
     background-repeat: no-repeat;
 }
 
 .contact_button_3:hover {
     display: inline-block;
-    background-image: url('images/icons/contact_icon_3_hover.png');
+    background-image: url('images/buttons/icons/contact_icon_3_hover.png');
     background-size: contain;
     background-repeat: no-repeat;
 }
@@ -234,14 +265,14 @@ body {
     display: inline-block;
     height: 80% ;
     width: 80% ;
-    background-image: url('images/icons/contact_icon_4.png');
+    background-image: url('images/buttons/icons/contact_icon_4.png');
     background-size: contain;
     background-repeat: no-repeat;
 }
 
 .contact_button_4:hover {
     display: inline-block;
-    background-image: url('images/icons/contact_icon_4_hover.png');
+    background-image: url('images/buttons/icons/contact_icon_4_hover.png');
     background-size: contain;
     background-repeat: no-repeat;
 }
@@ -282,6 +313,22 @@ body {
 }
 
 /* TIMELINE START */
+
+.timeline_total_box {
+    background-color: #646464;
+    width: 69%;
+    height: 60%;
+    padding: 3%;
+
+    border: 5px solid wheat ;
+}
+
+.timeline_total_box_inner {
+    background-color: #323c64;
+    padding: 3%;
+    background-image: url(images/background/background_spaced_dots.png);
+    background-size: 5vw;
+}
 
 .container_timeline {
     display: flex;
@@ -364,6 +411,19 @@ body {
 
     margin-bottom: 35% ;
     margin-right: 5%;
+}
+
+.timeline_box_icon_02 {
+    display: flex;
+    width: 1.2vw ;
+    height: 1.2vw ;
+    margin-right: 1.5%;
+}
+
+.container_timeline_box_icon {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 /* TIMELINE POPUP MESSAGE */
@@ -546,6 +606,15 @@ body.popup_active .container_header_top {
     border: 0;
     position: absolute;
     inset: 0;
+}
+
+.timeline_popup_box_img video {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    position: absolute;
+    inset: 0;
+    object-fit: cover;
 }
 
 /* POPUP RIGHT SIDE: ORANGE TEXT BOX */
