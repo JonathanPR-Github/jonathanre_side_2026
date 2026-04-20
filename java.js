@@ -28,7 +28,7 @@ function ClosePopup() {   // NOTAT: Leg til alle videre popup specific meldinger
   document.getElementById('container_tab_popup').style.display = 'none';
   document.body.classList.remove('popup_active');
 
-  // Timeline popup hider. Increase the i <= per new box
+  // Timeline popup hider.
   document.querySelectorAll('[id^="container_popup_"]').forEach(containers => {
     containers.style.display = 'none';
   });
@@ -100,3 +100,5 @@ document.addEventListener('keydown', function(e) {
     ClosePopup();
   }
 });
+
+/// TRANSLATER
