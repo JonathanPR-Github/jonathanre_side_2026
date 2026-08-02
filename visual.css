@@ -74,8 +74,8 @@ body {
 
 .header_top_button:hover {
     cursor: pointer;
-    border: 10px solid black ;
-    border-style: double;
+    outline: 10px solid black;
+    outline-style: double;
 }
 
 .header_top_button_text {
@@ -99,7 +99,7 @@ body {
 
 .header_top_language_button:hover {
     cursor: pointer;
-    border: 3px solid black ;
+    outline: 3px solid black;
 }
 
 #language_en {
@@ -453,7 +453,7 @@ body {
     height: 60%;
     padding: 3%;
 
-    border: 5px solid wheat ;
+    outline: 5px solid wheat;
 }
 
 .timeline_total_box_inner {
@@ -552,6 +552,55 @@ body {
     align-items: center;
 }
 
+/* =============================================
+   LAZY <img> REPLACEMENTS FOR BACKGROUND IMAGES
+   ---------------------------------------------
+   Pictures used to be CSS background-image, which browsers cannot
+   lazy-load. They are now real <img> tags with loading="lazy",
+   sitting inside the same boxes as before.
+
+   .lazy_img fills its box and crops the same way the old
+   "background-size: cover; background-position: center" did.
+   ============================================= */
+
+.lazy_img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;        /* = background-size: cover */
+    object-position: center;  /* = background-position: center */
+
+    display: block;
+    border: 0;
+    pointer-events: none;     /* clicks belong to the button/link, not the image */
+}
+
+/* every box that holds a .lazy_img has to be its positioning parent */
+.timeline_box,
+.timeline_box_icon,
+.about_me_box_icon,
+.timeline_popup_box_img,
+.timeline_popup_box_steam,
+.timeline_popup_subheader_box {
+    position: relative;
+    overflow: hidden;
+}
+
+/* the small game icons sit ON TOP of the button image */
+.timeline_box_icon {
+    z-index: 1;
+}
+
+/* a <button> has a default border+padding; the old background image
+   painted underneath it, so remove it and the picture fills the box */
+.timeline_box {
+    border: 0;
+    padding: 0;
+}
+
 /* TIMELINE POPUP MESSAGE */
 
 #container_tab_popup {
@@ -637,8 +686,8 @@ body.popup_active .container_header_top {
 
 .timeline_popup_exit:hover {
     cursor: pointer;
-    border: 10px solid black ;
-    border-style: double;
+    outline: 10px solid black;
+    outline-style: double;
 }
 
 .timeline_popup_exit:active {
@@ -705,7 +754,7 @@ body.popup_active .container_header_top {
     background-color: #232730 ;
     transition: transform 0.15s ease;
     
-    border: 5px solid black ;
+    outline: 5px solid black;
     box-shadow: 0px 0px 20px 2px black;
 }
 
@@ -723,7 +772,7 @@ body.popup_active .container_header_top {
     height: 45%;
     background-color: wheat;
 
-    border: 5px solid black ;
+    outline: 5px solid black;
 }
 
 .timeline_popup_box_img iframe {
@@ -820,7 +869,7 @@ body.popup_active .container_header_top {
     height: 20vh;
     background-color: wheat;
 
-    border: 5px solid black ;
+    outline: 5px solid black;
 
     margin-bottom: 5%;
 }
@@ -838,7 +887,7 @@ body.popup_active .container_header_top {
     height: 30vh;
     background-color: wheat;
 
-    border: 5px solid black ;
+    outline: 5px solid black;
 
     margin-bottom: 5%;
 }
