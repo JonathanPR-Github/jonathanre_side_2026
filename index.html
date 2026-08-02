@@ -997,19 +997,17 @@
             <div class="about_me_box_text">
                 <p>ABOUT ME</p>
                 <div class="about_me_line"></div>
-                <p>I'm a self thought game developer, that takes whatever opportunity is avalible around places and strifes to develop on my own and others sectors to eventually get into the industry </p
-                <p>I have for many years been modding several video games, like Star Wars Battlefront, STALKER, and more. But my biggest projects we're within Map making for Team Fortress 2, and Mod making for Heart's of Iron 4, where i was involved in community projects and standalone total overhaul mods </p
-                <p>Ever since i started to see the potential i had as a game developer since i started all the way back in 2016 when i was 15, i've been actively developing myself to further enchance my chances of getting a job as a game developer, and as a project to one day produce a video game. In that time, i have been plenty of visits to game studio's like, 2K studio's, been to interviews with game development studio's and developed a mobile game as per a group effort. Even as i had and was recovering from a heart surgery, i contiuned to develop myself to eventually strike gold whenever i could be hired</p
-                <p>One thing i've learned as a developer, is to adapt to all kinds of new technologies that comes your way, and that includes Artifical Integellence that i use reguarly to enchance my coding experiences, and to reduce workflow. The overall usage of it has increased the flow by 80% when i work on projects, and that is a very good saying. I normally also tend to work 50/50 with it, with me coding some of the code, and me guiding the artifical intellegence to do it for me.</p
+                <p>I'm a self thought game developer, that takes whatever opportunity is avalible around places and strifes to develop on my own and others sectors to eventually get into the industry </p>
+                <p>I have for many years been modding several video games, like Star Wars Battlefront, STALKER, and more. But my biggest projects we're within Map making for Team Fortress 2, and Mod making for Heart's of Iron 4, where i was involved in community projects and standalone total overhaul mods </p>
+                <p>Ever since i started to see the potential i had as a game developer since i started all the way back in 2016 when i was 15, i've been actively developing myself to further enchance my chances of getting a job as a game developer, and as a project to one day produce a video game. In that time, i have been plenty of visits to game studio's like, 2K studio's, been to interviews with game development studio's and developed a mobile game as per a group effort. Even as i had and was recovering from a heart surgery, i contiuned to develop myself to eventually strike gold whenever i could be hired</p>
+                <p>One thing i've learned as a developer, is to adapt to all kinds of new technologies that comes your way, and that includes Artifical Integellence that i use reguarly to enchance my coding experiences, and to reduce workflow. The overall usage of it has increased the flow by 80% when i work on projects, and that is a very good saying. I normally also tend to work 50/50 with it, with me coding some of the code, and me guiding the artifical intellegence to do it for me.</p>
                 <p>CURRENT SITUATION</p>
                 <div class="about_me_line"></div>
-                <p>As of April of 2026, i am currently on the bounds to quit the Source engine and move on to fully learn both Unity and Unreal in a gradual amount of time, with Courses and self learning </p
-                <p>With the goal of helping me get better chances to get hired in any kind of circumstance. </p
-                <p>The second goal, and the thing i will be normally doing alongside it, is developing a video game. Whetever i succed depends on my own abilities as i learn the engines, and the determination i put into it </p
+                <p>As of April of 2026, i am currently on the bounds to quit the Source engine and move on to fully learn both Unity and Unreal in a gradual amount of time, with Courses and self learning </p>
+                <p>With the goal of helping me get better chances to get hired in any kind of circumstance. </p>
+                <p>The second goal, and the thing i will be normally doing alongside it, is developing a video game. Whetever i succed depends on my own abilities as i learn the engines, and the determination i put into it </p>
             </div>
         </div>
-    </div>
-
     </div>
 
     <div class="container_about_me_pl">
@@ -1038,9 +1036,11 @@
     
         </div>
 
-    </div>
+    </div> <!-- container_about_me_pl END -->
 
-    </div> 
+    </div> <!-- container_about_me_box END -->
+
+    </div> <!-- container_tab_1 END -->
 
     </div> <!-- TAB 1 END -->
 
@@ -1058,10 +1058,10 @@
                 <p>ABOUT THE TIMELINE</p>
                 <div class="about_me_line"></div>
                 <p>The Timeline is a few sections and rows of development i've done throughout my career, in it you will find a set of mods i made to video games and projects that i've been involved within the last few years alongside some other mixed elements of what i've worked on. 
-                <br>The rows of boxes with images are the projects i've done, with icons on the top of the box related to the game its linked too. Once clicked on, it will open a popup with relevant information about what the project was about.</p
+                <br>The rows of boxes with images are the projects i've done, with icons on the top of the box related to the game its linked too. Once clicked on, it will open a popup with relevant information about what the project was about.</p>
 
                 <p>The popups consists of information about what the project was related too, images and video explonations, links to any sites like Steam, the lenght of the development and what it was coded in. 
-                <br>On the bottom of the site, there is a section for competanse related to what was used in the project such as the programming language</p
+                <br>On the bottom of the site, there is a section for competanse related to what was used in the project such as the programming language</p>
 
                 <p>HOW TO INTERACT</p>
                 <div class="about_me_line"></div>
@@ -1181,6 +1181,66 @@
 
     
 
+
+<!-- Keeps the about-me text box the same height as the right column:
+     shrinks the text just enough so it ends level with .about_me_site_info -->
+<script>
+(function () {
+    var MAX_FONT = 22;   // never bigger than this
+    var MIN_FONT = 15;   // never smaller than this - past this point the box scrolls instead
+
+    function fitAboutMeText() {
+        var wrap = document.querySelector('.container_about_me_box_text');
+        var text = document.querySelector('.about_me_box_text');
+        if (!wrap || !text) return;
+
+        // stacked (phone/tablet) layout -> let the CSS font sizes do their job
+        if (getComputedStyle(wrap).position !== 'absolute') {
+            text.style.fontSize = '';
+            return;
+        }
+        // tab hidden / not laid out yet
+        if (wrap.clientHeight < 50) return;
+
+        var padBottom = parseFloat(getComputedStyle(wrap).paddingBottom) || 0;
+
+        function fits() {
+            // the wrapper's own padding must stay free, so measure the content itself
+            var room = wrap.getBoundingClientRect().bottom - padBottom + 1;
+            return text.getBoundingClientRect().bottom <= room &&
+                   wrap.scrollHeight <= wrap.clientHeight + 1;
+        }
+
+        var lo = MIN_FONT, hi = MAX_FONT, best = MIN_FONT;
+        for (var i = 0; i < 12; i++) {
+            var mid = (lo + hi) / 2;
+            text.style.fontSize = mid + 'px';
+            if (fits()) { best = mid; lo = mid; } else { hi = mid; }
+        }
+        text.style.fontSize = best.toFixed(2) + 'px';
+    }
+
+    var queued = false;
+    function schedule() {
+        if (queued) return;
+        queued = true;
+        requestAnimationFrame(function () { queued = false; fitAboutMeText(); });
+    }
+
+    window.fitAboutMeText = schedule;
+    window.addEventListener('resize', schedule);
+    window.addEventListener('load', schedule);
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', schedule);
+    } else {
+        schedule();
+    }
+    if (window.ResizeObserver) {
+        var col = document.querySelector('.container_about_me_pl');
+        if (col) new ResizeObserver(schedule).observe(col);
+    }
+})();
+</script>
 </body>
 
 </html>

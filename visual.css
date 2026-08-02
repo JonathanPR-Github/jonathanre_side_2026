@@ -120,11 +120,19 @@ body {
 
 .container_about_me_box {
     display: flex;
+    flex-direction: row;
     justify-content: center;
-    align-items: flex-start ;
+    /* stretch = left text box and right column always end at the same height */
+    align-items: stretch;
 
-    width: fit-content ;
-    height: 100% ;
+    width: 100%;
+    max-width: 1700px;
+    margin: 0 auto;
+    box-sizing: border-box;
+
+    /* space between the two columns scales with the window */
+    gap: clamp(16px, 3vw, 64px);
+    padding: 0 clamp(12px, 4vw, 70px);
 }
 
 .about_me_box {
@@ -136,21 +144,58 @@ body {
     justify-content: flex-start;
 
     background-color: #646464 ;
-    width: 25% ;
+
+    /* LEFT COLUMN: 44% of the row, shrinks with the window */
+    flex: 0 1 44%;
+    min-width: 0;
     height: auto ;
+
+    /* the text inside is taken out of flow (see .container_about_me_box_text),
+       so this box has no height of its own and stretches to match the right
+       column -> its bottom always lines up with .about_me_site_info */
+    position: relative;
 
     word-wrap: break-word;      /* older */
     overflow-wrap: break-word;
-    
-   /*  margin-left: 15% ; */
 }
 
 .container_about_me_box_text {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     flex-direction: column;
 
+    /* fills the stretched box; the font is auto-shrunk by fitAboutMeText() */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+
+    box-sizing: border-box;
     padding: 5%;
+
+    /* if the text is longer than the right column, scroll it here */
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable;   /* width doesn't jump when the scrollbar appears */
+
+    /* Firefox */
+    scrollbar-width: auto;
+    scrollbar-color: #9f9f9f #2c2c2c;
+}
+
+/* same scrollbar as .timeline_popup_textbox_inner */
+.container_about_me_box_text::-webkit-scrollbar {
+    width: 15px;
+}
+
+.container_about_me_box_text::-webkit-scrollbar-track {
+    background: #2c2c2c ;
+}
+
+.container_about_me_box_text::-webkit-scrollbar-thumb {
+    background-color: #9f9f9f ;
+    border-radius: 0;
 }
 
 .header_about_me_box_text {
@@ -165,7 +210,9 @@ body {
 
 .about_me_box_text {
     color: wheat;
-    font-size: 130% ;
+    /* scales with the window, like the picture, so both columns grow together */
+    font-size: clamp(13px, 1.05vw, 21px);
+    line-height: 1.5;
 }
 
 .about_me_line {
@@ -179,21 +226,31 @@ body {
     background-color: wheat;
 
     width: 45% ;
-    height: 0.5vh ;
+    height: clamp(3px, 0.5vh, 7px);
 }
 
 .container_about_me_pl {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-start;
 
-    margin-left: 5% ;
+    /* RIGHT COLUMN: 48% of the row, same growth/shrink rules as the left one */
+    flex: 0 1 48%;
+    min-width: 0;
+
+    /* spacing between picture / links / site info scales with the window */
+    gap: clamp(16px, 3vw, 56px);
 }
 
 .about_me_picture {
 
-    width: 25vw ;
-    height: 25vw ;
+    /* sized from the column, not the viewport, so it tracks the other boxes */
+    width: 82%;
+    max-width: 620px;
+    height: auto;
+    aspect-ratio: 1 / 1;   /* keeps it a perfect circle */
+    flex-shrink: 0;
     border-radius: 50% ;
     background-color: royalblue;
 
@@ -212,8 +269,6 @@ body {
     width: 100% ;
     height: auto ;
     box-sizing: border-box ;
-
-    margin-top: 10% ;
 
     padding: 4% 5% ;
 }
@@ -311,7 +366,6 @@ body {
     height: auto;
     box-sizing: border-box;
 
-    margin-top: 10%;
     padding: 5% 4%;
     gap: 8px;
 }
@@ -343,7 +397,7 @@ body {
 
     flex-basis: 100%;
     width: 45% ;
-    height: 0.5vh ;
+    height: clamp(3px, 0.5vh, 7px);
 
     margin-bottom: 3%;
 }
@@ -825,15 +879,15 @@ body.popup_active .container_header_top {
 
     /* ABOUT ME */
     .about_me_box {
-        width: 40%;
+        flex-basis: 46%;
     }
     .container_about_me_pl {
-        width: 37vw;
-        margin-left: 3%;
+        flex-basis: 48%;
+        margin-left: 0;
     }
     .about_me_picture {
-        width: 35vw;
-        height: 35vw;
+        width: 88%;
+        max-width: none;
     }
     .about_me_box_icon {
         width: 5.5vw;
@@ -849,9 +903,8 @@ body.popup_active .container_header_top {
     }
 
     .about_me_box_text {
-    color: wheat;
-    font-size: 100% ;
-}
+        font-size: clamp(12px, 1.5vw, 18px);
+    }
 
     /* TIMELINE */
     .timeline_tutorial_box {
@@ -905,20 +958,28 @@ body.popup_active .container_header_top {
         flex-direction: column;
         align-items: center;
         width: 100%;
+        padding: 0 5%;
     }
     .about_me_box {
+        flex: 0 1 auto;
         width: 90%;
         height: auto;
     }
+    /* stacked: box grows with its text again */
+    .container_about_me_box_text {
+        position: static;
+        height: auto;
+        overflow-y: visible;
+    }
     .container_about_me_pl {
+        flex: 0 1 auto;
         margin-left: 0;
-        margin-top: 5%;
         align-items: center;
         width: 90%;
     }
     .about_me_picture {
         width: 55vw;
-        height: 55vw;  /* keep square for circle crop */
+        max-width: 100%;   /* keep square for circle crop */
     }
 
     .about_me_box_icon {
@@ -932,7 +993,7 @@ body.popup_active .container_header_top {
         font-size: 3.5vw;
     }
     .about_me_box_text {
-        font-size: 110%;
+        font-size: clamp(13px, 2.6vw, 18px);
     }
 
     /* TIMELINE */
@@ -1065,25 +1126,25 @@ body.popup_active .container_header_top {
         padding-bottom: 5%;
     }
     .about_me_box {
+        flex: 0 1 auto;
         width: 95%;
         height: auto;
         padding-bottom: 3%;
     }
+    .container_about_me_box_text {
+        position: static;
+        height: auto;
+        overflow-y: visible;
+    }
     .container_about_me_pl {
+        flex: 0 1 auto;
         margin-left: 0;
-        margin-top: 4%;
         align-items: center;
         width: 95%;
     }
     .about_me_picture {
         width: 65vw;
-        height: 65vw;
-    }
-    .about_me_links {
-        margin-top: 5%;
-    }
-    .about_me_site_info {
-        margin-top: 5%;
+        max-width: 100%;
     }
     .about_me_box_icon {
         width: 10vw;
@@ -1098,7 +1159,7 @@ body.popup_active .container_header_top {
         font-size: 5vw;
     }
     .about_me_box_text {
-        font-size: 100%;
+        font-size: clamp(13px, 3.6vw, 17px);
     }
     .about_me_line {
         width: 60%;
