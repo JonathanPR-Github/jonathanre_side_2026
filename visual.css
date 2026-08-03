@@ -1621,38 +1621,68 @@ body.popup_active .container_header_top {
     .timeline_popup_content {
         flex-direction: column;
         height: auto;
-        gap: 4%;
+        gap: clamp(18px, 5vw, 26px);
         margin-top: 8%;
     }
-    .timeline_popup_boxes {
-        display: grid !important;
-        grid-template-columns: 1fr 1fr;
-        width: 100%;
-        height: auto;
-        gap: 6px;
-    }
+
+    /* PHONE POPUP MEDIA GRID
+       Keep popups with either two or four image links evenly divided,
+       centred, and aligned with the rest of the popup. */
+    .timeline_popup_boxes,
     .timeline_popup_boxes_half {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: stretch;
+        justify-content: center;
+
         width: 100%;
+        max-width: 100%;
+        height: auto;
+
+        margin: 0 auto;
+        padding: 0 clamp(4px, 1.5vw, 8px);
+        gap: clamp(10px, 3vw, 16px);
+        box-sizing: border-box;
     }
+
     .timeline_popup_box,
     .timeline_popup_box_steam,
     .timeline_popup_box_img {
-        width: 41vw;
-        height: 28vw;
+        width: 100%;
+        min-width: 0;
+        height: auto;
+        aspect-ratio: 3 / 2;
         flex: unset;
+        box-sizing: border-box;
+
+        /* PHONE POPUP MEDIA - KEEP ALL FOUR BLACK EDGES VISIBLE */
+        outline: none;
+        border: 5px solid black;
     }
     .timeline_popup_textbox {
         width: 100%;
         height: auto;
         margin-bottom: 0;
+
+        /* THE BORDER BELONGS TO THE INNER CONTENT BOX SO ITS SIDE EDGES
+           STOP AT THE SAME POINT AS THE TEXT INSTEAD OF EXTENDING BELOW IT. */
+        border: none;
+        box-sizing: border-box;
     }
     .timeline_popup_textbox_inner {
         max-height: none;
         overflow-y: visible;
         background-size: 15vw;
+
+        margin-bottom: 0;
+        outline: none;
+        border: 5px solid black;
+        box-sizing: border-box;
     }
+    /* PHONE POPUP TEXT HEADING ALIGNMENT */
     .timeline_popup_header {
         font-size: 5vw;
+        text-align: center;
     }
     .timeline_popup_subheader {
         font-size: 3.5vw;
@@ -1672,7 +1702,7 @@ body.popup_active .container_header_top {
         height: 35vw;
     }
     .timeline_popup_line {
-        width: 80%;
+        width: 100%;
     }
 
     .timeline_total_box_inner {
