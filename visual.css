@@ -419,9 +419,31 @@ body {
     display: none;
 }
 
+/* ============================================================
+   TIMELINE (TAB 2) LAYOUT
+   ------------------------------------------------------------
+   Same idea as the about-me section: one centred column with a
+   maximum width, and everything inside sized with clamp() so the
+   boxes, labels, gaps and text all grow and shrink together
+   instead of the text being the only thing that changes.
+   ============================================================ */
+
+:root {
+    --timeline-column: 1700px;                   /* same column as the about-me section */
+    --timeline-side: clamp(12px, 4vw, 70px);     /* space either side of it */
+    --timeline-gap: clamp(6px, 0.9vw, 16px);     /* space between thumbnails */
+    --timeline-columns: 5;                       /* thumbnails per row */
+}
+
 .container_timeline_tutorial_box {
     display: flex;
     justify-content: center;
+
+    width: 100%;
+    max-width: var(--timeline-column);
+    margin: 0 auto;
+    padding: 0 var(--timeline-side);
+    box-sizing: border-box;
 }
 
 .timeline_tutorial_box {
@@ -431,11 +453,13 @@ body {
     justify-content: center;
 
     background-color: #646464 ;
-    width: 60%;
-    height: 60%;
 
-    margin-bottom: 5%;
-    
+    /* fills the column, so it lines up with the timeline below it */
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+
+    margin-bottom: clamp(24px, 5vw, 90px);
 }
 
 .container_timeline_tutorial_box_text {
@@ -443,87 +467,109 @@ body {
     justify-content: center;
     flex-direction: column;
 
-    padding: 2%;
+    width: 100%;
+    box-sizing: border-box;
+    padding: clamp(14px, 2.5vw, 40px);
 }
 
 /* TIMELINE START */
 
 .timeline_total_box {
     background-color: #646464;
-    width: 69%;
-    height: 60%;
-    padding: 3%;
+
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    padding: clamp(14px, 2.5vw, 36px);
 
     outline: 5px solid wheat;
 }
 
 .timeline_total_box_inner {
     background-color: #323c64;
-    padding: 3%;
+    padding: clamp(14px, 2.5vw, 36px);
     background-image: url(images/background/background_spaced_dots.png);
-    background-size: 5vw;
+    background-size: clamp(40px, 5vw, 90px);
 }
 
 .container_timeline {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
 
-    gap: 60px;
+    gap: clamp(24px, 4vw, 70px);
 
-    padding-bottom: 5%;
-    margin-left: 20% ;
+    /* same centred column as the tutorial box above */
+    width: 100%;
+    max-width: var(--timeline-column);
+    margin: 0 auto;
+    padding: 0 var(--timeline-side) 5%;
+    box-sizing: border-box;
 }
 
 .timeline-section {
     display: flex;
     flex-direction: row;
     align-items: center;
+
+    gap: clamp(10px, 1.5vw, 26px);
 }
 
 .timeline-label {
     color: wheat;
-    font-size: 1.6vw;
+    font-size: clamp(11px, 1.6vw, 28px);
     font-weight: 900;
     font-family: Impact, 'Arial Black', sans-serif;
     text-transform: uppercase;
     white-space: nowrap;
-    width: 12vw;
+    width: clamp(96px, 12vw, 210px);
     text-align: center;
     flex-shrink: 0;
 
     background-color: black;
-    margin: 2% ;
-    padding: 2% ;
+    box-sizing: border-box;
+    margin: 0;
+    padding: clamp(8px, 1.5vw, 26px) clamp(6px, 1vw, 16px);
 }
 
 .timeline-line-and-boxes {
     display: flex;
     flex-direction: row;
     align-items: stretch;
+
+    /* takes whatever width is left beside the label */
+    flex: 1;
+    min-width: 0;
 }
 
 .timeline-line {
-    width: 8px;
+    width: clamp(4px, 0.5vw, 9px);
     background-color: black;
     border-radius: 4px;
     flex-shrink: 0;
-    margin-right: 15px;
+    margin-right: clamp(8px, 1vw, 18px);
 }
 
 .container_timeline_box {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
-    width: calc(6 * 5.5vw + 2 * 12px);
+    gap: var(--timeline-gap);
+
+    /* fills the row; the thumbnails divide it up between them */
+    flex: 1;
+    min-width: 0;
 }
 
 /* TIMELINE BOXES */
 
 .timeline_box {
     display: flex;
-    width: 5.5vw;
-    height: 3.5vw;
+
+    /* exactly --timeline-columns per row, sharing the width evenly */
+    width: calc((100% - (var(--timeline-columns) - 1) * var(--timeline-gap))
+                / var(--timeline-columns));
+    height: auto;
+    aspect-ratio: 5.5 / 3.5;   /* same shape as the old 5.5vw x 3.5vw */
     background-color: black;
     cursor: pointer;
     transition: transform 0.15s ease;
@@ -540,8 +586,11 @@ body {
 
 .timeline_box_icon {
     display: flex;
-    width: 1.2vw ;
-    height: 1.2vw ;
+
+    /* sized from the thumbnail, so it keeps its proportion */
+    width: 22%;
+    height: auto;
+    aspect-ratio: 1 / 1;
 
     margin-bottom: 35% ;
     margin-right: 5%;
@@ -956,26 +1005,15 @@ body.popup_active .container_header_top {
         font-size: clamp(12px, 1.5vw, 18px);
     }
 
-    /* TIMELINE */
-    .timeline_tutorial_box {
-        width: 85%;
-    }
-    .timeline_total_box {
-        width: 90%;
-    }
-    .container_timeline {
-        margin-left: 5%;
-    }
-    .timeline_box {
-        width: 7vw;
-        height: 4.5vw;
-    }
-    .container_timeline_box {
-        width: calc(6 * 7vw + 5 * 12px);
+    /* TIMELINE - one set of numbers, everything follows them */
+    :root {
+        --timeline-side: clamp(10px, 3vw, 34px);
+        --timeline-gap: clamp(6px, 1vw, 12px);
+        --timeline-columns: 5;
     }
 
     .timeline_total_box_inner {
-        background-size: 10vw;
+        background-size: clamp(40px, 10vw, 80px);
     }
 }
 
@@ -1047,29 +1085,18 @@ body.popup_active .container_header_top {
     }
 
     /* TIMELINE */
-    .container_timeline_tutorial_box {
-        width: 100%;
+    :root {
+        --timeline-side: clamp(8px, 3vw, 20px);
+        --timeline-gap: 10px;
+        --timeline-columns: 4;
     }
-    .timeline_tutorial_box {
-        width: 90%;
-    }
-    .timeline_total_box {
-        width: 95%;
-    }
+
     .container_timeline {
-        margin-left: 2%;
         gap: 35px;
     }
     .timeline-label {
-        font-size: 2.8vw;
-        width: 18vw;
-    }
-    .timeline_box {
-        width: 10vw;
-        height: 6.5vw;
-    }
-    .container_timeline_box {
-        width: calc(4 * 10vw + 3 * 12px);
+        font-size: clamp(11px, 2.8vw, 18px);
+        width: clamp(80px, 18vw, 130px);
     }
 
     /* POPUP */
@@ -1219,39 +1246,25 @@ body.popup_active .container_header_top {
     }
 
     /* TIMELINE TUTORIAL BOX */
-    .container_timeline_tutorial_box {
-        width: 100%;
-        padding: 0 2%;
-        box-sizing: border-box;
+    :root {
+        --timeline-side: 2%;
+        --timeline-gap: 8px;
+        --timeline-columns: 3;
     }
-    .timeline_tutorial_box {
-        width: 100%;
-        box-sizing: border-box;
-    }
+
     .timeline_total_box {
-        width: 100%;
-        box-sizing: border-box;
         padding: 3% 2%;
     }
     .container_timeline {
-        margin-left: 1%;
         gap: 25px;
     }
     .timeline-section {
         flex-wrap: wrap;
     }
     .timeline-label {
-        font-size: 3.5vw;
-        width: 22vw;
+        font-size: clamp(12px, 3.5vw, 17px);
+        width: clamp(72px, 22vw, 110px);
         padding: 2%;
-    }
-    .timeline_box {
-        width: 12vw;
-        height: 8vw;
-    }
-    .container_timeline_box {
-        width: calc(4 * 12vw + 3 * 10px);
-        gap: 10px;
     }
 
     /* POPUP — full-screen on mobile */
