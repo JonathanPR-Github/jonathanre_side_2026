@@ -158,6 +158,8 @@ body {
 
     word-wrap: break-word;      /* older */
     overflow-wrap: break-word;
+
+    outline: 5px solid wheat;
 }
 
 .container_about_me_box_text {
@@ -272,6 +274,8 @@ body {
     box-sizing: border-box ;
 
     padding: 4% 5% ;
+
+    outline: 5px solid wheat;
 }
 
 .contact_button_1 {
@@ -369,6 +373,8 @@ body {
 
     padding: 5% 4%;
     gap: 8px;
+
+    outline: 5px solid wheat;
 }
 
 .about_me_box_icon {
@@ -431,8 +437,9 @@ body {
 :root {
     --timeline-column: 1700px;                   /* same column as the about-me section */
     --timeline-side: clamp(12px, 4vw, 70px);     /* space either side of it */
-    --timeline-gap: clamp(6px, 0.9vw, 16px);     /* space between thumbnails */
-    --timeline-columns: 5;                       /* thumbnails per row */
+    --timeline-box: clamp(64px, 5.5vw, 132px);   /* one project button (was 5.5vw) */
+    --timeline-gap: clamp(12px, 0.625vw, 15px);  /* space between them (was 12px) */
+    --timeline-columns: 5;                       /* buttons per row before wrapping */
 }
 
 .container_timeline_tutorial_box {
@@ -460,6 +467,8 @@ body {
     box-sizing: border-box;
 
     margin-bottom: clamp(24px, 5vw, 90px);
+
+    outline: 5px solid wheat;
 }
 
 .container_timeline_tutorial_box_text {
@@ -511,43 +520,40 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-
-    gap: clamp(10px, 1.5vw, 26px);
 }
 
 .timeline-label {
     color: wheat;
-    font-size: clamp(11px, 1.6vw, 28px);
+    font-size: clamp(13px, 1.6vw, 36px);   /* was 1.6vw */
     font-weight: 900;
     font-family: Impact, 'Arial Black', sans-serif;
     text-transform: uppercase;
     white-space: nowrap;
-    width: clamp(96px, 12vw, 210px);
+    width: clamp(120px, 12vw, 280px);   /* was 12vw */
     text-align: center;
     flex-shrink: 0;
 
     background-color: black;
-    box-sizing: border-box;
-    margin: 0;
-    padding: clamp(8px, 1.5vw, 26px) clamp(6px, 1vw, 16px);
+
+    /* this margin is what puts air between the sections - keep it.
+       clamped in vw so it stays the size it used to be, now that the box
+       around it is wider than it was */
+    margin: clamp(10px, 1.125vw, 26px);
+    padding: clamp(10px, 1.125vw, 26px);
 }
 
 .timeline-line-and-boxes {
     display: flex;
     flex-direction: row;
     align-items: stretch;
-
-    /* takes whatever width is left beside the label */
-    flex: 1;
-    min-width: 0;
 }
 
 .timeline-line {
-    width: clamp(4px, 0.5vw, 9px);
+    width: clamp(8px, 0.42vw, 10px);            /* was 8px */
     background-color: black;
     border-radius: 4px;
     flex-shrink: 0;
-    margin-right: clamp(8px, 1vw, 18px);
+    margin-right: clamp(10px, 0.78vw, 18px);    /* was 15px */
 }
 
 .container_timeline_box {
@@ -555,9 +561,10 @@ body {
     flex-wrap: wrap;
     gap: var(--timeline-gap);
 
-    /* fills the row; the thumbnails divide it up between them */
-    flex: 1;
-    min-width: 0;
+    /* room for exactly --timeline-columns buttons; add a new project and it
+       simply wraps onto the next row on its own */
+    width: calc(var(--timeline-columns) * var(--timeline-box) +
+                (var(--timeline-columns) - 1) * var(--timeline-gap));
 }
 
 /* TIMELINE BOXES */
@@ -565,9 +572,7 @@ body {
 .timeline_box {
     display: flex;
 
-    /* exactly --timeline-columns per row, sharing the width evenly */
-    width: calc((100% - (var(--timeline-columns) - 1) * var(--timeline-gap))
-                / var(--timeline-columns));
+    width: var(--timeline-box);
     height: auto;
     aspect-ratio: 5.5 / 3.5;   /* same shape as the old 5.5vw x 3.5vw */
     background-color: black;
@@ -587,7 +592,10 @@ body {
 .timeline_box_icon {
     display: flex;
 
-    /* sized from the thumbnail, so it keeps its proportion */
+    /* sized from the button so it keeps its proportion. align-self stops the
+       flex row from stretching it down the whole button, which is what pushed
+       it out through the top corner */
+    align-self: flex-start;
     width: 22%;
     height: auto;
     aspect-ratio: 1 / 1;
@@ -699,6 +707,7 @@ body.popup_active .container_header_top {
 
 .timeline_popup {
     position: fixed;
+    outline: 5px solid wheat;
 
     background-color: #646464 ;
     width: 80% ;
@@ -1008,12 +1017,19 @@ body.popup_active .container_header_top {
     /* TIMELINE - one set of numbers, everything follows them */
     :root {
         --timeline-side: clamp(10px, 3vw, 34px);
-        --timeline-gap: clamp(6px, 1vw, 12px);
-        --timeline-columns: 5;
+        --timeline-box: clamp(50px, 7vw, 84px);   /* was 7vw */
+        --timeline-gap: 12px;
+        --timeline-columns: 6;
     }
 
     .timeline_total_box_inner {
         background-size: clamp(40px, 10vw, 80px);
+    }
+    /* the section boxes sat in a narrower container down here, so their
+       spacing was proportionally bigger - keep that */
+    .timeline-label {
+        margin: clamp(10px, 1.75vw, 26px);
+        padding: clamp(10px, 1.75vw, 26px);
     }
 }
 
@@ -1087,7 +1103,8 @@ body.popup_active .container_header_top {
     /* TIMELINE */
     :root {
         --timeline-side: clamp(8px, 3vw, 20px);
-        --timeline-gap: 10px;
+        --timeline-box: clamp(48px, 10vw, 77px);  /* was 10vw */
+        --timeline-gap: 12px;
         --timeline-columns: 4;
     }
 
@@ -1248,8 +1265,9 @@ body.popup_active .container_header_top {
     /* TIMELINE TUTORIAL BOX */
     :root {
         --timeline-side: 2%;
-        --timeline-gap: 8px;
-        --timeline-columns: 3;
+        --timeline-box: clamp(40px, 12vw, 58px);  /* was 12vw */
+        --timeline-gap: 10px;
+        --timeline-columns: 4;
     }
 
     .timeline_total_box {
