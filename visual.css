@@ -652,6 +652,55 @@ body {
     z-index: 1;
 }
 
+/* ---- the game name that appears when you hover an icon ---- */
+
+/* nothing holding an icon may clip the little name box.
+   their pictures fill them exactly, so nothing else spills out */
+.timeline_box,
+.timeline_box_icon,
+.about_me_box_icon {
+    overflow: visible;
+}
+
+/* hovered button sits above its neighbours, so the name is never
+   covered by the button next to it */
+.timeline_box:hover {
+    z-index: 2;
+}
+
+.timeline_box_icon[data-game]::after,
+.about_me_box_icon[data-game]::after {
+    content: attr(data-game);
+
+    position: absolute;
+    bottom: calc(100% + 8px);   /* just above the icon */
+    left: 50%;
+    transform: translateX(-50%);
+
+    background-color: black;
+    color: wheat;
+    outline: 2px solid wheat;
+
+    font-family: Impact, 'Arial Black', sans-serif;
+    font-size: clamp(11px, 0.85vw, 18px);
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+    padding: 4px 9px;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.12s ease;
+    pointer-events: none;
+    z-index: 3;
+}
+
+.timeline_box_icon[data-game]:hover::after,
+.about_me_box_icon[data-game]:hover::after,
+.timeline_box:focus-visible .timeline_box_icon[data-game]::after {
+    opacity: 1;
+    visibility: visible;
+}
+
 /* a <button> has a default border+padding; the old background image
    painted underneath it, so remove it and the picture fills the box */
 .timeline_box {
