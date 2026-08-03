@@ -15,6 +15,14 @@ body {
 
 }
 
+h1, h2, h3 {
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+p {
+    font-family: "Verdana", Geneva, sans-serif;
+}
+
 /* TOP SECTION / HEADER */
 
 .container_header_top {
