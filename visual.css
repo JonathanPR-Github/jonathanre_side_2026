@@ -133,7 +133,8 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    /* stretch = left text box and right column always end at the same height */
+
+    /* KEEP THE LEFT TEXT BOX AND RIGHT COLUMN ALIGNED TO THE SAME HEIGHT */
     align-items: stretch;
 
     width: 100%;
@@ -161,9 +162,8 @@ body {
     min-width: 0;
     height: auto ;
 
-    /* the text inside is taken out of flow (see .container_about_me_box_text),
-       so this box has no height of its own and stretches to match the right
-       column -> its bottom always lines up with .about_me_site_info */
+    /* THE TEXT IS POSITIONED INSIDE THIS STRETCHED BOX SO ITS BOTTOM
+       STAYS ALIGNED WITH THE RIGHT-HAND COLUMN */
     position: relative;
 
     word-wrap: break-word;      /* older */
@@ -172,43 +172,21 @@ body {
     outline: 5px solid wheat;
 }
 
+/* ABOUT-ME TEXT BOX - MATCHES THE RIGHT COLUMN WITHOUT A SCROLLBAR */
 .container_about_me_box_text {
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
 
-    /* fills the stretched box; the font is auto-shrunk by fitAboutMeText() */
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    overflow-y: auto;
+    overflow: hidden;
 
     box-sizing: border-box;
     padding: 5%;
-
-    /* if the text is longer than the right column, scroll it here */
-    overscroll-behavior: contain;
-    scrollbar-gutter: stable;   /* width doesn't jump when the scrollbar appears */
-
-    /* Firefox */
-    scrollbar-width: auto;
-    scrollbar-color: #9f9f9f #2c2c2c;
-}
-
-/* same scrollbar as .timeline_popup_textbox_inner */
-.container_about_me_box_text::-webkit-scrollbar {
-    width: 15px;
-}
-
-.container_about_me_box_text::-webkit-scrollbar-track {
-    background: #2c2c2c ;
-}
-
-.container_about_me_box_text::-webkit-scrollbar-thumb {
-    background-color: #9f9f9f ;
-    border-radius: 0;
 }
 
 .header_about_me_box_text {
@@ -387,10 +365,11 @@ body {
     outline: 5px solid wheat;
 }
 
+/* ABOUT-ME TECHNOLOGY ICONS - LARGER; BOTH COLUMNS STAY ALIGNED */
 .about_me_box_icon {
     display: flex;
-    width: clamp(36px, 4.2vw, 80px) ;
-    height: clamp(36px, 4.2vw, 80px) ;
+    width: clamp(64px, 6vw, 110px) ;
+    height: clamp(64px, 6vw, 110px) ;
     flex-shrink: 0 ;
     margin-right: 16px;
     margin-left: 16px;
@@ -1135,8 +1114,8 @@ body.popup_active .container_header_top {
         max-width: none;
     }
     .about_me_box_icon {
-        width: 5.5vw;
-        height: 5.5vw;
+        width: clamp(60px, 8vw, 96px);
+        height: clamp(60px, 8vw, 96px);
         margin-right: 6px;
         margin-left: 0;
     }
@@ -1224,8 +1203,8 @@ body.popup_active .container_header_top {
     }
 
     .about_me_box_icon {
-        width: 8vw;
-        height: 8vw;
+        width: clamp(58px, 12vw, 82px);
+        height: clamp(58px, 12vw, 82px);
     }
     .about_me_site_info_text {
         font-size: 3.5vw;
@@ -1378,8 +1357,8 @@ body.popup_active .container_header_top {
         max-width: 100%;
     }
     .about_me_box_icon {
-        width: 10vw;
-        height: 10vw;
+        width: clamp(52px, 16vw, 72px);
+        height: clamp(52px, 16vw, 72px);
         margin-left: 3%;
         margin-right: 2%;
     }
