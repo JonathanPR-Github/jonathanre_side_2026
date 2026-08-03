@@ -28,6 +28,12 @@ function ClosePopup() {   // NOTAT: Leg til alle videre popup specific meldinger
   document.getElementById('container_tab_popup').style.display = 'none';
   document.body.classList.remove('popup_active');
 
+  // Remove focus from the project/close button. This prevents the game-name
+  // hint and the browser focus ring from remaining visible after pressing ESC.
+  if (document.activeElement instanceof HTMLElement) {
+    document.activeElement.blur();
+  }
+
   // Timeline popup hider.
   document.querySelectorAll('[id^="container_popup_"]').forEach(containers => {
     containers.style.display = 'none';

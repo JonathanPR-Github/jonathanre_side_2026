@@ -708,6 +708,13 @@ body {
     padding: 0;
 }
 
+/* REMOVE THE BROWSER'S WHITE FOCUS OUTLINE FROM TIMELINE BUTTONS
+   Focus is still communicated by the existing yellow aurora glow. */
+.timeline_box:focus,
+.timeline_box:focus-visible {
+    outline: none;
+}
+
 /* =============================================
    ANIMATED YELLOW AURORA FOR TIMELINE BUTTONS
    ---------------------------------------------
@@ -768,6 +775,15 @@ body {
             0 0 12px rgba(255, 220, 70, 0.50),
             0 0 20px rgba(255, 185, 20, 0.25);
     }
+}
+
+/* HIDE A TIMELINE AURORA AFTER ITS BUTTON HAS BEEN OPENED */
+.timeline_box.timeline_box_seen,
+.timeline_box.timeline_box_seen:hover,
+.timeline_box.timeline_box_seen:focus-visible {
+    animation: none;
+    box-shadow: none;
+    will-change: auto;
 }
 
 /* TIMELINE POPUP MESSAGE */
