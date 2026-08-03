@@ -907,6 +907,8 @@ body.popup_active .container_header_top {
 
     background-color: wheat;
 
+    outline: 5px solid rgb(50, 60, 100);
+
     color: black;
     font-size: 1.5vw;
     font-weight: bold;
@@ -1500,15 +1502,31 @@ body.popup_active .container_header_top {
         height: auto;
         overflow-y: visible;
     }
+    /* PHONE ABOUT-ME ORDER
+       Flatten the right-hand column into the phone stack so the profile
+       picture can appear above the main about-me text box. */
     .container_about_me_pl {
-        flex: 0 1 auto;
-        margin-left: 0;
-        align-items: center;
-        width: 95%;
+        display: contents;
     }
+
     .about_me_picture {
+        order: 1;
         width: 65vw;
         max-width: 100%;
+    }
+
+    .about_me_box {
+        order: 2;
+    }
+
+    .about_me_links {
+        order: 3;
+        width: 95%;
+    }
+
+    .about_me_site_info {
+        order: 4;
+        width: 95%;
     }
     .about_me_box_icon {
         width: clamp(52px, 16vw, 72px);
@@ -1543,7 +1561,8 @@ body.popup_active .container_header_top {
 
     /* PHONE TIMELINE - LARGE TWO-COLUMN PROJECT GRID */
     :root {
-        --timeline-side: 2%;
+        /* MATCH THE LEFT AND RIGHT SPACE USED BY THE PHONE INTRO TAB */
+        --timeline-side: 5%;
         --timeline-box: clamp(112px, 31vw, 150px);
         --timeline-gap: 12px;
         --timeline-columns: 2;
