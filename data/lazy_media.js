@@ -26,9 +26,18 @@
         var frames = scope.querySelectorAll('iframe[data-src]');
 
         for (var i = 0; i < frames.length; i++) {
-            if (!frames[i].getAttribute('src')) {
-                frames[i].src = frames[i].getAttribute('data-src');
-            }
+            var frame = frames[i];
+            if (frame.getAttribute('data-loaded') === 'true') continue;
+
+            var url = frame.getAttribute('data-src');
+
+            // location.replace() instead of frame.src, because setting src
+            // adds an entry to the browser history and that breaks the
+            // back button (you would have to press it once per video)
+            try { frame.contentWindow.location.replace(url); }
+            catch (error) { frame.src = url; }
+
+            frame.setAttribute('data-loaded', 'true');
         }
     }
 
@@ -36,10 +45,16 @@
         var scope = root || document;
         var frames = scope.querySelectorAll('iframe[data-src]');
 
-        // dropping the src stops playback and frees the player,
+        // sending the player back to a blank page stops playback,
         // data-src stays so it can come back if reopened
         for (var i = 0; i < frames.length; i++) {
-            if (frames[i].getAttribute('src')) frames[i].removeAttribute('src');
+            var frame = frames[i];
+            if (frame.getAttribute('data-loaded') !== 'true') continue;
+
+            try { frame.contentWindow.location.replace('about:blank'); }
+            catch (error) { frame.removeAttribute('src'); }
+
+            frame.removeAttribute('data-loaded');
         }
     }
 

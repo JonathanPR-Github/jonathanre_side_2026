@@ -76,6 +76,7 @@ body {
     cursor: pointer;
     outline: 10px solid black;
     outline-style: double;
+    outline-offset: -10px;
 }
 
 .header_top_button_text {
@@ -523,7 +524,7 @@ body {
     display: flex;
     width: 5.5vw;
     height: 3.5vw;
-    background-color: #00ff00;
+    background-color: black;
     cursor: pointer;
     transition: transform 0.15s ease;
 
