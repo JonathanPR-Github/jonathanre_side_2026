@@ -488,6 +488,7 @@ body {
     padding: clamp(14px, 2.5vw, 36px);
     background-image: url(images/background/background_spaced_dots.png);
     background-size: clamp(40px, 5vw, 90px);
+    outline: 5px solid black;
 }
 
 .container_timeline {
@@ -523,6 +524,7 @@ body {
     flex-shrink: 0;
 
     background-color: black;
+    outline: 5px solid wheat;
 
     /* this margin is what puts air between the sections - keep it.
        clamped in vw so it stays the size it used to be, now that the box
@@ -992,6 +994,7 @@ body.popup_active .container_header_top {
 
     background-image: url(images/background/background_spaced_dots.png);
     background-size: 4vw;
+    outline: 5px solid black;
 }
 
 /* Webkit scrollbar styling for Chrome/Safari */
