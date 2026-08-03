@@ -1541,27 +1541,71 @@ body.popup_active .container_header_top {
         width: 60%;
     }
 
-    /* TIMELINE TUTORIAL BOX */
+    /* PHONE TIMELINE - LARGE TWO-COLUMN PROJECT GRID */
     :root {
         --timeline-side: 2%;
-        --timeline-box: clamp(40px, 12vw, 58px);  /* was 12vw */
-        --timeline-gap: 10px;
-        --timeline-columns: 4;
+        --timeline-box: clamp(112px, 31vw, 150px);
+        --timeline-gap: 12px;
+        --timeline-columns: 2;
     }
 
     .timeline_total_box {
+        height: auto;
         padding: 3% 2%;
     }
+
+    .timeline_total_box_inner {
+        height: auto;
+        padding: 6% 4%;
+    }
+
     .container_timeline {
-        gap: 25px;
+        /* EXTRA SPACE BETWEEN MODS/PROJECTS, GAMES AND MIX ON PHONES */
+        gap: clamp(44px, 12vw, 64px);
     }
+
     .timeline-section {
-        flex-wrap: wrap;
+        width: 100%;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+        gap: 0;
     }
+
+    /* PHONE TIMELINE - SPACE BETWEEN THE END OF ONE PROJECT GRID AND THE NEXT HEADER */
+    .timeline-section + .timeline-section {
+        margin-top: clamp(28px, 8vw, 44px);
+    }
+
     .timeline-label {
-        font-size: clamp(12px, 3.5vw, 17px);
-        width: clamp(72px, 22vw, 110px);
-        padding: 2%;
+        /* MATCH THE WIDTH AND CENTRE OF THE TWO-COLUMN BUTTON GRID */
+        width: calc((2 * var(--timeline-box)) + var(--timeline-gap));
+        max-width: 100%;
+        margin: 0 auto clamp(20px, 5vw, 28px);
+        padding: 10px 12px;
+        box-sizing: border-box;
+        font-size: clamp(18px, 5vw, 26px);
+        white-space: normal;
+    }
+
+    .timeline-line-and-boxes {
+        display: block;
+        width: 100%;
+    }
+
+    /* THE VERTICAL TIMELINE LINE IS NOT USED IN THE PHONE LAYOUT */
+    .timeline-line {
+        display: none;
+    }
+
+    .container_timeline_box {
+        display: grid;
+        grid-template-columns: repeat(2, var(--timeline-box));
+        justify-content: center;
+        width: calc((2 * var(--timeline-box)) + var(--timeline-gap));
+        max-width: 100%;
+        margin: 0 auto;
+        gap: var(--timeline-gap);
     }
 
     /* POPUP — full-screen on mobile */
