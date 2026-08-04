@@ -2,46 +2,61 @@
      Loaded into <div id="container_popup_15"> by popups/popup_loader.js.
      Only the INSIDE of the popup lives here - the wrapper div stays in index.html.
      Image and link paths are relative to index.html, not to this file. -->
+
 <!-- LEFT SIDE: BLACK BOXES GRID -->
+
 <div class="timeline_popup_boxes">
-<div "="" class="timeline_popup_box_img">
-<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" data-src="https://www.youtube.com/embed/o9uo3NtV2q8" loading="lazy" title="YouTube video">
-</iframe>
+    <div class="timeline_popup_box_img">
+        <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" data-src="https://www.youtube.com/embed/o9uo3NtV2q8" loading="lazy" title="YouTube video"></iframe>
+    </div>
+    <div class="timeline_popup_box_img" data-full-image="images/large/grenade_big_1.jpg">
+        <img alt="THE FIRST TRIES - screenshot 1" class="lazy_img" decoding="async" loading="lazy" src="images/buttons/big/grenademode_img_1.jpg">
+    </div>
+    <div class="timeline_popup_box_img">
+        <video loop="" muted="" playsinline="">
+            <source src="images/buttons/big/grenade_mode_img_1.webm" type="video/webm">
+        </video>
+    </div>
+    <a class="timeline_popup_box_steam" href="https://tf2maps.net/downloads/grenade-dustbowl.20383/" onclick="OnClickSound()" onmousedown="OnHoldSound()" onmouseenter="OnHoverSound()" target="_blank">
+        <img alt="Open GRENADE MODE on TF2Maps" class="lazy_img" decoding="async" loading="lazy" src="images/buttons/big/tf2maps_img.jpg">
+    </a>
 </div>
-<div class="timeline_popup_box_img" data-full-image="images/large/grenade_big_1.jpg"><img alt="THE FIRST TRIES - screenshot 1" class="lazy_img" decoding="async" loading="lazy" src="images/buttons/big/grenademode_img_1.jpg"/></div>
-<div class="timeline_popup_box_img">
-<video loop="" muted="" playsinline="">
-<source src="images/buttons/big/grenade_mode_img_1.webm" type="video/webm"/>
-</video>
-</div>
-<a class="timeline_popup_box_steam" href="https://tf2maps.net/downloads/grenade-dustbowl.20383/" onclick="OnClickSound()" onmousedown="OnHoldSound()" onmouseenter="OnHoverSound()" target="_blank"><img alt="Open GRENADE MODE on TF2Maps" class="lazy_img" decoding="async" loading="lazy" src="images/buttons/big/tf2maps_img.jpg"/></a>
-</div>
+
 <!-- RIGHT SIDE: -->
+
 <div class="timeline_popup_textbox">
-<div class="timeline_popup_textbox_inner">
-<div class="timeline_popup_text_content">
-<p class="timeline_popup_header" data-i18n-file="popups/popup_15" data-i18n-key="title">"GRENADE MODE"</p>
-<div class="timeline_popup_line"></div>
-<p class="timeline_popup_header" data-i18n-file="popups/popup_15" data-i18n-key="date">2026</p>
-<p class="timeline_popup_subheader" data-i18n-file="popups/popup_15" data-i18n-key="paragraph_01">During the development of VIPR, I was contacted by the original pitcher and directing modeller for the player models of the VIP mobster gamemode, with a proposal for another gamemode. But as they explained to me it wasn't exactly going to be a gamemode and more like a map gimmick</p>
-<p class="timeline_popup_subheader" data-i18n-file="popups/popup_15" data-i18n-html="true" data-i18n-key="paragraph_02">This was Grenade Mode, and grenade mode attempted to bring back the cut grenades from the TF2 Beta in 2006, by means that were possible within VScript. <br/> Unlike the VIPR gamemode, Grenade mode was not a gamemode, but a map gimmick, meaning that it could be placed around like the Halloween spellbooks on Valve's Halloween maps, enabling players to use grenades over spellbooks. However this was later replaced with a more in-house system, where grenades was instead kept on the player as a virtual inventory</p>
-<p class="timeline_popup_subheader" data-i18n-file="popups/popup_15" data-i18n-html="true" data-i18n-key="paragraph_03">The mode initially worked by tick detecting whenever a player had a Halloween Spellbook, forcing them to have a specific spell, then giving them a grenade as per function, then detecting when they threw it, threw a prop grenade instead that would explode after a certain amount of seconds. <br/> It had 9 class specific grenades based on the selection given in the previous installment Team Fortress Classic, and 5 custom made grenades that I came up with, if the mode was set to be Random</p>
-<p class="timeline_popup_subheader" data-i18n-file="popups/popup_15" data-i18n-key="paragraph_04">Grenade mode had a lot of blunders throughout its development, the mode kept sending large amount of packet data to servers which would overload them and make them lag uncontrollable, this was due to a few factors with how the gamemode was coded, but most of them were due to how data was stored for the grenades, how some entities were not killed on destruction, and how some functions had no end which made repetitions in the code.</p>
-<p class="timeline_popup_subheader" data-i18n-file="popups/popup_15" data-i18n-key="paragraph_05">The mode was initially coded in ChatGPT, but was later coded in Claude with supervision from me, a much more superior coding AI that would help out root the initial problems of the mode</p>
-<p class="timeline_popup_subheader" data-i18n-file="popups/popup_15" data-i18n-key="paragraph_06">To test the mode, we used the Valve map Dustbowl, 2Fort and Junction who were originally going to have Grenades, hence hints by some of the locations who still leaves around marks from the Beta. Grenade placements were initially based upon those from Team Fortress Classic, but what later on added more of as the mode was tested</p>
-<p class="timeline_popup_subheader" data-i18n-file="popups/popup_15" data-i18n-key="paragraph_07">Grenade Mode was received positively, with most people saying it was pretty interesting with the grenades returning, and how TF2 might have turned out with them</p>
-<p class="timeline_popup_header" data-i18n-file="popups/popup_15" data-i18n-key="competence_heading">COMPETENCE</p>
-<div class="timeline_popup_line"></div>
-<ul class="timeline_popup_subheader">
-<li data-i18n-file="popups/popup_15" data-i18n-key="competence_item_01">SDK Hammer Engine</li>
-<li data-i18n-file="popups/popup_15" data-i18n-key="competence_item_02">Vscript</li>
-<li data-i18n-file="popups/popup_15" data-i18n-key="competence_item_03">Blender</li>
-<li data-i18n-file="popups/popup_15" data-i18n-key="competence_item_04">GIMP</li>
-<li data-i18n-file="popups/popup_15" data-i18n-key="competence_item_05">Inkscape</li>
-<li data-i18n-file="popups/popup_15" data-i18n-key="competence_item_06">Discord</li>
-<li data-i18n-file="popups/popup_15" data-i18n-key="competence_item_07">ChatGPT</li>
-<li data-i18n-file="popups/popup_15" data-i18n-key="competence_item_08">Claude</li>
-</ul>
-</div>
-</div>
+    <div class="timeline_popup_textbox_inner">
+        <div class="timeline_popup_text_content">
+            <p class="timeline_popup_header" data-i18n-file="popups/popup_15" data-i18n-key="title">"GRENADE MODE"</p>
+            <div class="timeline_popup_line"></div>
+            <p class="timeline_popup_header" data-i18n-file="popups/popup_15" data-i18n-key="date">2026</p>
+            <p class="timeline_popup_subheader" data-i18n-file="popups/popup_15" data-i18n-key="paragraph_01">During the development of VIPR, I was contacted by the original pitcher and directing modeller for the player models of the VIP mobster gamemode, with a proposal for another gamemode. But as they explained to me it wasn't exactly going to be a gamemode and more like a map gimmick</p>
+            <p class="timeline_popup_subheader" data-i18n-file="popups/popup_15" data-i18n-html="true" data-i18n-key="paragraph_02">
+                This was Grenade Mode, and grenade mode attempted to bring back the cut grenades from the TF2 Beta in 2006, by means that were possible within VScript.
+                <br>
+                Unlike the VIPR gamemode, Grenade mode was not a gamemode, but a map gimmick, meaning that it could be placed around like the Halloween spellbooks on Valve's Halloween maps, enabling players to use grenades over spellbooks. However this was later replaced with a more in-house system, where grenades was instead kept on the player as a virtual inventory
+            </p>
+            <p class="timeline_popup_subheader" data-i18n-file="popups/popup_15" data-i18n-html="true" data-i18n-key="paragraph_03">
+                The mode initially worked by tick detecting whenever a player had a Halloween Spellbook, forcing them to have a specific spell, then giving them a grenade as per function, then detecting when they threw it, threw a prop grenade instead that would explode after a certain amount of seconds.
+                <br>
+                It had 9 class specific grenades based on the selection given in the previous installment Team Fortress Classic, and 5 custom made grenades that I came up with, if the mode was set to be Random
+            </p>
+            <p class="timeline_popup_subheader" data-i18n-file="popups/popup_15" data-i18n-key="paragraph_04">Grenade mode had a lot of blunders throughout its development, the mode kept sending large amount of packet data to servers which would overload them and make them lag uncontrollable, this was due to a few factors with how the gamemode was coded, but most of them were due to how data was stored for the grenades, how some entities were not killed on destruction, and how some functions had no end which made repetitions in the code.</p>
+            <p class="timeline_popup_subheader" data-i18n-file="popups/popup_15" data-i18n-key="paragraph_05">The mode was initially coded in ChatGPT, but was later coded in Claude with supervision from me, a much more superior coding AI that would help out root the initial problems of the mode</p>
+            <p class="timeline_popup_subheader" data-i18n-file="popups/popup_15" data-i18n-key="paragraph_06">To test the mode, we used the Valve map Dustbowl, 2Fort and Junction who were originally going to have Grenades, hence hints by some of the locations who still leaves around marks from the Beta. Grenade placements were initially based upon those from Team Fortress Classic, but what later on added more of as the mode was tested</p>
+            <p class="timeline_popup_subheader" data-i18n-file="popups/popup_15" data-i18n-key="paragraph_07">Grenade Mode was received positively, with most people saying it was pretty interesting with the grenades returning, and how TF2 might have turned out with them</p>
+            <p class="timeline_popup_header" data-i18n-file="popups/popup_15" data-i18n-key="competence_heading">COMPETENCE</p>
+            <div class="timeline_popup_line"></div>
+            <ul class="timeline_popup_subheader">
+                <li data-i18n-file="popups/popup_15" data-i18n-key="competence_item_01">SDK Hammer Engine</li>
+                <li data-i18n-file="popups/popup_15" data-i18n-key="competence_item_02">Vscript</li>
+                <li data-i18n-file="popups/popup_15" data-i18n-key="competence_item_03">Blender</li>
+                <li data-i18n-file="popups/popup_15" data-i18n-key="competence_item_04">GIMP</li>
+                <li data-i18n-file="popups/popup_15" data-i18n-key="competence_item_05">Inkscape</li>
+                <li data-i18n-file="popups/popup_15" data-i18n-key="competence_item_06">Discord</li>
+                <li data-i18n-file="popups/popup_15" data-i18n-key="competence_item_07">ChatGPT</li>
+                <li data-i18n-file="popups/popup_15" data-i18n-key="competence_item_08">Claude</li>
+            </ul>
+        </div>
+    </div>
 </div>
