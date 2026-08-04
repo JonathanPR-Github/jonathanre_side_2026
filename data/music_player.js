@@ -18,7 +18,7 @@
             src: 'songs/music/kevin_macleod_airport_lounge.mp3',
             artist: 'Kevin MacLeod',
             title: 'Airport Lounge',
-            album: 'Not in a Collection'
+            album: 'Disco Ultralounge'
         },
         {
             src: 'songs/music/kevin_macleod_bossa_antigua.mp3',
@@ -30,19 +30,19 @@
             src: 'songs/music/kevin_macleod_cold_funk.mp3',
             artist: 'Kevin MacLeod',
             title: 'Cold Funk',
-            album: 'Funk and Blues'
+            album: 'Missing Hits 2'
         },
         {
             src: 'songs/music/kevin_macleod_night_in_venice.mp3',
             artist: 'Kevin MacLeod',
             title: 'Night in Venice',
-            album: 'Royalty Free'
+            album: 'Menagerie'
         },
         {
             src: 'songs/music/kevin_macleod_niles_blues.mp3',
             artist: 'Kevin MacLeod',
             title: 'Niles Blues',
-            album: 'Funk and Blues'
+            album: "Blues 'Backing Tracks'"
         },
         {
             src: 'songs/music/kevin_macleod_return_of_the_mummy.mp3',

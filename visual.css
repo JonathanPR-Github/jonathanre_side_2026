@@ -1005,19 +1005,29 @@ a {
     height: 100%;
 
     background-color: rgba(0, 0, 0, 0);
+    -webkit-backdrop-filter: blur(0);
+    backdrop-filter: blur(0);
     pointer-events: none;
-    transition: background-color 0.3s ease;
+    transition:
+        background-color 0.3s ease,
+        -webkit-backdrop-filter 0.3s ease,
+        backdrop-filter 0.3s ease;
 }
 
-/* When popup is active: dark overlay + block background interaction */
+/*
+    When the popup is active, blur the page through the overlay itself.
+    This keeps fixed controls such as the music and theme buttons anchored
+    to the viewport instead of turning their header into a containing block.
+*/
 body.popup_active .container_timeline_popup {
     background-color: rgba(0, 0, 0, 0.6);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
     pointer-events: auto;
 }
 
-/* Blur all body children EXCEPT the popup overlay when active */
+/* Block interaction with the page behind the popup without moving fixed controls. */
 body.popup_active > *:not(.container_timeline_popup) {
-    filter: blur(5px);
     pointer-events: none;
 }
 
@@ -1026,9 +1036,8 @@ body.popup_active {
     overflow: hidden;
 }
 
-/* Also blur the fixed header */
+/* Keep the fixed header disabled while its controls retain their normal positions. */
 body.popup_active .container_header_top {
-    filter: blur(5px);
     pointer-events: none;
 }
 
