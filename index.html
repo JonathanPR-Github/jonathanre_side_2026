@@ -16,6 +16,8 @@
 <script defer="" src="data/game_names.js"></script>
 <script defer="" src="data/timeline_aurora.js"></script>
 <script defer="" src="data/mobile_header_menu.js"></script>
+<!-- DESKTOP MUSIC PLAYER: randomized non-repeating playlist, off on every page load -->
+<script defer="" src="data/music_player.js"></script>
 
 <!-- LOCALIZATION: loads English/Norwegian strings and swaps them without reloading the page -->
 <script defer src="data/i18n.js"></script>
@@ -97,6 +99,18 @@
 <!-- HEADER UTILITY BUTTONS: language selector and saved site-color theme selector -->
 <div class="header_utility_buttons">
 <button aria-label="Switch to Norwegian" class="header_top_language_button" id="language_en" onclick="I18n.toggleLanguage(); OnClickSound()" onmousedown="OnHoldSound()" onmouseenter="OnHoverSound()" title="Switch to Norwegian" type="button"></button>
+<!-- DESKTOP-ONLY MUSIC PLAYER: starts off and does not save its enabled state -->
+<div aria-label="Site music player" class="site_music_player" data-i18n-attr-aria-label="music.player_label" data-i18n-file="shared" id="site_music_player" role="group">
+<button aria-label="Turn site music on" aria-pressed="false" class="site_music_button" data-i18n-attr-aria-label="music.turn_on" data-i18n-attr-title="music.turn_on" data-i18n-file="shared" id="site_music_button" onclick="OnClickSound()" onmousedown="OnHoldSound()" onmouseenter="OnHoverSound()" title="Turn site music on" type="button">
+<img alt="" class="site_music_button_icon" id="site_music_button_icon" src="images/buttons/icons/music/music_off.svg"/>
+</button>
+<div aria-label="Now playing" aria-live="polite" class="site_music_info" data-i18n-attr-aria-label="music.track_info" data-i18n-file="shared" id="site_music_info" role="status">
+<span class="site_music_artist" id="site_music_artist">Kevin MacLeod</span>
+<span class="site_music_title" id="site_music_title"></span>
+<span class="site_music_album" id="site_music_album"></span>
+</div>
+<audio id="site_music_audio" preload="metadata"></audio>
+</div>
 <div class="header_theme_selector">
 <button aria-controls="header_theme_menu" aria-expanded="false" aria-label="Choose site color theme" class="header_theme_button" data-i18n-attr-aria-label="theme.open_menu" data-i18n-attr-data-theme-hint="theme.hint_selector" data-i18n-file="shared" data-theme-hint="Color Themes" id="header_theme_button" onclick="OnClickSound()" onmousedown="OnHoldSound()" onmouseenter="OnHoverSound()" type="button">
 <img alt="" class="header_theme_button_icon" id="header_theme_button_icon" src="images/buttons/icons/themes/theme_default.svg"/>
