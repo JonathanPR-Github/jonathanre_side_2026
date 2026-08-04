@@ -1778,3 +1778,41 @@ body.popup_active .container_header_top {
         background-size: 15vw;
     }
 }
+
+/* POPUP STILL IMAGES - GRAY HOVER FILTER AND FULL-SIZE IMAGE LINK */
+.timeline_popup_image_opener {
+    position: relative;
+    overflow: hidden;
+    cursor: zoom-in;
+}
+
+.timeline_popup_image_opener::after {
+    content: "Open Image";
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgba(90, 90, 90, 0.82);
+    color: wheat;
+    font-family: Impact, 'Arial Black', sans-serif;
+    font-size: clamp(22px, 2.2vw, 42px);
+    text-align: center;
+    text-transform: uppercase;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+.timeline_popup_image_opener:hover::after,
+.timeline_popup_image_opener:focus-visible::after {
+    opacity: 1;
+}
+
+.timeline_popup_image_opener:focus-visible {
+    outline-offset: 4px;
+}

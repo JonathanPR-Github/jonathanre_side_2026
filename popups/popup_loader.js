@@ -30,6 +30,82 @@
 (function () {
     'use strict';
 
+    /* ---------- STILL IMAGE OPENERS ----------
+       Makes the small popup screenshots act as previews.
+       Clicking one opens its larger image in a new browser tab.
+
+       To assign a different full-size image to one preview, add:
+
+           data-full-image="images/large/example.jpg"
+
+       to its .timeline_popup_box_img or
+       .timeline_popup_subheader_box container.
+       ------------------------------------------------------------ */
+
+    var defaultFullImage = 'images/large/first_tries_big_1.jpg';
+
+    function directImageInside(container) {
+        for (var i = 0; i < container.children.length; i++) {
+            if (container.children[i].tagName === 'IMG') {
+                return container.children[i];
+            }
+        }
+
+        return null;
+    }
+
+    function openFullImage(container) {
+        var fullImage = container.getAttribute('data-full-image') || defaultFullImage;
+        var newTab = window.open(fullImage, '_blank', 'noopener,noreferrer');
+
+        if (newTab) {
+            newTab.opener = null;
+        }
+    }
+
+    function prepareStillImageOpeners(root) {
+        if (!root || !root.querySelectorAll) return;
+
+        var boxes = root.querySelectorAll(
+            '.timeline_popup_box_img, .timeline_popup_subheader_box'
+        );
+
+        for (var i = 0; i < boxes.length; i++) {
+            (function (box) {
+                // Videos, iframes and images that are already external links
+                // keep their existing behaviour.
+                if (box.closest('a')) return;
+
+                var image = directImageInside(box);
+                if (!image || box.classList.contains('timeline_popup_image_opener')) return;
+
+                var customFullImage =
+                    box.getAttribute('data-full-image') ||
+                    image.getAttribute('data-full-image');
+
+                if (customFullImage) {
+                    box.setAttribute('data-full-image', customFullImage);
+                }
+
+                box.classList.add('timeline_popup_image_opener');
+                box.setAttribute('role', 'link');
+                box.setAttribute('tabindex', '0');
+                box.setAttribute('aria-label', 'Open image in a new tab');
+
+                box.addEventListener('click', function () {
+                    openFullImage(box);
+                });
+
+                box.addEventListener('keydown', function (event) {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault();
+                        openFullImage(box);
+                    }
+                });
+            })(boxes[i]);
+        }
+    }
+
     /* ---------- load one fragment ---------- */
 
     function loadFragment(el) {
@@ -48,6 +124,7 @@
             })
             .then(function (html) {
                 el.innerHTML = html;
+                prepareStillImageOpeners(el);
                 // the images inside carry loading="lazy", so the browser
                 // handles them; the videos wait until the popup opens
             })
@@ -142,6 +219,7 @@
     }
 
     function start() {
+        prepareStillImageOpeners(document);
         warmUpOnHover();
         hookPopup();
     }
