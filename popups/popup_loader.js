@@ -44,6 +44,88 @@
 
     var defaultFullImage = 'images/large/first_tries_big_1.jpg';
 
+
+    /* ---------- AUTOMATIC POPUP TITLE SIZING ----------
+       Popup headings normally use the full font size defined in visual.css.
+       On desktop, a heading that is too wide is reduced only as much as needed
+       to remain on one line. Extremely long headings may still wrap after the
+       minimum size is reached, preventing them from overflowing the text box.
+
+       Phone and tablet layouts keep their existing responsive font sizes and
+       wrapping behaviour.
+       ------------------------------------------------------------ */
+
+    var popupTitleDesktopQuery = window.matchMedia('(min-width: 768px)');
+
+    function fitPopupHeader(header) {
+        if (!header) return;
+
+        // Always clear a previous desktop measurement first. This lets the
+        // normal CSS rules take control again after resizing to a small screen.
+        header.style.removeProperty('font-size');
+        header.style.removeProperty('white-space');
+
+        if (!popupTitleDesktopQuery.matches || !header.getClientRects().length) {
+            return;
+        }
+
+        var availableWidth = header.clientWidth;
+        if (!availableWidth) return;
+
+        var normalSize = parseFloat(window.getComputedStyle(header).fontSize);
+        if (!normalSize) return;
+
+        var minimumSize = normalSize * 0.72;
+        var lowerSize = minimumSize;
+        var upperSize = normalSize;
+        var bestSize = minimumSize;
+
+        header.style.whiteSpace = 'nowrap';
+        header.style.fontSize = normalSize + 'px';
+
+        // Short headings keep the original size without further calculation.
+        if (header.scrollWidth <= availableWidth) {
+            return;
+        }
+
+        // Binary search finds the largest size that fits without repeatedly
+        // stepping through every possible fraction of a pixel.
+        for (var i = 0; i < 10; i++) {
+            var testSize = (lowerSize + upperSize) / 2;
+            header.style.fontSize = testSize + 'px';
+
+            if (header.scrollWidth <= availableWidth) {
+                bestSize = testSize;
+                lowerSize = testSize;
+            } else {
+                upperSize = testSize;
+            }
+        }
+
+        header.style.fontSize = bestSize + 'px';
+
+        // If even the minimum size cannot contain the heading, wrapping is
+        // safer than allowing the text to extend outside the popup.
+        if (header.scrollWidth > availableWidth) {
+            header.style.whiteSpace = 'normal';
+        }
+    }
+
+    function fitPopupHeaders(root) {
+        if (!root || !root.querySelectorAll) return;
+
+        var headers = root.querySelectorAll('.timeline_popup_header');
+        for (var i = 0; i < headers.length; i++) {
+            fitPopupHeader(headers[i]);
+        }
+    }
+
+    function fitVisiblePopupHeaders() {
+        var popup = document.getElementById('container_tab_popup');
+        if (!popup || !popup.getClientRects().length) return;
+        fitPopupHeaders(popup);
+    }
+
     function directImageInside(container) {
         for (var i = 0; i < container.children.length; i++) {
             if (container.children[i].tagName === 'IMG') {
@@ -127,13 +209,24 @@
                 prepareStillImageOpeners(el);
 
                 // LOCALIZATION: popup text lives in its own popup_N.json file.
-                // Apply the currently selected language as soon as the fragment is inserted.
+                // Wait for the active language to be applied before measuring
+                // the heading, because translated titles may be longer.
+                var localizationJob = Promise.resolve();
+
                 if (window.I18n && typeof window.I18n.applyTo === 'function') {
-                    window.I18n.applyTo(el);
+                    localizationJob = window.I18n.applyTo(el).catch(function (error) {
+                        console.error('[popup_loader] could not localize "' + src + '":', error);
+                    });
                 }
 
-                // the images inside carry loading="lazy", so the browser
-                // handles them; the videos wait until the popup opens
+                return localizationJob.then(function () {
+                    // The fragment may have been preloaded while hidden. Its title
+                    // receives a final measurement when the popup is shown below.
+                    fitPopupHeaders(el);
+
+                    // the images inside carry loading="lazy", so the browser
+                    // handles them; the videos wait until the popup opens
+                });
             })
             .catch(function (error) {
                 console.error('[popup_loader] could not load "' + src + '":', error);
@@ -205,6 +298,16 @@
 
             function show() {
                 originalPopup.apply(self, args);
+
+                // The popup must be visible before its available title width can
+                // be measured accurately. Two animation frames also allow the
+                // localized text and popup layout to settle first.
+                window.requestAnimationFrame(function () {
+                    window.requestAnimationFrame(function () {
+                        fitPopupHeaders(el || document);
+                    });
+                });
+
                 // now that it is on screen, let its videos load
                 if (window.activateLazyFrames && el) window.activateLazyFrames(el);
             }
@@ -234,6 +337,14 @@
         prepareStillImageOpeners(document);
         warmUpOnHover();
         hookPopup();
+
+        // Recalculate after a language switch because translated headings can
+        // have a different length, and after resizing the browser window.
+        document.addEventListener('site-language-changed', function () {
+            window.requestAnimationFrame(fitVisiblePopupHeaders);
+        });
+
+        window.addEventListener('resize', fitVisiblePopupHeaders);
     }
 
     if (document.readyState === 'loading') {
