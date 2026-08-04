@@ -1,0 +1,23 @@
+{
+    "_comment": "Norske strenger for popup 14. Denne filen styrer kun teksten i popup_14.html.",
+    "title": "\"VIPRACE-SPILLMODUSEN\"",
+    "date": "2026",
+    "paragraph_01": "En tid etter at jeg utviklet Monoceros, ble jeg raskt kontaktet av en av de ledende manusforfatterne bak «Mobster VIP»-modusen til TF2. De ba meg tre inn som programmerer fordi hovedprogrammereren for modusen ikke kunne utføre oppgaven.",
+    "paragraph_02": "VIP er en spillmodus hvor et lag eskorterer en vanligvis ganske forsvarsløs figur gjennom kartet. Når figuren når slutten, vinner laget som eskorterte VIP-en, mens laget som skulle drepe VIP-en taper.<br>VIP ble forkastet under utviklingen av Team Fortress 2 mellom 1996 og 2007 og utviklet seg etter hvert til Payload-modusen.<br>Da VScript ble introdusert i TF2 i 2022, ble VIP gjenskapt i en ny og mer underholdende form kalt «Mobster VIP», fordi figuren var en gangster. VIP-en fikk et våpen og en mer støttende og angripende rolle.",
+    "paragraph_03": "Jeg ble bedt om å gjenskape VIPR, en ny variant av VIP-spillmodusen som ble introdusert i det frittstående spillet «Team Fortress 2: Classified». Her fantes det to VIP-er i stedet for én, og de kjempet om territorium i stedet for å bli eskortert.",
+    "paragraph_04": "Etter å ha lært hvor mye kunstig intelligens kunne brukes til å skrive bakgrunnskode, brukte jeg to hele uker på å kode spillmodusen først i ChatGPT og senere i Claude. Jeg gjennomgikk og testet koden fortløpende og laget mer enn fem varianter basert på forespørslene fra manusforfatteren, før jeg til slutt fikk en fungerende versjon etter omtrent to uker.",
+    "paragraph_05": "Noe som ellers kunne ha tatt fem måneder, ble gjort på under to uker. Etter at koden var ferdig, fortsatte jeg å forbedre den og laget midlertidige modeller som senere kunne erstattes av egendefinerte modeller. Jeg klargjorde også den nødvendige koden slik at modellørene kunne overta, noe som ble den mest tidkrevende delen av ferdigstillingen.",
+    "paragraph_06": "For å teste VIPR brukte vi Valve-kartene Powerhouse og Viaduct, etter ønske fra Mobster VIP-teamet. Jeg redigerte kartene slik at de støttet VIPR-spillmodusen.",
+    "paragraph_07": "Gjennom flere måneder fortsatte vi å forbedre spillmodusen og evnene til figurene, frem til de nødvendige modellene og kartene var ferdige og den opprinnelige visjonen kunne realiseres.",
+    "paragraph_08": "VIPR fikk gode tilbakemeldinger, og de fleste beskrev modusen som en morsom nytolkning av VIP-konseptet.",
+    "paragraph_09": "Da det meste av innholdet var ferdig, hadde utviklingen tappet mye av energien min, siden jeg i stor grad utviklet modusen alene. I tråd med planene mine om å avslutte TF2-modding valgte jeg derfor å avslutte prosjektet og konsentrere meg om viktigere arbeid, som på den tiden var Low Profile-prosjektet.",
+    "competence_heading": "KOMPETANSE",
+    "competence_item_01": "SDK Hammer-motoren",
+    "competence_item_02": "VScript",
+    "competence_item_03": "Blender",
+    "competence_item_04": "GIMP",
+    "competence_item_05": "Inkscape",
+    "competence_item_06": "Discord",
+    "competence_item_07": "ChatGPT",
+    "competence_item_08": "Claude"
+}

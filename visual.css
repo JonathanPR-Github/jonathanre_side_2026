@@ -116,6 +116,11 @@ a {
     height: 3.5vw ;
     border-radius: 50%;
 
+    /* LANGUAGE BUTTON: remove the browser button style so it keeps the old flag appearance */
+    appearance: none;
+    border: none;
+    padding: 0;
+
     background-color: green;
     background-size: cover;
     box-shadow: black 0vw 0vw 5vw;
@@ -1014,7 +1019,7 @@ body.popup_active .container_header_top {
 
 .timeline_popup_box_steam::after,
 .timeline_popup_external_link .timeline_popup_subheader_video::after {
-    content: "Open to Link";
+    content: var(--i18n-open-link, "Open to Link");
     position: absolute;
     inset: 0;
     z-index: 2;
@@ -1787,7 +1792,7 @@ body.popup_active .container_header_top {
 }
 
 .timeline_popup_image_opener::after {
-    content: "Open Image";
+    content: var(--i18n-open-image, "Open Image");
     position: absolute;
     inset: 0;
     z-index: 3;

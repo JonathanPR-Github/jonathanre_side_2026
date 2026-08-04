@@ -1,0 +1,21 @@
+{
+    "_comment": "English strings for popup 15. This file only controls the text inside popup_15.html.",
+    "title": "\"GRENADE MODE\"",
+    "date": "2026",
+    "paragraph_01": "During the development of VIPR, I was contacted by the original pitcher and directing modeller for the player models of the VIP mobster gamemode, with a proposal for another gamemode. But as they explained to me it wasn't exactly going to be a gamemode and more like a map gimmick",
+    "paragraph_02": "This was Grenade Mode, and grenade mode attempted to bring back the cut grenades from the TF2 Beta in 2006, by means that were possible within VScript.<br>Unlike the VIPR gamemode, Grenade mode was not a gamemode, but a map gimmick, meaning that it could be placed around like the Halloween spellbooks on Valve's Halloween maps, enabling players to use grenades over spellbooks. However this was later replaced with a more in-house system, where grenades was instead kept on the player as a virtual inventory",
+    "paragraph_03": "The mode initially worked by tick detecting whenever a player had a Halloween Spellbook, forcing them to have a specific spell, then giving them a grenade as per function, then detecting when they threw it, threw a prop grenade instead that would explode after a certain amount of seconds.<br>It had 9 class specific grenades based on the selection given in the previous installment Team Fortress Classic, and 5 custom made grenades that I came up with, if the mode was set to be Random",
+    "paragraph_04": "Grenade mode had a lot of blunders throughout its development, the mode kept sending large amount of packet data to servers which would overload them and make them lag uncontrollable, this was due to a few factors with how the gamemode was coded, but most of them were due to how data was stored for the grenades, how some entities were not killed on destruction, and how some functions had no end which made repetitions in the code.",
+    "paragraph_05": "The mode was initially coded in ChatGPT, but was later coded in Claude with supervision from me, a much more superior coding AI that would help out root the initial problems of the mode",
+    "paragraph_06": "To test the mode, we used the Valve map Dustbowl, 2Fort and Junction who were originally going to have Grenades, hence hints by some of the locations who still leaves around marks from the Beta. Grenade placements were initially based upon those from Team Fortress Classic, but what later on added more of as the mode was tested",
+    "paragraph_07": "Grenade Mode was received positively, with most people saying it was pretty interesting with the grenades returning, and how TF2 might have turned out with them",
+    "competence_heading": "COMPETENCE",
+    "competence_item_01": "SDK Hammer Engine",
+    "competence_item_02": "Vscript",
+    "competence_item_03": "Blender",
+    "competence_item_04": "GIMP",
+    "competence_item_05": "Inkscape",
+    "competence_item_06": "Discord",
+    "competence_item_07": "ChatGPT",
+    "competence_item_08": "Claude"
+}

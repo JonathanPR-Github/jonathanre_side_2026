@@ -1,324 +1,248 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="noindex, nofollow, noarchive, nosnippet" name="robots"/>
+<!-- LINK SECTION -->
+<link href="visual.css" rel="stylesheet"/>
+<script src="java.js"></script>
+<!-- defer = downloaded now, run in this order once the page is parsed -->
+<script defer="" src="data/about_me_fit.js"></script>
+<script defer="" src="data/lazy_media.js"></script>
+<script defer="" src="data/game_names.js"></script>
+<script defer="" src="data/timeline_aurora.js"></script>
+<script defer="" src="data/mobile_header_menu.js"></script>
 
-        <!-- LINK SECTION -->
-        <link rel="stylesheet" href="visual.css">
-        <script src="java.js"></script>
-
-        <!-- defer = downloaded now, run in this order once the page is parsed -->
-        <script defer src="data/about_me_fit.js"></script>
-        <script defer src="data/lazy_media.js"></script>
-        <script defer src="data/game_names.js"></script>
-        <script defer src="data/timeline_aurora.js"></script>
-        <script defer src="data/mobile_header_menu.js"></script>
-        <script defer src="popups/popup_loader.js"></script>
-        <script defer src="data/url_router.js"></script>
-
-        <title>Document</title>
+<!-- LOCALIZATION: loads English/Norwegian strings and swaps them without reloading the page -->
+<script defer src="data/i18n.js"></script>
+        <script defer="" src="popups/popup_loader.js"></script>
+<script defer="" src="data/url_router.js"></script>
+<title data-i18n-file="shared" data-i18n-key="site_title">Document</title>
 </head>
-
 <!-- BODY VISUALS ARE DONE BY CSS-->
-<body> 
-
-    <!-- TIMELINE POPUP MESSAGES -->
-    <div class="container_timeline_popup">
-
-        <div class="timeline_popup" id="container_tab_popup"> <!-- SET TO NONE OTHERWISE TOLD SO -->
-
-            <!-- EXIT BUTTON -->
-            <button class="timeline_popup_exit" onclick="ClosePopup(); OnClickSound()" onmouseenter="OnHoverSound()" onmousedown="OnHoldSound()">X</button>
-
-            <!-- POPUP CONTENT AREA -->
-
-            <div class="timeline_popup_content" style="display: none;"> <!-- POPUP COPYPASTE, ALWAYS SET TO NONE -->
-                
-                <!-- LEFT SIDE: BLACK BOXES GRID -->
-                <div class="timeline_popup_boxes">
-                    <button class="timeline_popup_box"></button>
-                    <button class="timeline_popup_box"></button>
-                    <button class="timeline_popup_box"></button>
-                    <button class="timeline_popup_box"></button>
-                </div>
-
-                <!-- RIGHT SIDE: -->
-                <div class="timeline_popup_textbox">
-                    <div class="timeline_popup_textbox_inner">
-                        <div class="timeline_popup_text_content">
-                            <p class="timeline_popup_header">HEADER</p>
-                            <div class="timeline_popup_line"></div>
-                            <p class="timeline_popup_subheader">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div> <!-- POPUP COPYPASTE, ALWAYS SET TO NONE -->
-
-            <!-- POPUP FIRST TRIES -->
-            <div class="timeline_popup_content" id="container_popup_1" data-popup-src="popups/popup_1.html"></div> <!-- "THE FIRST TRIES" -->
-
-            <!-- FIRST PORTFOLIO SITE -->
-            <div class="timeline_popup_content" id="container_popup_2" data-popup-src="popups/popup_2.html"></div> <!-- "THE FIRST PORTFOLIO" -->
-
-            <!-- POPUP HOI4 JOHN COLLECTION -->
-            <div class="timeline_popup_content" id="container_popup_3" data-popup-src="popups/popup_3.html"></div> <!-- "THE HOI4 JOHN COLLECTION" -->
-
-            <!-- POPUP DEATHRUN SAGA COLLECTION -->
-            <div class="timeline_popup_content" id="container_popup_4" data-popup-src="popups/popup_4.html"></div> <!-- "THE DEATHRUN SAGA COLLECTION" -->
-
-            <!-- POPUP DOVREGUBBEN -->
-            <div class="timeline_popup_content" id="container_popup_5" data-popup-src="popups/popup_5.html"></div> <!-- "DOVREGUBBEN" -->
-
-            <!-- POPUP RED DUSK -->
-            <div class="timeline_popup_content" id="container_popup_6" data-popup-src="popups/popup_6.html"></div> <!-- "RED DUSK" -->
-
-            <!-- POPUP STALKER MODS -->
-            <div class="timeline_popup_content" id="container_popup_7" data-popup-src="popups/popup_7.html"></div> <!-- "S.T.A.L.K.E.R ANOMALY COLLECTION" -->
-
-            <!-- POPUP BATTLEFRONT 2 MODS -->
-            <div class="timeline_popup_content" id="container_popup_8" data-popup-src="popups/popup_8.html"></div> <!-- "SWBF2 (2017) COLLECTION" -->
-
-            <!-- POPUP L4D2 MODS -->
-            <div class="timeline_popup_content" id="container_popup_9" data-popup-src="popups/popup_9.html"></div> <!-- "LEFT 4 DEAD MOD COLLECTION" -->
-
-             <!-- POPUP GULLYPASS/GULLYCREAK -->
-            <div class="timeline_popup_content" id="container_popup_10" data-popup-src="popups/popup_10.html"></div> <!-- "GULLYPASS COLLECTION" -->
-
-            <!-- POPUP RUSH GAMEMODE -->
-            <div class="timeline_popup_content" id="container_popup_11" data-popup-src="popups/popup_11.html"></div> <!-- "THE RUSH GAMEMODE" -->
-
-            <!-- POPUP GAMEBANANA COLLECTION -->
-            <div class="timeline_popup_content" id="container_popup_12" data-popup-src="popups/popup_12.html"></div> <!-- "GAMEBANANA COLLECTION" -->
-
-            <!-- POPUP THE LOW PROFILE COLLECTION -->
-            <div class="timeline_popup_content" id="container_popup_13" data-popup-src="popups/popup_13.html"></div> <!-- "THE LOW PROFILE COLLECTION" -->
-
-            <!-- POPUP VIPR GAMEMODE -->
-            <div class="timeline_popup_content" id="container_popup_14" data-popup-src="popups/popup_14.html"></div> <!-- "VIPRACE GAMEMODE" -->
-
-            <!-- POPUP GRENADE MODE -->
-            <div class="timeline_popup_content" id="container_popup_15" data-popup-src="popups/popup_15.html"></div> <!-- "GRENADE MODE" -->
-
-            <!-- POPUP STELLARIS COLLECTION -->
-            <div class="timeline_popup_content" id="container_popup_16" data-popup-src="popups/popup_16.html"></div> <!-- "STELLARIS COLLECTION" -->
-
-
-
-
-
-
-
-
-        </div>
-    </div>
-
-    <!-- TOP SECTION / HEADER -->
-
-    <div class="container_header_top">
-        <div class="header_top">
-            <button type="button" class="header_mobile_menu_button" aria-expanded="false" aria-controls="header_mobile_menu" onclick="OnClickSound()" onmouseenter="OnHoverSound()" onmousedown="OnHoldSound()">
-                <span class="header_mobile_menu_button_text">MENU</span>
-            </button>
-
-            <div class="header_navigation_buttons" id="header_mobile_menu">
-                <button onclick="ShowTab_1(); OnClickSound()" onmouseenter="OnHoverSound()" onmousedown="OnHoldSound()" class="header_top_button"> <p class="header_top_button_text">INTRO</p> </button>
-                <button onclick="ShowTab_2(); OnClickSound()" onmouseenter="OnHoverSound()" onmousedown="OnHoldSound()" class="header_top_button"> <p class="header_top_button_text">TIMELINE</p> </button>
-            </div>
-
-            <a href="index.html" onclick="OnClickSound()" onmouseenter="OnHoverSound()" onmousedown="OnHoldSound()" class="header_top_language_button" id="language_en" aria-label="Change language"></a>
-        </div>
-    </div>
-
-    <div class="header_top_fake"></div>
-    
-
-    <!-- ABOUT ME SECTION / INTRO SECTION -->
-    <div> <!-- TAB 1 START -->
-
-    <div id="container_tab_1"> 
-
-    <div class="container_about_me_box">
-
-    <div class="about_me_box">
-        <div class="container_about_me_box_text">
-            <header class="header_about_me_box_text">Hello, Welcome to Jonathan Erik Reppen's Portfolio</header>
-            <div class="about_me_box_text">
-                <h3 class="about_me_box_text_header">ABOUT ME</h3>
-                <div class="about_me_line"></div>
-                <p>I'm a self-taught game developer, that takes whatever opportunity is available around places and strives to develop on my own and others sectors to eventually get into the industry </p>
-                <p>I have for many years been modding several video games, like Star Wars Battlefront, STALKER, and more. But my biggest projects were within Map making for Team Fortress 2, and Mod making for Hearts of Iron 4, where I was involved in community projects and standalone total overhaul mods </p>
-                <p>Ever since I started to see the potential I had as a game developer since I started all the way back in 2016 when I was 15, I've been actively developing myself to further enhance my chances of getting a job as a game developer, and as a project to one day produce a video game. In that time, I have been plenty of visits to game studios like, 2K Studios, been to interviews with game development studios and developed a mobile game as per a group effort. Even as I had and was recovering from a heart surgery, I continued to develop myself to eventually strike gold whenever I could be hired</p>
-                <p>One thing I've learned as a developer, is to adapt to all kinds of new technologies that comes your way, and that includes Artificial Intelligence that I use regularly to enhance my coding experiences, and to reduce workflow. The overall usage of it has increased the flow by 80% when I work on projects, and that is a very good saying. I normally also tend to work 50/50 with it, with me coding some of the code, and me guiding the artificial intelligence to do it for me.</p>
-                <h3>CURRENT SITUATION</h3>
-                <div class="about_me_line"></div>
-                <p>As of April of 2026, I am currently on the bounds to quit the Source engine and move on to fully learn both Unity and Unreal in a gradual amount of time, with Courses and self learning </p>
-                <p>With the goal of helping me get better chances to get hired in any kind of circumstance. </p>
-                <p>The second goal, and the thing I will be normally doing alongside it, is developing a video game. Whether I succeed depends on my own abilities as I learn the engines, and the determination I put into it </p>
-            </div>
-        </div>
-    </div>
-
-    <div class="container_about_me_pl">
-        <div class="about_me_picture"></div>
-        <div class="about_me_links">
-            <a href="https://no.linkedin.com/in/jonathan-erik-reppen-0915642a0/en?trk=people-guest_people_search-card" target="_blank" class="contact_button_1" data-contact="LinkedIn" aria-label="LinkedIn" onclick="OnClickSound()" onmouseenter="OnHoverSound()" onmousedown="OnHoldSound()"></a>
-            <a href="mailto: jonathan.reppen@outlook.com" target="_blank" class="contact_button_2" data-contact="Email" aria-label="Email" onclick="OnClickSound()" onmouseenter="OnHoverSound()" onmousedown="OnHoldSound()"></a>
-            <a href="https://github.com/JonathanPR-Github?tab=repositories" target="_blank" class="contact_button_3" data-contact="GitHub" aria-label="GitHub" onclick="OnClickSound()" onmouseenter="OnHoverSound()" onmousedown="OnHoldSound()"></a>
-            <a href="https://www.youtube.com/@jonathnpr5934/videos" target="_blank" class="contact_button_4" data-contact="YouTube" aria-label="YouTube" onclick="OnClickSound()" onmouseenter="OnHoverSound()" onmousedown="OnHoldSound()"></a>
-        </div>
-
-        <div class="about_me_site_info">
-            <h2>THIS SITE WAS WRITTEN BY ME IN:</h2>
-            <div class="about_me_site_info_line"></div>
-
-            <div class="container_about_me_site_info">
-                <div class="about_me_box_icon"><img class="lazy_img" src="images/buttons/icons/html_icon.png" alt="" loading="lazy" decoding="async"></div>
-
-                <div class="about_me_box_icon"><img class="lazy_img" src="images/buttons/icons/css_icon.png" alt="" loading="lazy" decoding="async"></div>
-
-                <div class="about_me_box_icon"><img class="lazy_img" src="images/buttons/icons/js_icon.png" alt="" loading="lazy" decoding="async"></div>
-            </div>
-    
-        </div>
-
-    </div> <!-- container_about_me_pl END -->
-
-    </div> <!-- container_about_me_box END -->
-
-    </div> <!-- container_tab_1 END -->
-
-    </div> <!-- TAB 1 END -->
-
-    <!-- TIMELINE SECTION -->
-    <div> <!-- TAB 2 START -->
-
-    <div id="container_tab_2">
-        
-    <div class="container_timeline_tutorial_box">
-
-    <div class="timeline_tutorial_box">
-        <div class="container_timeline_tutorial_box_text">
-            <div class="about_me_box_text">
-                <h3>ABOUT THE TIMELINE</h3>
-                <div class="about_me_line"></div>
-                <p>The Timeline is a few sections and rows of development I've done throughout my career, in it you will find a set of mods I made to video games and projects that I've been involved within the last few years alongside some other mixed elements of what I've worked on. 
-                <br>The rows of boxes with images are the projects I've done, with icons on the top of the box related to the game its linked to. Once clicked on, it will open a popup with relevant information about what the project was about.</p>
-
-                <p>The popups consists of information about what the project was related to, images and video explanations, links to any sites like Steam, the length of the development and what it was coded in. 
-                <br>On the bottom of the site, there is a section for competence related to what was used in the project such as the programming language</p>
-
-            </div>
-        </div>
-    </div>
-
-    </div>
-    <!-- TIMELINE START -->
-
-    <div class="container_timeline">
-        
-
-        <!-- MODS/PROJECTS SECTION -->
-        <div class="timeline_total_box"> <!-- BACKGROUND BOX TIMELINE OUTER -->
-        <div class="timeline_total_box_inner"> <!-- BACKGROUND BOX TIMELINE INNER -->
-
-        <div class="timeline-section">
-            <div class="timeline-label">MODS/PROJECTS</div>
-            <div class="timeline-line-and-boxes">
-                <div class="timeline-line"></div>
-                <div class="container_timeline_box">
-                    <button onclick="OpenPopup(); popup(1); OnClickSound()" onmouseenter="OnHoverSound()" onmousedown="OnHoldSound()" class="timeline_box";><img class="lazy_img" src="images/buttons/small/timeline_box_1.jpg" alt="THE FIRST TRIES" loading="lazy" decoding="async">
-                        <div class="timeline_box_icon"><img class="lazy_img" src="images/buttons/icons/tf2_icon.png" alt="" loading="lazy" decoding="async"></div>
-                    </button>
-                    <button onclick="OpenPopup(); popup(3); OnClickSound()" onmouseenter="OnHoverSound()" onmousedown="OnHoldSound()" class="timeline_box";><img class="lazy_img" src="images/buttons/small/timeline_box_3.jpg" alt="THE HOI4 JOHN COLLECTION" loading="lazy" decoding="async">
-                        <div class="timeline_box_icon"><img class="lazy_img" src="images/buttons/icons/hoi4_icon.png" alt="" loading="lazy" decoding="async"></div>
-                    </button>
-                    <button onclick="OpenPopup(); popup(4); OnClickSound()" onmouseenter="OnHoverSound()" onmousedown="OnHoldSound()" class="timeline_box";><img class="lazy_img" src="images/buttons/small/timeline_box_4.jpg" alt="THE DEATHRUN SAGA COLLECTION" loading="lazy" decoding="async">
-                        <div class="timeline_box_icon"><img class="lazy_img" src="images/buttons/icons/tf2_icon.png" alt="" loading="lazy" decoding="async"></div>
-                    </button>
-                    <button onclick="OpenPopup(); popup(6); OnClickSound()" onmouseenter="OnHoverSound()" onmousedown="OnHoldSound()" class="timeline_box";><img class="lazy_img" src="images/buttons/small/timeline_box_6.jpg" alt="RED DUSK" loading="lazy" decoding="async">
-                        <div class="timeline_box_icon"><img class="lazy_img" src="images/buttons/icons/hoi4_icon.png" alt="" loading="lazy" decoding="async"></div>
-                    </button>
-                    <button onclick="OpenPopup(); popup(7); OnClickSound()" onmouseenter="OnHoverSound()" onmousedown="OnHoldSound()" class="timeline_box";><img class="lazy_img" src="images/buttons/small/timeline_box_7.jpg" alt="S.T.A.L.K.E.R ANOMALY COLLECTION" loading="lazy" decoding="async">
-                        <div class="timeline_box_icon"><img class="lazy_img" src="images/buttons/icons/stalker_icon.png" alt="" loading="lazy" decoding="async"></div>
-                    </button>
-                    <button onclick="OpenPopup(); popup(8); OnClickSound()" onmouseenter="OnHoverSound()" onmousedown="OnHoldSound()" class="timeline_box";><img class="lazy_img" src="images/buttons/small/timeline_box_8.jpg" alt="SWBF2 (2017) COLLECTION" loading="lazy" decoding="async">
-                        <div class="timeline_box_icon"><img class="lazy_img" src="images/buttons/icons/bf2_icon.png" alt="" loading="lazy" decoding="async"></div>
-                    </button>
-                    <button onclick="OpenPopup(); popup(9); OnClickSound()" onmouseenter="OnHoverSound()" onmousedown="OnHoldSound()" class="timeline_box";><img class="lazy_img" src="images/buttons/small/timeline_box_9.jpg" alt="LEFT 4 DEAD MOD COLLECTION" loading="lazy" decoding="async">
-                        <div class="timeline_box_icon"><img class="lazy_img" src="images/buttons/icons/l4d2_icon.png" alt="" loading="lazy" decoding="async"></div>
-                    </button>
-                    <button onclick="OpenPopup(); popup(10); OnClickSound()" onmouseenter="OnHoverSound()" onmousedown="OnHoldSound()" class="timeline_box";><img class="lazy_img" src="images/buttons/small/timeline_box_10.jpg" alt="GULLYPASS COLLECTION" loading="lazy" decoding="async">
-                        <div class="timeline_box_icon"><img class="lazy_img" src="images/buttons/icons/tf2_icon.png" alt="" loading="lazy" decoding="async"></div>
-                    </button>
-                    <button onclick="OpenPopup(); popup(11); OnClickSound()" onmouseenter="OnHoverSound()" onmousedown="OnHoldSound()" class="timeline_box";><img class="lazy_img" src="images/buttons/small/timeline_box_11.jpg" alt="THE RUSH GAMEMODE" loading="lazy" decoding="async">
-                        <div class="timeline_box_icon"><img class="lazy_img" src="images/buttons/icons/tf2_icon.png" alt="" loading="lazy" decoding="async"></div>
-                    </button>
-                    <button onclick="OpenPopup(); popup(12); OnClickSound()" onmouseenter="OnHoverSound()" onmousedown="OnHoldSound()" class="timeline_box";><img class="lazy_img" src="images/buttons/small/timeline_box_12.jpg" alt="GAMEBANANA COLLECTION" loading="lazy" decoding="async">
-                        <div class="timeline_box_icon"><img class="lazy_img" src="images/buttons/icons/tf2_icon.png" alt="" loading="lazy" decoding="async"></div>
-                        <div class="timeline_box_icon"><img class="lazy_img" src="images/buttons/icons/tf2c_icon.png" alt="" loading="lazy" decoding="async"></div>
-                        <div class="timeline_box_icon"><img class="lazy_img" src="images/buttons/icons/pf2_icon.png" alt="" loading="lazy" decoding="async"></div>
-                    </button>
-                    <button onclick="OpenPopup(); popup(13); OnClickSound()" onmouseenter="OnHoverSound()" onmousedown="OnHoldSound()" class="timeline_box";><img class="lazy_img" src="images/buttons/small/timeline_box_13.jpg" alt="THE LOW PROFILE COLLECTION" loading="lazy" decoding="async">
-                        <div class="timeline_box_icon"><img class="lazy_img" src="images/buttons/icons/tf2_icon.png" alt="" loading="lazy" decoding="async"></div>
-                    </button>
-                    <button onclick="OpenPopup(); popup(14); OnClickSound()" onmouseenter="OnHoverSound()" onmousedown="OnHoldSound()" class="timeline_box";><img class="lazy_img" src="images/buttons/small/timeline_box_14.jpg" alt="VIPRACE GAMEMODE" loading="lazy" decoding="async">
-                        <div class="timeline_box_icon"><img class="lazy_img" src="images/buttons/icons/tf2_icon.png" alt="" loading="lazy" decoding="async"></div>
-                    </button>
-                    <button onclick="OpenPopup(); popup(15); OnClickSound()" onmouseenter="OnHoverSound()" onmousedown="OnHoldSound()" class="timeline_box";><img class="lazy_img" src="images/buttons/small/timeline_box_15.jpg" alt="GRENADE MODE" loading="lazy" decoding="async">
-                        <div class="timeline_box_icon"><img class="lazy_img" src="images/buttons/icons/tf2_icon.png" alt="" loading="lazy" decoding="async"></div>
-                    </button>
-                    <button onclick="OpenPopup(); popup(16); OnClickSound()" onmouseenter="OnHoverSound()" onmousedown="OnHoldSound()" class="timeline_box";><img class="lazy_img" src="images/buttons/small/timeline_box_16.avif" alt="STELLARIS COLLECTION" loading="lazy" decoding="async">
-                        <div class="timeline_box_icon"><img class="lazy_img" src="images/buttons/icons/stellaris_icon.png" alt="" loading="lazy" decoding="async"></div>
-                    </button>
-                </div>
-
-            </div>
-        </div>
-
-        <!-- GAMES SECTION -->
-        <div class="timeline-section">
-            <div class="timeline-label">GAMES</div>
-            <div class="timeline-line-and-boxes">
-                <div class="timeline-line"></div>
-
-                <div class="container_timeline_box">
-                    <button onclick="OpenPopup(); popup(5); OnClickSound()" onmouseenter="OnHoverSound()" onmousedown="OnHoldSound()" class="timeline_box";><img class="lazy_img" src="images/buttons/small/timeline_box_5.jpg" alt="DOVREGUBBEN" loading="lazy" decoding="async">
-                        <div class="timeline_box_icon"><img class="lazy_img" src="images/buttons/icons/godot_icon.png" alt="" loading="lazy" decoding="async"></div>
-                    </button>
-
-                </div>
-            </div>
-        </div>
-
-        <!-- MIX SECTION -->
-        <div class="timeline-section">
-            <div class="timeline-label">MIX</div>
-            <div class="timeline-line-and-boxes">
-                <div class="timeline-line"></div>
-
-                <div class="container_timeline_box">
-                    <button onclick="OpenPopup(); popup(2); OnClickSound()" onmouseenter="OnHoverSound()" onmousedown="OnHoldSound()" class="timeline_box";><img class="lazy_img" src="images/buttons/small/timeline_box_2.jpg" alt="THE FIRST PORTFOLIO" loading="lazy" decoding="async">
-                        <div class="timeline_box_icon"><img class="lazy_img" src="images/buttons/icons/html_icon.png" alt="" loading="lazy" decoding="async"></div>
-                        <div class="timeline_box_icon"><img class="lazy_img" src="images/buttons/icons/css_icon.png" alt="" loading="lazy" decoding="async"></div>
-                        <div class="timeline_box_icon"><img class="lazy_img" src="images/buttons/icons/js_icon.png" alt="" loading="lazy" decoding="async"></div>
-                    </button>
-             
-                </div>
-            </div>
-        </div>
-
-        </div> <!-- BACKGROUND BOX TIMELINE INNER -->
-        </div> <!-- BACKGROUND BOX TIMELINE OUTER -->
-
-    </div>
-
-    </div> 
-
-    </div> <!-- TAB 2 END -->
-
+<body>
+<!-- TIMELINE POPUP MESSAGES -->
+<div class="container_timeline_popup">
+<div class="timeline_popup" id="container_tab_popup"> <!-- SET TO NONE OTHERWISE TOLD SO -->
+<!-- EXIT BUTTON -->
+<button class="timeline_popup_exit" onclick="ClosePopup(); OnClickSound()" onmousedown="OnHoldSound()" onmouseenter="OnHoverSound()">X</button>
+<!-- POPUP CONTENT AREA -->
+<div class="timeline_popup_content" style="display: none;"> <!-- POPUP COPYPASTE, ALWAYS SET TO NONE -->
+<!-- LEFT SIDE: BLACK BOXES GRID -->
+<div class="timeline_popup_boxes">
+<button class="timeline_popup_box"></button>
+<button class="timeline_popup_box"></button>
+<button class="timeline_popup_box"></button>
+<button class="timeline_popup_box"></button>
+</div>
+<!-- RIGHT SIDE: -->
+<div class="timeline_popup_textbox">
+<div class="timeline_popup_textbox_inner">
+<div class="timeline_popup_text_content">
+<p class="timeline_popup_header" data-i18n-file="shared" data-i18n-key="popup_template_header">HEADER</p>
+<div class="timeline_popup_line"></div>
+<p class="timeline_popup_subheader" data-i18n-file="shared" data-i18n-key="popup_template_body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</div>
+</div>
+</div>
+</div> <!-- POPUP COPYPASTE, ALWAYS SET TO NONE -->
+<!-- POPUP FIRST TRIES -->
+<div class="timeline_popup_content" data-popup-src="popups/popup_1.html" id="container_popup_1"></div> <!-- "THE FIRST TRIES" -->
+<!-- FIRST PORTFOLIO SITE -->
+<div class="timeline_popup_content" data-popup-src="popups/popup_2.html" id="container_popup_2"></div> <!-- "THE FIRST PORTFOLIO" -->
+<!-- POPUP HOI4 JOHN COLLECTION -->
+<div class="timeline_popup_content" data-popup-src="popups/popup_3.html" id="container_popup_3"></div> <!-- "THE HOI4 JOHN COLLECTION" -->
+<!-- POPUP DEATHRUN SAGA COLLECTION -->
+<div class="timeline_popup_content" data-popup-src="popups/popup_4.html" id="container_popup_4"></div> <!-- "THE DEATHRUN SAGA COLLECTION" -->
+<!-- POPUP DOVREGUBBEN -->
+<div class="timeline_popup_content" data-popup-src="popups/popup_5.html" id="container_popup_5"></div> <!-- "DOVREGUBBEN" -->
+<!-- POPUP RED DUSK -->
+<div class="timeline_popup_content" data-popup-src="popups/popup_6.html" id="container_popup_6"></div> <!-- "RED DUSK" -->
+<!-- POPUP STALKER MODS -->
+<div class="timeline_popup_content" data-popup-src="popups/popup_7.html" id="container_popup_7"></div> <!-- "S.T.A.L.K.E.R ANOMALY COLLECTION" -->
+<!-- POPUP BATTLEFRONT 2 MODS -->
+<div class="timeline_popup_content" data-popup-src="popups/popup_8.html" id="container_popup_8"></div> <!-- "SWBF2 (2017) COLLECTION" -->
+<!-- POPUP L4D2 MODS -->
+<div class="timeline_popup_content" data-popup-src="popups/popup_9.html" id="container_popup_9"></div> <!-- "LEFT 4 DEAD MOD COLLECTION" -->
+<!-- POPUP GULLYPASS/GULLYCREAK -->
+<div class="timeline_popup_content" data-popup-src="popups/popup_10.html" id="container_popup_10"></div> <!-- "GULLYPASS COLLECTION" -->
+<!-- POPUP RUSH GAMEMODE -->
+<div class="timeline_popup_content" data-popup-src="popups/popup_11.html" id="container_popup_11"></div> <!-- "THE RUSH GAMEMODE" -->
+<!-- POPUP GAMEBANANA COLLECTION -->
+<div class="timeline_popup_content" data-popup-src="popups/popup_12.html" id="container_popup_12"></div> <!-- "GAMEBANANA COLLECTION" -->
+<!-- POPUP THE LOW PROFILE COLLECTION -->
+<div class="timeline_popup_content" data-popup-src="popups/popup_13.html" id="container_popup_13"></div> <!-- "THE LOW PROFILE COLLECTION" -->
+<!-- POPUP VIPR GAMEMODE -->
+<div class="timeline_popup_content" data-popup-src="popups/popup_14.html" id="container_popup_14"></div> <!-- "VIPRACE GAMEMODE" -->
+<!-- POPUP GRENADE MODE -->
+<div class="timeline_popup_content" data-popup-src="popups/popup_15.html" id="container_popup_15"></div> <!-- "GRENADE MODE" -->
+<!-- POPUP STELLARIS COLLECTION -->
+<div class="timeline_popup_content" data-popup-src="popups/popup_16.html" id="container_popup_16"></div> <!-- "STELLARIS COLLECTION" -->
+</div>
+</div>
+<!-- TOP SECTION / HEADER -->
+<div class="container_header_top">
+<div class="header_top">
+<button aria-controls="header_mobile_menu" aria-expanded="false" class="header_mobile_menu_button" onclick="OnClickSound()" onmousedown="OnHoldSound()" onmouseenter="OnHoverSound()" type="button">
+<span class="header_mobile_menu_button_text" data-i18n-file="shared" data-i18n-key="header.menu">MENU</span>
+</button>
+<div class="header_navigation_buttons" id="header_mobile_menu">
+<button class="header_top_button" onclick="ShowTab_1(); OnClickSound()" onmousedown="OnHoldSound()" onmouseenter="OnHoverSound()"> <p class="header_top_button_text" data-i18n-file="shared" data-i18n-key="header.intro">INTRO</p> </button>
+<button class="header_top_button" onclick="ShowTab_2(); OnClickSound()" onmousedown="OnHoldSound()" onmouseenter="OnHoverSound()"> <p class="header_top_button_text" data-i18n-file="shared" data-i18n-key="header.timeline">TIMELINE</p> </button>
+</div>
+<button aria-label="Switch to Norwegian" class="header_top_language_button" id="language_en" onclick="I18n.toggleLanguage(); OnClickSound()" onmousedown="OnHoldSound()" onmouseenter="OnHoverSound()" title="Switch to Norwegian" type="button"></button>
+</div>
+</div>
+<div class="header_top_fake"></div>
+<!-- ABOUT ME SECTION / INTRO SECTION -->
+<div> <!-- TAB 1 START -->
+<div id="container_tab_1">
+<div class="container_about_me_box">
+<div class="about_me_box">
+<div class="container_about_me_box_text">
+<header class="header_about_me_box_text" data-i18n-file="intro" data-i18n-key="welcome_heading">Hello, Welcome to Jonathan Erik Reppen's Portfolio</header>
+<div class="about_me_box_text">
+<h3 class="about_me_box_text_header" data-i18n-file="intro" data-i18n-key="about.heading">ABOUT ME</h3>
+<div class="about_me_line"></div>
+<p data-i18n-file="intro" data-i18n-key="about.paragraph_01">I'm a self-taught game developer, that takes whatever opportunity is available around places and strives to develop on my own and others sectors to eventually get into the industry </p>
+<p data-i18n-file="intro" data-i18n-key="about.paragraph_02">I have for many years been modding several video games, like Star Wars Battlefront, STALKER, and more. But my biggest projects were within Map making for Team Fortress 2, and Mod making for Hearts of Iron 4, where I was involved in community projects and standalone total overhaul mods </p>
+<p data-i18n-file="intro" data-i18n-key="about.paragraph_03">Ever since I started to see the potential I had as a game developer since I started all the way back in 2016 when I was 15, I've been actively developing myself to further enhance my chances of getting a job as a game developer, and as a project to one day produce a video game. In that time, I have been plenty of visits to game studios like, 2K Studios, been to interviews with game development studios and developed a mobile game as per a group effort. Even as I had and was recovering from a heart surgery, I continued to develop myself to eventually strike gold whenever I could be hired</p>
+<p data-i18n-file="intro" data-i18n-key="about.paragraph_04">One thing I've learned as a developer, is to adapt to all kinds of new technologies that comes your way, and that includes Artificial Intelligence that I use regularly to enhance my coding experiences, and to reduce workflow. The overall usage of it has increased the flow by 80% when I work on projects, and that is a very good saying. I normally also tend to work 50/50 with it, with me coding some of the code, and me guiding the artificial intelligence to do it for me.</p>
+<h3 data-i18n-file="intro" data-i18n-key="current_situation.heading">CURRENT SITUATION</h3>
+<div class="about_me_line"></div>
+<p data-i18n-file="intro" data-i18n-key="current_situation.paragraph_01">As of April of 2026, I am currently on the bounds to quit the Source engine and move on to fully learn both Unity and Unreal in a gradual amount of time, with Courses and self learning </p>
+<p data-i18n-file="intro" data-i18n-key="current_situation.paragraph_02">With the goal of helping me get better chances to get hired in any kind of circumstance. </p>
+<p data-i18n-file="intro" data-i18n-key="current_situation.paragraph_03">The second goal, and the thing I will be normally doing alongside it, is developing a video game. Whether I succeed depends on my own abilities as I learn the engines, and the determination I put into it </p>
+</div>
+</div>
+</div>
+<div class="container_about_me_pl">
+<div class="about_me_picture"></div>
+<div class="about_me_links">
+<a aria-label="LinkedIn" class="contact_button_1" data-contact="LinkedIn" data-i18n-attr-aria-label="contact.linkedin" data-i18n-attr-data-contact="contact.linkedin" data-i18n-file="shared" href="https://no.linkedin.com/in/jonathan-erik-reppen-0915642a0/en?trk=people-guest_people_search-card" onclick="OnClickSound()" onmousedown="OnHoldSound()" onmouseenter="OnHoverSound()" target="_blank"></a>
+<a aria-label="Email" class="contact_button_2" data-contact="Email" data-i18n-attr-aria-label="contact.email" data-i18n-attr-data-contact="contact.email" data-i18n-file="shared" href="mailto: jonathan.reppen@outlook.com" onclick="OnClickSound()" onmousedown="OnHoldSound()" onmouseenter="OnHoverSound()" target="_blank"></a>
+<a aria-label="GitHub" class="contact_button_3" data-contact="GitHub" data-i18n-attr-aria-label="contact.github" data-i18n-attr-data-contact="contact.github" data-i18n-file="shared" href="https://github.com/JonathanPR-Github?tab=repositories" onclick="OnClickSound()" onmousedown="OnHoldSound()" onmouseenter="OnHoverSound()" target="_blank"></a>
+<a aria-label="YouTube" class="contact_button_4" data-contact="YouTube" data-i18n-attr-aria-label="contact.youtube" data-i18n-attr-data-contact="contact.youtube" data-i18n-file="shared" href="https://www.youtube.com/@jonathnpr5934/videos" onclick="OnClickSound()" onmousedown="OnHoldSound()" onmouseenter="OnHoverSound()" target="_blank"></a>
+</div>
+<div class="about_me_site_info">
+<h2 data-i18n-file="intro" data-i18n-key="site_info.heading">THIS SITE WAS WRITTEN BY ME IN:</h2>
+<div class="about_me_site_info_line"></div>
+<div class="container_about_me_site_info">
+<div class="about_me_box_icon"><img alt="" class="lazy_img" decoding="async" loading="lazy" src="images/buttons/icons/html_icon.png"/></div>
+<div class="about_me_box_icon"><img alt="" class="lazy_img" decoding="async" loading="lazy" src="images/buttons/icons/css_icon.png"/></div>
+<div class="about_me_box_icon"><img alt="" class="lazy_img" decoding="async" loading="lazy" src="images/buttons/icons/js_icon.png"/></div>
+</div>
+</div>
+</div> <!-- container_about_me_pl END -->
+</div> <!-- container_about_me_box END -->
+</div> <!-- container_tab_1 END -->
+</div> <!-- TAB 1 END -->
+<!-- TIMELINE SECTION -->
+<div> <!-- TAB 2 START -->
+<div id="container_tab_2">
+<div class="container_timeline_tutorial_box">
+<div class="timeline_tutorial_box">
+<div class="container_timeline_tutorial_box_text">
+<div class="about_me_box_text">
+<h3 data-i18n-file="timeline" data-i18n-key="about.heading">ABOUT THE TIMELINE</h3>
+<div class="about_me_line"></div>
+<p data-i18n-file="timeline" data-i18n-html="true" data-i18n-key="about.paragraph_01">The Timeline is a few sections and rows of development I've done throughout my career, in it you will find a set of mods I made to video games and projects that I've been involved within the last few years alongside some other mixed elements of what I've worked on. 
+                <br/>The rows of boxes with images are the projects I've done, with icons on the top of the box related to the game its linked to. Once clicked on, it will open a popup with relevant information about what the project was about.</p>
+<p data-i18n-file="timeline" data-i18n-html="true" data-i18n-key="about.paragraph_02">The popups consists of information about what the project was related to, images and video explanations, links to any sites like Steam, the length of the development and what it was coded in. 
+                <br/>On the bottom of the site, there is a section for competence related to what was used in the project such as the programming language</p>
+</div>
+</div>
+</div>
+</div>
+<!-- TIMELINE START -->
+<div class="container_timeline">
+<!-- MODS/PROJECTS SECTION -->
+<div class="timeline_total_box"> <!-- BACKGROUND BOX TIMELINE OUTER -->
+<div class="timeline_total_box_inner"> <!-- BACKGROUND BOX TIMELINE INNER -->
+<div class="timeline-section">
+<div class="timeline-label" data-i18n-file="timeline" data-i18n-key="categories.mods_projects">MODS/PROJECTS</div>
+<div class="timeline-line-and-boxes">
+<div class="timeline-line"></div>
+<div class="container_timeline_box">
+<button ;="" class="timeline_box" onclick="OpenPopup(); popup(1); OnClickSound()" onmousedown="OnHoldSound()" onmouseenter="OnHoverSound()"><img alt="THE FIRST TRIES" class="lazy_img" decoding="async" loading="lazy" src="images/buttons/small/timeline_box_1.jpg"/>
+<div class="timeline_box_icon"><img alt="" class="lazy_img" decoding="async" loading="lazy" src="images/buttons/icons/tf2_icon.png"/></div>
+</button>
+<button ;="" class="timeline_box" onclick="OpenPopup(); popup(3); OnClickSound()" onmousedown="OnHoldSound()" onmouseenter="OnHoverSound()"><img alt="THE HOI4 JOHN COLLECTION" class="lazy_img" decoding="async" loading="lazy" src="images/buttons/small/timeline_box_3.jpg"/>
+<div class="timeline_box_icon"><img alt="" class="lazy_img" decoding="async" loading="lazy" src="images/buttons/icons/hoi4_icon.png"/></div>
+</button>
+<button ;="" class="timeline_box" onclick="OpenPopup(); popup(4); OnClickSound()" onmousedown="OnHoldSound()" onmouseenter="OnHoverSound()"><img alt="THE DEATHRUN SAGA COLLECTION" class="lazy_img" decoding="async" loading="lazy" src="images/buttons/small/timeline_box_4.jpg"/>
+<div class="timeline_box_icon"><img alt="" class="lazy_img" decoding="async" loading="lazy" src="images/buttons/icons/tf2_icon.png"/></div>
+</button>
+<button ;="" class="timeline_box" onclick="OpenPopup(); popup(6); OnClickSound()" onmousedown="OnHoldSound()" onmouseenter="OnHoverSound()"><img alt="RED DUSK" class="lazy_img" decoding="async" loading="lazy" src="images/buttons/small/timeline_box_6.jpg"/>
+<div class="timeline_box_icon"><img alt="" class="lazy_img" decoding="async" loading="lazy" src="images/buttons/icons/hoi4_icon.png"/></div>
+</button>
+<button ;="" class="timeline_box" onclick="OpenPopup(); popup(7); OnClickSound()" onmousedown="OnHoldSound()" onmouseenter="OnHoverSound()"><img alt="S.T.A.L.K.E.R ANOMALY COLLECTION" class="lazy_img" decoding="async" loading="lazy" src="images/buttons/small/timeline_box_7.jpg"/>
+<div class="timeline_box_icon"><img alt="" class="lazy_img" decoding="async" loading="lazy" src="images/buttons/icons/stalker_icon.png"/></div>
+</button>
+<button ;="" class="timeline_box" onclick="OpenPopup(); popup(8); OnClickSound()" onmousedown="OnHoldSound()" onmouseenter="OnHoverSound()"><img alt="SWBF2 (2017) COLLECTION" class="lazy_img" decoding="async" loading="lazy" src="images/buttons/small/timeline_box_8.jpg"/>
+<div class="timeline_box_icon"><img alt="" class="lazy_img" decoding="async" loading="lazy" src="images/buttons/icons/bf2_icon.png"/></div>
+</button>
+<button ;="" class="timeline_box" onclick="OpenPopup(); popup(9); OnClickSound()" onmousedown="OnHoldSound()" onmouseenter="OnHoverSound()"><img alt="LEFT 4 DEAD MOD COLLECTION" class="lazy_img" decoding="async" loading="lazy" src="images/buttons/small/timeline_box_9.jpg"/>
+<div class="timeline_box_icon"><img alt="" class="lazy_img" decoding="async" loading="lazy" src="images/buttons/icons/l4d2_icon.png"/></div>
+</button>
+<button ;="" class="timeline_box" onclick="OpenPopup(); popup(10); OnClickSound()" onmousedown="OnHoldSound()" onmouseenter="OnHoverSound()"><img alt="GULLYPASS COLLECTION" class="lazy_img" decoding="async" loading="lazy" src="images/buttons/small/timeline_box_10.jpg"/>
+<div class="timeline_box_icon"><img alt="" class="lazy_img" decoding="async" loading="lazy" src="images/buttons/icons/tf2_icon.png"/></div>
+</button>
+<button ;="" class="timeline_box" onclick="OpenPopup(); popup(11); OnClickSound()" onmousedown="OnHoldSound()" onmouseenter="OnHoverSound()"><img alt="THE RUSH GAMEMODE" class="lazy_img" decoding="async" loading="lazy" src="images/buttons/small/timeline_box_11.jpg"/>
+<div class="timeline_box_icon"><img alt="" class="lazy_img" decoding="async" loading="lazy" src="images/buttons/icons/tf2_icon.png"/></div>
+</button>
+<button ;="" class="timeline_box" onclick="OpenPopup(); popup(12); OnClickSound()" onmousedown="OnHoldSound()" onmouseenter="OnHoverSound()"><img alt="GAMEBANANA COLLECTION" class="lazy_img" decoding="async" loading="lazy" src="images/buttons/small/timeline_box_12.jpg"/>
+<div class="timeline_box_icon"><img alt="" class="lazy_img" decoding="async" loading="lazy" src="images/buttons/icons/tf2_icon.png"/></div>
+<div class="timeline_box_icon"><img alt="" class="lazy_img" decoding="async" loading="lazy" src="images/buttons/icons/tf2c_icon.png"/></div>
+<div class="timeline_box_icon"><img alt="" class="lazy_img" decoding="async" loading="lazy" src="images/buttons/icons/pf2_icon.png"/></div>
+</button>
+<button ;="" class="timeline_box" onclick="OpenPopup(); popup(13); OnClickSound()" onmousedown="OnHoldSound()" onmouseenter="OnHoverSound()"><img alt="THE LOW PROFILE COLLECTION" class="lazy_img" decoding="async" loading="lazy" src="images/buttons/small/timeline_box_13.jpg"/>
+<div class="timeline_box_icon"><img alt="" class="lazy_img" decoding="async" loading="lazy" src="images/buttons/icons/tf2_icon.png"/></div>
+</button>
+<button ;="" class="timeline_box" onclick="OpenPopup(); popup(14); OnClickSound()" onmousedown="OnHoldSound()" onmouseenter="OnHoverSound()"><img alt="VIPRACE GAMEMODE" class="lazy_img" decoding="async" loading="lazy" src="images/buttons/small/timeline_box_14.jpg"/>
+<div class="timeline_box_icon"><img alt="" class="lazy_img" decoding="async" loading="lazy" src="images/buttons/icons/tf2_icon.png"/></div>
+</button>
+<button ;="" class="timeline_box" onclick="OpenPopup(); popup(15); OnClickSound()" onmousedown="OnHoldSound()" onmouseenter="OnHoverSound()"><img alt="GRENADE MODE" class="lazy_img" decoding="async" loading="lazy" src="images/buttons/small/timeline_box_15.jpg"/>
+<div class="timeline_box_icon"><img alt="" class="lazy_img" decoding="async" loading="lazy" src="images/buttons/icons/tf2_icon.png"/></div>
+</button>
+<button ;="" class="timeline_box" onclick="OpenPopup(); popup(16); OnClickSound()" onmousedown="OnHoldSound()" onmouseenter="OnHoverSound()"><img alt="STELLARIS COLLECTION" class="lazy_img" decoding="async" loading="lazy" src="images/buttons/small/timeline_box_16.avif"/>
+<div class="timeline_box_icon"><img alt="" class="lazy_img" decoding="async" loading="lazy" src="images/buttons/icons/stellaris_icon.png"/></div>
+</button>
+</div>
+</div>
+</div>
+<!-- GAMES SECTION -->
+<div class="timeline-section">
+<div class="timeline-label" data-i18n-file="timeline" data-i18n-key="categories.games">GAMES</div>
+<div class="timeline-line-and-boxes">
+<div class="timeline-line"></div>
+<div class="container_timeline_box">
+<button ;="" class="timeline_box" onclick="OpenPopup(); popup(5); OnClickSound()" onmousedown="OnHoldSound()" onmouseenter="OnHoverSound()"><img alt="DOVREGUBBEN" class="lazy_img" decoding="async" loading="lazy" src="images/buttons/small/timeline_box_5.jpg"/>
+<div class="timeline_box_icon"><img alt="" class="lazy_img" decoding="async" loading="lazy" src="images/buttons/icons/godot_icon.png"/></div>
+</button>
+</div>
+</div>
+</div>
+<!-- MIX SECTION -->
+<div class="timeline-section">
+<div class="timeline-label" data-i18n-file="timeline" data-i18n-key="categories.mix">MIX</div>
+<div class="timeline-line-and-boxes">
+<div class="timeline-line"></div>
+<div class="container_timeline_box">
+<button ;="" class="timeline_box" onclick="OpenPopup(); popup(2); OnClickSound()" onmousedown="OnHoldSound()" onmouseenter="OnHoverSound()"><img alt="THE FIRST PORTFOLIO" class="lazy_img" decoding="async" loading="lazy" src="images/buttons/small/timeline_box_2.jpg"/>
+<div class="timeline_box_icon"><img alt="" class="lazy_img" decoding="async" loading="lazy" src="images/buttons/icons/html_icon.png"/></div>
+<div class="timeline_box_icon"><img alt="" class="lazy_img" decoding="async" loading="lazy" src="images/buttons/icons/css_icon.png"/></div>
+<div class="timeline_box_icon"><img alt="" class="lazy_img" decoding="async" loading="lazy" src="images/buttons/icons/js_icon.png"/></div>
+</button>
+</div>
+</div>
+</div>
+</div> <!-- BACKGROUND BOX TIMELINE INNER -->
+</div> <!-- BACKGROUND BOX TIMELINE OUTER -->
+</div>
+</div>
+</div> <!-- TAB 2 END -->
 </body>
-
 </html>

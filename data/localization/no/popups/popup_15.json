@@ -1,0 +1,21 @@
+{
+    "_comment": "Norske strenger for popup 15. Denne filen styrer kun teksten i popup_15.html.",
+    "title": "\"GRENADE MODE\"",
+    "date": "2026",
+    "paragraph_01": "Under utviklingen av VIPR ble jeg kontaktet av personen som opprinnelig foreslo Mobster VIP og ledet modellarbeidet for spillerfigurene. Vedkommende hadde et forslag til en ny spillmodus, men forklarte at det egentlig skulle være mer av en kartmekanikk enn en full spillmodus.",
+    "paragraph_02": "Dette ble Grenade Mode, som forsøkte å bringe tilbake granatene som ble fjernet fra TF2-betaen i 2006, ved hjelp av mulighetene i VScript.<br>I motsetning til VIPR var Grenade Mode ikke en egen spillmodus, men en kartmekanikk. Granater kunne plasseres rundt på kartet på samme måte som Halloween-formelbøkene på Valves Halloween-kart, slik at spillerne kunne bruke granater i stedet. Dette ble senere erstattet med et mer internt system hvor granatene ble lagret hos spilleren i et virtuelt inventar.",
+    "paragraph_03": "I den første versjonen kontrollerte systemet hvert spillsteg om spilleren hadde en Halloween-formelbok, tvang frem en bestemt formel og ga spilleren en granat gjennom en funksjon. Når spilleren kastet den, ble det i stedet kastet en fysisk granatmodell som eksploderte etter et bestemt antall sekunder.<br>Modusen inneholdt ni klassespesifikke granater basert på utvalget i Team Fortress Classic og fem egendefinerte granater jeg selv fant på når modusen var satt til tilfeldig valg.",
+    "paragraph_04": "Grenade Mode hadde mange problemer under utviklingen. Modusen sendte store mengder pakkedata til serverne, noe som overbelastet dem og skapte ukontrollerbar forsinkelse. Dette skyldtes flere sider ved kodingen, men hovedsakelig hvordan granatdata ble lagret, at enkelte entiteter ikke ble fjernet når de ble ødelagt, og at noen funksjoner manglet avslutning og derfor gjentok seg kontinuerlig.",
+    "paragraph_05": "Modusen ble først kodet i ChatGPT, men senere skrevet om i Claude under min veiledning. Claude var bedre egnet til kodearbeidet og hjalp med å finne de opprinnelige problemene i systemet.",
+    "paragraph_06": "For å teste modusen brukte vi Valve-kartene Dustbowl, 2Fort og Junction, som opprinnelig skulle ha hatt granater. Flere steder i kartene har fortsatt spor fra betaen som antyder dette. De første granatplasseringene var basert på Team Fortress Classic, men flere ble lagt til etter hvert som modusen ble testet.",
+    "paragraph_07": "Grenade Mode fikk gode tilbakemeldinger. Mange syntes det var interessant å se granatene vende tilbake og forestille seg hvordan TF2 kunne ha blitt dersom de hadde vært med i det ferdige spillet.",
+    "competence_heading": "KOMPETANSE",
+    "competence_item_01": "SDK Hammer-motoren",
+    "competence_item_02": "VScript",
+    "competence_item_03": "Blender",
+    "competence_item_04": "GIMP",
+    "competence_item_05": "Inkscape",
+    "competence_item_06": "Discord",
+    "competence_item_07": "ChatGPT",
+    "competence_item_08": "Claude"
+}

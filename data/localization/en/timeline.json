@@ -1,0 +1,9 @@
+{
+    "_comment": "English strings for the Timeline tab only.",
+    "about.heading": "ABOUT THE TIMELINE",
+    "about.paragraph_01": "The Timeline is a few sections and rows of development I've done throughout my career, in it you will find a set of mods I made to video games and projects that I've been involved within the last few years alongside some other mixed elements of what I've worked on.<br>The rows of boxes with images are the projects I've done, with icons on the top of the box related to the game its linked to. Once clicked on, it will open a popup with relevant information about what the project was about.",
+    "about.paragraph_02": "The popups consists of information about what the project was related to, images and video explanations, links to any sites like Steam, the length of the development and what it was coded in.<br>On the bottom of the site, there is a section for competence related to what was used in the project such as the programming language",
+    "categories.mods_projects": "MODS/PROJECTS",
+    "categories.games": "GAMES",
+    "categories.mix": "MIX"
+}

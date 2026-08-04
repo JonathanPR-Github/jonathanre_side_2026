@@ -1,0 +1,16 @@
+{
+    "_comment": "Norske strenger for popup 2. Denne filen styrer kun teksten i popup_2.html.",
+    "title": "\"DEN FØRSTE PORTEFØLJEN\"",
+    "date": "2022 - 2023",
+    "paragraph_01": "Ideen til den første porteføljen min oppsto opprinnelig mens jeg gikk på folkehøgskole.",
+    "paragraph_02": "Det var likevel ikke før jeg var hos det NAV-tilknyttede veiledningsselskapet «Funkweb» at jeg tok initiativ til å bygge et porteføljenettsted som viste frem arbeidet jeg hadde gjort til da, noe som på den tiden ikke var spesielt omfattende.",
+    "paragraph_03": "Grafikken på nettstedet lignet mye på kartet jeg utviklet på samme tid, med mye gult og striper som passet uttrykket. Selve nettstedet besto av fem faner: <ul class=\"timeline_popup_subheader\"><li>Introduksjon</li><li>Spillutvikling</li><li>Blender</li><li>Videoredigering</li><li>Grafisk arbeid</li></ul>",
+    "paragraph_04": "Nettstedet var laget for å gi så mye informasjon som mulig til potensielt interesserte personer, men dette gjorde også nettstedet for omfattende. Bak grafikken lå det en svært stor mengde kode som jeg brukte over to uker på å skrive for hånd i 2023.",
+    "paragraph_05": "Porteføljen hjalp meg flere ganger med å få arbeid eller komme nær en ansettelse. Ett bemerkelsesverdig tilfelle var da jeg deltok i to intervjuer med Snowcastle Games.",
+    "paragraph_06": "Etter at jeg laget den, oppdaterte jeg den likevel nesten aldri, fordi jeg følte at jeg ennå ikke hadde nok å vise frem. Det var først i 2026 at jeg laget en ny portefølje.",
+    "competence_heading": "KOMPETANSE",
+    "competence_item_01": "HTML",
+    "competence_item_02": "CSS",
+    "competence_item_03": "JS",
+    "competence_item_04": "VS Code"
+}

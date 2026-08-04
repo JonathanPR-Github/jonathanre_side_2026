@@ -125,6 +125,13 @@
             .then(function (html) {
                 el.innerHTML = html;
                 prepareStillImageOpeners(el);
+
+                // LOCALIZATION: popup text lives in its own popup_N.json file.
+                // Apply the currently selected language as soon as the fragment is inserted.
+                if (window.I18n && typeof window.I18n.applyTo === 'function') {
+                    window.I18n.applyTo(el);
+                }
+
                 // the images inside carry loading="lazy", so the browser
                 // handles them; the videos wait until the popup opens
             })
@@ -134,9 +141,9 @@
                     '<div class="timeline_popup_textbox">' +
                         '<div class="timeline_popup_textbox_inner">' +
                             '<div class="timeline_popup_text_content">' +
-                                '<p class="timeline_popup_header">CONTENT COULD NOT BE LOADED</p>' +
+                                '<p class="timeline_popup_header" data-i18n-file="shared" data-i18n-key="popup_error.heading">CONTENT COULD NOT BE LOADED</p>' +
                                 '<div class="timeline_popup_line"></div>' +
-                                '<p class="timeline_popup_subheader">' +
+                                '<p class="timeline_popup_subheader" data-i18n-file="shared" data-i18n-key="popup_error.body">' +
                                     'If you opened index.html straight from your file system, ' +
                                     'the browser blocks loading extra files. Run the site through ' +
                                     'a local web server instead (VS Code "Live Server", or ' +
@@ -145,6 +152,11 @@
                             '</div>' +
                         '</div>' +
                     '</div>';
+
+                // LOCALIZATION: translate the error message as well.
+                if (window.I18n && typeof window.I18n.applyTo === 'function') {
+                    window.I18n.applyTo(el);
+                }
             });
 
         return el._popupPromise;

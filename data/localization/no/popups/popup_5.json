@@ -1,0 +1,19 @@
+{
+    "_comment": "Norske strenger for popup 5. Denne filen styrer kun teksten i popup_5.html.",
+    "title": "\"DOVREGUBBEN\"",
+    "date": "2023 - 2024",
+    "paragraph_01": "Dovregubben, med kodenavnet «Game6», var et kort siderullende videospill utviklet i Godot for å promotere et produkt for selskapet «Funkweb», hvor jeg var tilknyttet gjennom veiledning.",
+    "paragraph_02": "Spillet ble utviklet av de fleste som var tilknyttet selskapet gjennom veiledning, hovedsakelig webdesignere. Totalt arbeidet omtrent 20 personer med prosjektet av og på, siden det var et prosjekt man kunne bidra til når man hadde anledning.",
+    "paragraph_03": "Under utviklingen var jeg banedesigner og delvis prosjektleder. Jeg utviklet den eneste banen som til slutt ble brukt, og foreslo rammeverket for hvordan spillet skulle fungere. Banen ble laget i et banedesignverktøy jeg fant da jeg begynte å arbeide med Godot, noe som reduserte arbeidsmengden.",
+    "paragraph_04": "Historien i Dovregubben handler om figuren «Dovregubben», som elsker å gå på ski. En dag stjeler et stort troll alle skiene hans fra hytta og løper av gårde. Dovregubben ser dette og følger etter på den ene skien trollet glemte.",
+    "paragraph_05": "Spillet var planlagt med ti baner, sjefskamper, en butikk mellom annethvert nivå, et valutasystem for å kjøpe oppgraderinger og tilpassbare antrekk. På grunn av tidsbegrensninger og manglende motivasjon i teamet ble bare én bane ferdigstilt, og denne utgjorde hele spillet.",
+    "paragraph_06": "Dovregubben ble utgitt tidlig i 2024 og fikk gode tilbakemeldinger. Siden spillet var uferdig, fikk det likevel aldri ordentlig gjennomslag.",
+    "competence_heading": "KOMPETANSE",
+    "competence_item_01": "Godot",
+    "competence_item_02": "GDScript",
+    "competence_item_03": "GitHub",
+    "competence_item_04": "Git Bash",
+    "competence_item_05": "GIMP",
+    "competence_item_06": "Inkscape",
+    "competence_item_07": "Discord"
+}
