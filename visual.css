@@ -25,6 +25,13 @@ p {
     color: wheat;
 }
 
+a {
+    font-family: Georgia, "Times New Roman", serif;
+    color: lightskyblue;
+    font-size: 35px;
+    text-transform: uppercase;
+}
+
 /* TOP SECTION / HEADER */
 
 .container_header_top {
@@ -1080,6 +1087,7 @@ body.popup_active .container_header_top {
     font-family: Impact, 'Arial Black', sans-serif;
     text-transform: uppercase;
     margin: 0;
+    margin-bottom: 5%;
 }
 
 .timeline_popup_line {
@@ -1093,8 +1101,9 @@ body.popup_active .container_header_top {
 
 .timeline_popup_subheader {
     color: wheat;
-    font-size: 1.1vw;
+    font-size: 0.9vw;
     margin-bottom: 5%;
+    font-family: Georgia, "Times New Roman", serif;
 
 }
 
@@ -1210,6 +1219,11 @@ body.popup_active .container_header_top {
 
 /* --- SMALL (481px – 767px): large phones / small tablets --- */
 @media (max-width: 767px) {
+
+    /* PHONE LINKS - SMALLER TEXT SIZE */
+    a {
+        font-size: 15px;
+    }
 
     body {
         height: auto;

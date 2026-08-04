@@ -4,7 +4,16 @@
      Image and link paths are relative to index.html, not to this file. -->
 
 <!-- LEFT SIDE: BLACK BOXES GRID -->
-<div class="timeline_popup_boxes_half">
+<div class="timeline_popup_boxes">
+    <div class="timeline_popup_box_img"">
+         <iframe
+            data-src="https://www.youtube.com/embed/o9uo3NtV2q8"
+            title="YouTube video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen loading="lazy">
+        </iframe>
+    </div>
+    <div class="timeline_popup_box_img"><img class="lazy_img" src="images/buttons/big/grenademode_img_1.jpg" alt="THE FIRST TRIES - screenshot 1" loading="lazy" decoding="async"></div>
     <div class="timeline_popup_box_img">
         <video loop muted playsinline>
             <source src="images/buttons/big/grenade_mode_img_1.webm" type="video/webm">
@@ -22,11 +31,11 @@
             <p class="timeline_popup_header">2026</p>
 
             <p class="timeline_popup_subheader">During the development of VIPR, i was contacted by the orginal pitcher and directing modeller for the playermodels of the VIP mobster gamemode, with a proposal for a another gamemode. But as they explained to me it wasn't exactly going to be a gamemode and more like a map gimmick</p>
-            <p class="timeline_popup_subheader">This was Grenade Mode, and grenade mode attempted to bring back the cut grenades from the TF2 Beta in 2006, by means that we're possible within Vscript. <br> Unlike the VIPR gamemode, Grenade mode was not a gamemode, but a map gimmick, meaning that it could be placed around like the halloween spellbooks on Valve's Halloween maps, enabling players to use grenades over spellbooks</p>
+            <p class="timeline_popup_subheader">This was Grenade Mode, and grenade mode attempted to bring back the cut grenades from the TF2 Beta in 2006, by means that we're possible within Vscript. <br> Unlike the VIPR gamemode, Grenade mode was not a gamemode, but a map gimmick, meaning that it could be placed around like the halloween spellbooks on Valve's Halloween maps, enabling players to use grenades over spellbooks. However this was later replaced with a more inhouse system, where grenades was instead kept on the player as a virtual inventory</p>
             <p class="timeline_popup_subheader">The mode initially worked by tick detecting whenever a player had a Halloween Spellbook, forcing them to have a specific spell, then giving them a grenade as per function, then detecing when they threw it, threw a prop grenade instead that would explode after a certain amount of seconds. <br> It had 9 class specific grenades based on the selection given in the previous installment Team Fortess Classic, and 5 custom made grenades that i came up with, if the mode was set to be Random</p>
-            <p class="timeline_popup_subheader">Grenade mode had a rough start, with it being plagued by unexplained server lag that i tried to combat several times, this came about from a combination of how many functionalities we're being run at the same time, and any potential leak that would come about from the code that was being drawn from</p>
+            <p class="timeline_popup_subheader">Grenade mode had a lot of blunders throughout its development, the mode kept sending large amount of packet data to servers which would overload them and make them lag uncontrollable, this was due to a few factors with how the gamemode was coded, but most of them we're due to how data was stored for the grenades, how some entities we're not killed on destruction, and how some functions had no end which made repetitions in the code.</p>
             <p class="timeline_popup_subheader">The mode was initially coded in ChatGPT, but was later coded in Claude with supervision from me, a much more superiour coding AI that would help out root the initial problems of the mode</p>
-            <p class="timeline_popup_subheader">To test the mode, we used the Valve map Dustbowl who we're originally going to have Grenades, hence hints by some of the locations who still leaves around marks from the Beta. Grenade placements we're initially based upon those from Team Fortress Classic, but what later on added more of as the mode was tested</p>
+            <p class="timeline_popup_subheader">To test the mode, we used the Valve map Dustbowl, 2Fort and Junction who we're originally going to have Grenades, hence hints by some of the locations who still leaves around marks from the Beta. Grenade placements we're initially based upon those from Team Fortress Classic, but what later on added more of as the mode was tested</p>
             <p class="timeline_popup_subheader">Grenade Mode was received possitivly, with most people saying it was pretty interesting with the grenades returning, and how TF2 might have turned out with them</p>
 
 
