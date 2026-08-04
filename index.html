@@ -7,6 +7,8 @@
 <meta content="noindex, nofollow, noarchive, nosnippet" name="robots"/>
 <!-- LINK SECTION -->
 <link href="visual.css" rel="stylesheet"/>
+<!-- SITE THEMES: applies the saved/random color theme before the page is drawn -->
+<script src="data/theme_manager.js"></script>
 <script src="java.js"></script>
 <!-- defer = downloaded now, run in this order once the page is parsed -->
 <script defer="" src="data/about_me_fit.js"></script>
@@ -92,7 +94,22 @@
 <button class="header_top_button" onclick="ShowTab_1(); OnClickSound()" onmousedown="OnHoldSound()" onmouseenter="OnHoverSound()"> <p class="header_top_button_text" data-i18n-file="shared" data-i18n-key="header.intro">INTRO</p> </button>
 <button class="header_top_button" onclick="ShowTab_2(); OnClickSound()" onmousedown="OnHoldSound()" onmouseenter="OnHoverSound()"> <p class="header_top_button_text" data-i18n-file="shared" data-i18n-key="header.timeline">TIMELINE</p> </button>
 </div>
+<!-- HEADER UTILITY BUTTONS: language selector and saved site-color theme selector -->
+<div class="header_utility_buttons">
 <button aria-label="Switch to Norwegian" class="header_top_language_button" id="language_en" onclick="I18n.toggleLanguage(); OnClickSound()" onmousedown="OnHoldSound()" onmouseenter="OnHoverSound()" title="Switch to Norwegian" type="button"></button>
+<div class="header_theme_selector">
+<button aria-controls="header_theme_menu" aria-expanded="false" aria-label="Choose site color theme" class="header_theme_button" data-i18n-attr-aria-label="theme.open_menu" data-i18n-attr-data-theme-hint="theme.hint_selector" data-i18n-file="shared" data-theme-hint="Color Themes" id="header_theme_button" onclick="OnClickSound()" onmousedown="OnHoldSound()" onmouseenter="OnHoverSound()" type="button">
+<img alt="" class="header_theme_button_icon" id="header_theme_button_icon" src="images/buttons/icons/themes/theme_default.svg"/>
+</button>
+<div aria-label="Site color themes" class="header_theme_menu" data-i18n-attr-aria-label="theme.menu_label" data-i18n-file="shared" id="header_theme_menu" role="group">
+<button aria-label="Random theme" aria-pressed="false" class="header_theme_option" data-i18n-attr-aria-label="theme.random" data-i18n-attr-data-theme-hint="theme.hint_random" data-i18n-file="shared" data-theme-choice="random" data-theme-hint="Random Theme" onclick="OnClickSound()" onmousedown="OnHoldSound()" onmouseenter="OnHoverSound()" type="button"><img alt="" src="images/buttons/icons/themes/theme_random.svg"/></button>
+<button aria-label="Default blue theme" aria-pressed="true" class="header_theme_option" data-i18n-attr-aria-label="theme.default" data-i18n-attr-data-theme-hint="theme.hint_default" data-i18n-file="shared" data-theme-choice="default" data-theme-hint="Default Blue" onclick="OnClickSound()" onmousedown="OnHoldSound()" onmouseenter="OnHoverSound()" type="button"><img alt="" src="images/buttons/icons/themes/theme_default.svg"/></button>
+<button aria-label="Orange theme" aria-pressed="false" class="header_theme_option" data-i18n-attr-aria-label="theme.orange" data-i18n-attr-data-theme-hint="theme.hint_orange" data-i18n-file="shared" data-theme-choice="orange" data-theme-hint="Orange Theme" onclick="OnClickSound()" onmousedown="OnHoldSound()" onmouseenter="OnHoverSound()" type="button"><img alt="" src="images/buttons/icons/themes/theme_orange.svg"/></button>
+<button aria-label="Green theme" aria-pressed="false" class="header_theme_option" data-i18n-attr-aria-label="theme.green" data-i18n-attr-data-theme-hint="theme.hint_green" data-i18n-file="shared" data-theme-choice="green" data-theme-hint="Green Theme" onclick="OnClickSound()" onmousedown="OnHoldSound()" onmouseenter="OnHoverSound()" type="button"><img alt="" src="images/buttons/icons/themes/theme_green.svg"/></button>
+<button aria-label="Purple theme" aria-pressed="false" class="header_theme_option" data-i18n-attr-aria-label="theme.purple" data-i18n-attr-data-theme-hint="theme.hint_purple" data-i18n-file="shared" data-theme-choice="purple" data-theme-hint="Purple Theme" onclick="OnClickSound()" onmousedown="OnHoldSound()" onmouseenter="OnHoverSound()" type="button"><img alt="" src="images/buttons/icons/themes/theme_purple.svg"/></button>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="header_top_fake"></div>

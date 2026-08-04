@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 64 64"
+     width="64"
+     height="64"
+     role="img"
+     aria-labelledby="title">
+  <title id="title">Green theme</title>
+  <defs>
+    <clipPath id="theme-icon-clip">
+      <rect x="4" y="4" width="56" height="56" rx="7" />
+    </clipPath>
+  </defs>
+
+  <rect x="4" y="4" width="56" height="56" rx="7" fill="#7da04b" />
+  <path d="M 4 60 L 60 4 L 60 60 Z"
+        fill="#497339"
+        clip-path="url(#theme-icon-clip)" />
+  <rect x="4" y="4" width="56" height="56" rx="7"
+        fill="none" stroke="#000000" stroke-width="4" />
+</svg>

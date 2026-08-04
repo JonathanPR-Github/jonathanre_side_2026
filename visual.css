@@ -1,6 +1,45 @@
+/* ============================================================
+   SITE COLOR THEMES
+   ------------------------------------------------------------
+   theme_manager.js changes data-site-theme on <html>. Only the
+   two requested site colors are replaced; the rest of the visual
+   design remains unchanged.
+   ============================================================ */
+:root {
+    --site-color-primary: rgb(80, 95, 145);
+    --site-color-secondary: #323c64;
+    --site-color-panel: #646464;
+
+    /* THEMED DOT TEXTURE: keeps the original dots on the default theme */
+    --site-background-dots: url("images/background/background_spaced_dots.png");
+}
+
+html[data-site-theme="orange"] {
+    /* ORANGE THEME: darker panel color and a softer dot texture for readability */
+    --site-color-primary: #c38740;
+    --site-color-secondary: #854921;
+    --site-color-panel: #393939;
+    --site-background-dots: url("images/background/background_spaced_dots_orange.png");
+}
+
+html[data-site-theme="green"] {
+    /* GREEN THEME: adjusted secondary color and a matching dot texture */
+    --site-color-primary: #7da04b;
+    --site-color-secondary: #497339;
+    --site-background-dots: url("images/background/background_spaced_dots_green.png");
+}
+
+html[data-site-theme="purple"] {
+    /* PURPLE THEME: darker popup/timeline panels and a matching dot texture */
+    --site-color-primary: #5f5091;
+    --site-color-secondary: #443361;
+    --site-color-panel: #393939;
+    --site-background-dots: url("images/background/background_spaced_dots_purple.png");
+}
+
 body {
     /* COLOR SECTION */
-  background-color: rgb(80, 95, 145);
+  background-color: var(--site-color-primary);
     /* SIZE SECTION */
   width: auto;
   min-height: 120vh;
@@ -10,7 +49,7 @@ body {
   padding: 0;
 
     /* DOTS */
-  background-image: url(images/background/background_spaced_dots.png);
+  background-image: var(--site-background-dots);
   background-size: 3vw;
 
 }
@@ -44,11 +83,11 @@ a {
     align-items: center;
     justify-content: center;
     
-    background-color: #323c64 ;
+    background-color: var(--site-color-secondary) ;
 
     width: 100vw ;
     max-width: 100% ;
-    height: 8vh ;
+    height: clamp(90px, 8vh, 110px);
     max-height: 100%;
     
 }
@@ -60,7 +99,7 @@ a {
 
     width: 100vw ;
     max-width: 100% ;
-    height: 8vh ;
+    height: clamp(90px, 8vh, 110px);
     max-height: 100%;
 
     margin-bottom: 4% ;
@@ -86,7 +125,7 @@ a {
     /* BLACK OUTLINE DRAWN INSIDE THE BUTTON, WITHOUT CHANGING ITS SIZE */
     box-shadow: inset 0 0 0 2px black;
 
-    background-color: #646464 ;
+    background-color: var(--site-color-panel) ;
     width: 10% ;
     height: 80% ;
 
@@ -145,6 +184,109 @@ a {
     background-position: center;
 }
 
+/* HEADER UTILITY BUTTONS - LANGUAGE AND SITE COLOR THEME */
+.header_utility_buttons {
+    position: absolute;
+    right: clamp(52px, 6vw, 116px);
+    top: 0;
+    bottom: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* LANGUAGE BUTTON - RESTORED TO ITS LARGER ORIGINAL HEADER POSITION */
+.header_utility_buttons .header_top_language_button {
+    width: clamp(48px, 4vw, 70px);
+    height: clamp(48px, 4vw, 70px);
+}
+
+/* DESKTOP THEME SELECTOR - LARGE, NOTICEABLE AND FIXED TO THE BOTTOM LEFT */
+.header_theme_selector {
+    position: fixed;
+    left: clamp(14px, 1.2vw, 24px);
+    bottom: clamp(14px, 1.2vw, 24px);
+    z-index: 30;
+}
+
+.header_theme_button {
+    width: clamp(64px, 4.5vw, 84px);
+    height: clamp(64px, 4.5vw, 84px);
+}
+
+.header_theme_button,
+.header_theme_option {
+    appearance: none;
+    -webkit-appearance: none;
+    border: none;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: white;
+    box-shadow: inset 0 0 0 3px black, 0 0 12px rgba(0, 0, 0, 0.45);
+    cursor: pointer;
+}
+
+.header_theme_button:hover,
+.header_theme_button:focus-visible,
+.header_theme_option:hover,
+.header_theme_option:focus-visible {
+    outline: 3px solid black;
+    outline-offset: 2px;
+}
+
+.header_theme_button:active,
+.header_theme_option:active {
+    transform: scale(0.95);
+}
+
+.header_theme_button_icon,
+.header_theme_option img {
+    display: block;
+    width: 88%;
+    height: 88%;
+    object-fit: contain;
+    pointer-events: none;
+}
+
+/* ON DESKTOP THE CHOICES OPEN HORIZONTALLY TO THE RIGHT OF THE BUTTON */
+.header_theme_menu {
+    display: none;
+    position: absolute;
+    top: 50%;
+    right: auto;
+    bottom: auto;
+    left: calc(100% + 10px);
+    transform: translateY(-50%);
+    z-index: 20;
+
+    flex-direction: row;
+    gap: 7px;
+    padding: 8px;
+
+    background-color: var(--site-color-panel);
+    border: 4px solid black;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.55);
+}
+
+.header_theme_selector.theme_menu_open .header_theme_menu {
+    display: flex;
+}
+
+.header_theme_option {
+    width: clamp(52px, 3.6vw, 68px);
+    height: clamp(52px, 3.6vw, 68px);
+}
+
+.header_theme_option[aria-pressed="true"] {
+    outline: 4px solid wheat;
+    outline-offset: 1px;
+}
+
 /* MOBILE HEADER MENU - DESKTOP DEFAULTS */
 .header_navigation_buttons {
     display: contents;
@@ -186,7 +328,7 @@ a {
     align-content: flex-start;
     justify-content: flex-start;
 
-    background-color: #646464 ;
+    background-color: var(--site-color-panel) ;
 
     /* LEFT COLUMN: 44% of the row, shrinks with the window */
     flex: 0 1 44%;
@@ -287,7 +429,7 @@ a {
     align-items: center;
     justify-content: space-evenly;
 
-    background-color: #646464 ;
+    background-color: var(--site-color-panel) ;
     width: 100% ;
     height: auto ;
     box-sizing: border-box ;
@@ -403,7 +545,7 @@ a {
     align-items: center;
     justify-content: space-around;
 
-    background-color: #646464;
+    background-color: var(--site-color-panel);
     width: 100%;
     height: auto;
     box-sizing: border-box;
@@ -498,7 +640,7 @@ a {
 
     justify-content: center;
 
-    background-color: #646464 ;
+    background-color: var(--site-color-panel) ;
 
     /* fills the column, so it lines up with the timeline below it */
     width: 100%;
@@ -523,7 +665,7 @@ a {
 /* TIMELINE START */
 
 .timeline_total_box {
-    background-color: #646464;
+    background-color: var(--site-color-panel);
 
     width: 100%;
     height: auto;
@@ -534,9 +676,9 @@ a {
 }
 
 .timeline_total_box_inner {
-    background-color: #323c64;
+    background-color: var(--site-color-secondary);
     padding: clamp(14px, 2.5vw, 36px);
-    background-image: url(images/background/background_spaced_dots.png);
+    background-image: var(--site-background-dots);
     background-size: clamp(40px, 5vw, 90px);
     outline: 5px solid black;
 }
@@ -893,7 +1035,7 @@ body.popup_active .container_header_top {
     position: fixed;
     outline: 5px solid wheat;
 
-    background-color: #646464 ;
+    background-color: var(--site-color-panel) ;
     width: 80% ;
     height: 80% ;
 
@@ -919,7 +1061,7 @@ body.popup_active .container_header_top {
 
     background-color: wheat;
 
-    outline: 5px solid rgb(50, 60, 100);
+    outline: 5px solid var(--site-color-secondary);
 
     color: black;
     font-size: 1.5vw;
@@ -1088,7 +1230,7 @@ body.popup_active .container_header_top {
 .timeline_popup_textbox_inner {
     flex: 1;
 
-    background-color: #323c64;
+    background-color: var(--site-color-secondary);
     overflow-y: auto;
 
     padding: 5%;
@@ -1096,7 +1238,7 @@ body.popup_active .container_header_top {
 
     margin-bottom: 5%;
 
-    background-image: url(images/background/background_spaced_dots.png);
+    background-image: var(--site-background-dots);
     background-size: 4vw;
     outline: 5px solid black;
 }
@@ -1208,6 +1350,16 @@ body.popup_active .container_header_top {
     .header_top_language_button {
         width: 5vw;
         height: 5vw;
+    }
+
+    .header_utility_buttons .header_top_language_button {
+        width: clamp(46px, 5vw, 60px);
+        height: clamp(46px, 5vw, 60px);
+    }
+
+    .header_theme_button {
+        width: clamp(62px, 7vw, 78px);
+        height: clamp(62px, 7vw, 78px);
     }
 
     /* ABOUT ME */
@@ -1426,14 +1578,14 @@ body.popup_active .container_header_top {
 
     .header_top {
         position: relative;
-        height: 18vw;
-        min-height: 72px;
-        max-height: 96px;
+        height: clamp(108px, 26vw, 124px);
+        min-height: 108px;
+        max-height: 124px;
         justify-content: center;
     }
 
     .header_top_fake {
-        height: clamp(72px, 18vw, 96px);
+        height: clamp(108px, 26vw, 124px);
     }
 
     .header_mobile_menu_button {
@@ -1448,7 +1600,7 @@ body.popup_active .container_header_top {
 
         width: clamp(92px, 25vw, 132px);
         height: clamp(62px, 15vw, 82px);
-        background-color: #646464;
+        background-color: var(--site-color-panel);
         box-shadow: inset 0 0 0 4px black;
         cursor: pointer;
     }
@@ -1483,7 +1635,7 @@ body.popup_active .container_header_top {
         box-sizing: border-box;
         padding: clamp(10px, 3vw, 16px);
 
-        background-color: rgb(80, 95, 145);
+        background-color: var(--site-color-primary);
 
         /* MOBILE MENU PANEL - NO TOP BORDER */
         outline: none;
@@ -1510,13 +1662,53 @@ body.popup_active .container_header_top {
         line-height: 1;
     }
 
-    .header_top_language_button {
-        position: absolute;
-        right: 7%;
-        width: clamp(42px, 12vw, 62px);
-        height: clamp(42px, 12vw, 62px);
-        min-width: 42px;
-        min-height: 42px;
+    .header_utility_buttons {
+        right: 5%;
+        top: 0;
+        bottom: 0;
+        transform: none;
+    }
+
+    .header_utility_buttons .header_top_language_button {
+        position: static;
+        width: clamp(46px, 12vw, 58px);
+        height: clamp(46px, 12vw, 58px);
+        min-width: 46px;
+        min-height: 46px;
+    }
+
+    /* PHONE THEME SELECTOR - LEFT SIDE OF THE HEADER, BESIDE THE MENU BUTTON */
+    .header_theme_selector {
+        position: fixed;
+        left: 5%;
+        top: clamp(10px, 6vw, 36px);
+        bottom: auto;
+        z-index: 8;
+    }
+
+    .header_theme_button {
+        position: static;
+        width: clamp(58px, 16vw, 72px);
+        height: clamp(58px, 16vw, 72px);
+        min-width: 58px;
+        min-height: 58px;
+    }
+
+    /* ON PHONES THE THEME CHOICES OPEN DOWNWARD FROM THE LEFT-SIDE BUTTON */
+    .header_theme_menu {
+        top: calc(100% + 7px);
+        right: auto;
+        bottom: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        flex-direction: column;
+        gap: 6px;
+        padding: 7px;
+    }
+
+    .header_theme_option {
+        width: clamp(50px, 14vw, 62px);
+        height: clamp(50px, 14vw, 62px);
     }
 
     /* PHONE HEADER BUTTONS - KEEP THEIR SIZE FIXED ON HOVER AND PRESS */
@@ -1528,7 +1720,13 @@ body.popup_active .container_header_top {
     .header_navigation_buttons .header_top_button:active,
     .header_top_language_button:hover,
     .header_top_language_button:focus-visible,
-    .header_top_language_button:active {
+    .header_top_language_button:active,
+    .header_theme_button:hover,
+    .header_theme_button:focus-visible,
+    .header_theme_button:active,
+    .header_theme_option:hover,
+    .header_theme_option:focus-visible,
+    .header_theme_option:active {
         outline: none;
         transform: none;
     }
@@ -1820,4 +2018,76 @@ body.popup_active .container_header_top {
 
 .timeline_popup_image_opener:focus-visible {
     outline-offset: 4px;
+}
+
+/* ============================================================
+   SITE COLOR THEME HINT BOXES
+   ------------------------------------------------------------
+   Shows the name of the theme selector and each theme choice on
+   mouse hover or keyboard focus. The visible labels are supplied
+   through shared localization strings in index.html.
+   ============================================================ */
+.header_theme_button[data-theme-hint],
+.header_theme_option[data-theme-hint] {
+    position: relative;
+    overflow: visible;
+}
+
+.header_theme_button[data-theme-hint]::after,
+.header_theme_option[data-theme-hint]::after {
+    content: attr(data-theme-hint);
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+
+    padding: 5px 10px;
+    background-color: black;
+    color: wheat;
+    outline: 2px solid wheat;
+
+    font-family: Impact, 'Arial Black', sans-serif;
+    font-size: clamp(12px, 0.9vw, 18px);
+    letter-spacing: 0.03em;
+    line-height: 1.1;
+    white-space: nowrap;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.12s ease;
+    z-index: 60;
+}
+
+.header_theme_button[data-theme-hint]:hover::after,
+.header_theme_button[data-theme-hint]:focus-visible::after,
+.header_theme_option[data-theme-hint]:hover::after,
+.header_theme_option[data-theme-hint]:focus-visible::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Once the menu is open, hide the selector's own hint so it does not
+   cover the theme choices. */
+.header_theme_selector.theme_menu_open .header_theme_button::after {
+    opacity: 0;
+    visibility: hidden;
+}
+
+@media (max-width: 480px) {
+    /* Show the selector label below the phone button while its menu is closed. */
+    .header_theme_button[data-theme-hint]::after {
+        top: calc(100% + 8px);
+        bottom: auto;
+    }
+
+    /* The phone menu is vertical, so place each choice label beside it. */
+    .header_theme_option[data-theme-hint]::after {
+        top: 50%;
+        right: auto;
+        bottom: auto;
+        left: calc(100% + 10px);
+        transform: translateY(-50%);
+        font-size: clamp(12px, 3.7vw, 16px);
+    }
 }
