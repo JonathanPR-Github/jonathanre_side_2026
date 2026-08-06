@@ -84,17 +84,33 @@ clickSound.volume = 0.3;
 hoverSound.volume = 0.3;
 holdSound.volume = 0.3;
 
+// PHONE SOUND CONTROL
+// Matches the site's phone/small-screen breakpoint. The existing inline
+// OnClickSound(), OnHoverSound(), and OnHoldSound() calls can stay in the HTML,
+// but these functions return immediately while the phone layout is active.
+const phoneSoundQuery = window.matchMedia('(max-width: 767px)');
+
+function ButtonSoundsAreEnabled() {
+  return !phoneSoundQuery.matches;
+}
+
 function OnClickSound() {
+  if (!ButtonSoundsAreEnabled()) return;
+
   clickSound.currentTime = 0;
   clickSound.play();
 }
 
 function OnHoverSound() {
+  if (!ButtonSoundsAreEnabled()) return;
+
   hoverSound.currentTime = 0;
   hoverSound.play();
 }
 
 function OnHoldSound() {
+  if (!ButtonSoundsAreEnabled()) return;
+
   hoverSound.currentTime = 0;
   hoverSound.play();
 }

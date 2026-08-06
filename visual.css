@@ -89,7 +89,8 @@ a {
     max-width: 100% ;
     height: clamp(90px, 8vh, 110px);
     max-height: 100%;
-    
+
+    outline: 5px solid black;
 }
 
 .header_top_fake {
