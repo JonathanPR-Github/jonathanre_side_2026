@@ -1,0 +1,17 @@
+{
+    "_comment": "Norske strenger for popup 16. Denne filen styrer kun teksten i popup_16.html.",
+    "title": "\"STELLARIS-SAMLINGEN\"",
+    "date": "2026",
+    "paragraph_01": "Da jeg vendte tilbake til Stellaris under ytelsesoppdateringen 4.3.0, etter å ha vært borte fra spillet siden 2023, fikk jeg fornyet interesse for det. Etter lang tid som aktiv HOI4-modutvikler ønsket jeg å lage en modifikasjon som løste noe som hadde irritert meg helt siden første gang jeg prøvde Stellaris.",
+    "paragraph_02": "Flagget til det interstellare imperiet man spilte som, så etter min mening aldri egentlig ut som et flagg. Jeg ønsket derfor å få det til å se mer troverdig ut. Siden alle Paradox-spill bruker det samme parentes-språket, virket dette som en forholdsvis enkel oppgave.",
+    "paragraph_03": "Den vanskelige delen var ikke å finne bakgrunnene i Stellaris-filene, men å legge på selve flaggoverlegget.<br>Først forsøkte jeg å lage en gjennomsiktig bakgrunn som kunne legges over hvilken som helst flaggbakgrunn, men dette fungerte ikke. Til slutt fant jeg et hvitt flagg, skalerte det opp og la det i et lag med blandingsmodusen «Hard Light». Dette gjør at laget eller bildet lyssettes ut fra fargen i laget under.<br>Jeg brukte en del tid på å forbedre modifikasjonen og prøvde flere typer overlegg, blant annet gardinlignende varianter, for å finne den beste fremstillingen av et flagg.",
+    "paragraph_04": "Da bakgrunnslaget var ferdig, slapp jeg å legge det manuelt på omtrent 50 flagg i Stellaris. Jeg lot Claude bruke overleggslaget på alle flaggene på under ti sekunder, noe som sparte meg for flere timers arbeid. Slik ble «Flag Overlay»-modifikasjonen til Stellaris laget.",
+    "paragraph_05": "Flagget til det interstellare imperiet man spilte som, så etter min mening aldri egentlig ut som et flagg. Jeg ønsket derfor å få det til å se mer troverdig ut. Siden alle Paradox-spill bruker det samme parentes-språket, virket dette som en forholdsvis enkel oppgave.",
+    "paragraph_06": "«Flag Overlay» fikk gode tilbakemeldinger, og spillerne likte den lille, men tydelige forbedringen av imperieflaggene.",
+    "paragraph_07": "I ukene etterpå fortsatte jeg å lage under-modifikasjoner til andre flaggmodifikasjoner, slik at de kunne få den samme overleggseffekten etter ønsker fra spillerne.",
+    "competence_heading": "KOMPETANSE",
+    "competence_item_01": "Paradox sitt parentes-språk",
+    "competence_item_02": "GIMP",
+    "competence_item_03": "Inkscape",
+    "competence_item_04": "Claude"
+}

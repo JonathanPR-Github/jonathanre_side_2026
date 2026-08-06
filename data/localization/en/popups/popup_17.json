@@ -1,0 +1,20 @@
+{
+    "_comment": "English strings for popup 17. This file only controls the text and translated media labels inside popup_17.html.",
+    "video_01_title": "YouTube video 1",
+    "video_02_title": "YouTube video 2",
+    "image_01_alt": "Northern Front: Reclamation Day - screenshot 1",
+    "steam_link_label": "Open Northern Front: Reclamation Day on Steam",
+    "steam_image_alt": "Open Northern Front: Reclamation Day on Steam",
+    "title": "\"Northern Front: Reclamation Day\"",
+    "date": "2026",
+    "paragraph_01": "Sometime after the release of the Low Profile Collection in June of 2026, who originally was going to release all the way back in March of 2026, having been pushed to an extent of exhaustion, was left without a work for a little bit. I had agreed by this point, that it was time to stop development for TF2 overall, and move on to other projects for game development, but there was 1 thing that was stuck on my head that i had to get developed for HOI4 before i could leave and work again, that was to develop a total conversation mod that I've had on the mind for quite a while.",
+    "paragraph_02": "The idea for Northern Front, came all the way back in Highschool when i learned off this great battle that had happened between the Left spectrum in Telemark during the buildup to WW2, and that kind off as i got suggested that it would be a great starting point for either a theme for a movie or a video game, and i took that chance as i saw it",
+    "paragraph_03": "Northern Front started development right after Low Profile Concluded, where i first got my hands on a world generator, and used a image of HOI4's Scandinavian map, where i divided it up into states and provinces per the instructions given to the generator, the period between creating the map and the countries took most of the time, but after that had been done, creating the focus tree's and more was a breeze thanks to Claude and GPT who could recognize HOI4 patterns, and work off details i could provide it depending on my request. With development going so fast as it did, i was able to finish all the tasks i wanted for the mod, including making decisions, custom GUI's and graphical content that would make it stand out",
+    "paragraph_04": "Most of the features i planned for NFR was implemented, some of the most important ones we're the ending slides, while i was not able to introduce cutscenes for HOI4 due to the limitation the engine has, i was able to write individual hypothetical endings for each of the 18 countries i had planned for the game. Writing however took of the time i had and could use on NFR, which is why some but most of it is written from my descriptions onto an AI. Some of the other things that was planned and later implemented was the main theme of NFR, after consulting an a sound designer and artist, i was to effectively portray my mod as a video game rather than a singular mod for HOI4",
+    "paragraph_05": "I planned for 18 nations, but only 3 of them was supposed to drive most of the mod, which is why on launch only 3 nations had actual content for them. But that did not mean every single playable warlord had endings to them, they very much did, which is why i said you could play. All paths in NFR, is in some way or form a reflection on real life history in Norway, such as for the Germans who's endgoal in the mod is to integrate Norway into Germany, or the socialists mimicking that of the Soviets, they are in essence one way or the other, a reflection on reality, which is why it also does not have any crazy content that would otherwise be regarded as extreme",
+    "paragraph_06": "Northern Front released on August 1st of 2026, after 1 and a half month of development, to what is so far positive reviews. The initial launch of NFR was slow, due to the unknown state of the development of the mod, but after i announced it on several platforms, and even suggested youtubers to try the mod, the interest of the mod gradually increased over time",
+    "competence_item_01": "Paradox Bracket Language",
+    "competence_item_02": "GIMP",
+    "competence_item_03": "Inkscape",
+    "competence_item_04": "Claude"
+}

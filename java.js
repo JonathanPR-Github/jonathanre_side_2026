@@ -28,6 +28,12 @@ function ClosePopup() {   // NOTAT: Leg til alle videre popup specific meldinger
   document.getElementById('container_tab_popup').style.display = 'none';
   document.body.classList.remove('popup_active');
 
+  // Remove focus from the project/close button. This prevents the game-name
+  // hint and the browser focus ring from remaining visible after pressing ESC.
+  if (document.activeElement instanceof HTMLElement) {
+    document.activeElement.blur();
+  }
+
   // Timeline popup hider.
   document.querySelectorAll('[id^="container_popup_"]').forEach(containers => {
     containers.style.display = 'none';
@@ -78,17 +84,33 @@ clickSound.volume = 0.3;
 hoverSound.volume = 0.3;
 holdSound.volume = 0.3;
 
+// PHONE SOUND CONTROL
+// Matches the site's phone/small-screen breakpoint. The existing inline
+// OnClickSound(), OnHoverSound(), and OnHoldSound() calls can stay in the HTML,
+// but these functions return immediately while the phone layout is active.
+const phoneSoundQuery = window.matchMedia('(max-width: 767px)');
+
+function ButtonSoundsAreEnabled() {
+  return !phoneSoundQuery.matches;
+}
+
 function OnClickSound() {
+  if (!ButtonSoundsAreEnabled()) return;
+
   clickSound.currentTime = 0;
   clickSound.play();
 }
 
 function OnHoverSound() {
+  if (!ButtonSoundsAreEnabled()) return;
+
   hoverSound.currentTime = 0;
   hoverSound.play();
 }
 
 function OnHoldSound() {
+  if (!ButtonSoundsAreEnabled()) return;
+
   hoverSound.currentTime = 0;
   hoverSound.play();
 }

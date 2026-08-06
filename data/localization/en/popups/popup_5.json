@@ -1,0 +1,19 @@
+{
+    "_comment": "English strings for popup 5. This file only controls the text inside popup_5.html.",
+    "title": "\"DOVREGUBBEN\"",
+    "date": "2023 - 2024",
+    "paragraph_01": "Dovregubben codenamed \"Game6\" was a short side-scroller video game developed in Godot to promote a product for the company I was guidance assigned to called \"Funkweb\"",
+    "paragraph_02": "It was developed by mostly everyone that were assigned to that company to guidance, which were mostly made up of web designers. It total some 20 people worked on it on and off, as the project was something that could just be worked on and off on.",
+    "paragraph_03": "During the development of the game, I was the level designer and partial manager, where I developed the only level that would be end up being used and suggested the framework for how the game should play. The level I designed was made in a level designer tool that I found when starting my work with Godot to reduce the workflow",
+    "paragraph_04": "Dovregubben story revolved around the character \"Dovregubben\" who loves going skiing, one day in his cabin a giant troll steals his skis and runs away with all of them, Dovregubben sees this and makes chase after him on one of the skis the troll left behind",
+    "paragraph_05": "The game was planned to have 10 levels, boss battles, a store between each of the second levels, a currency system that could be used to buy upgrades for the character and customizable outfits. However due to time constraints and lack of motivation from the team, only 1 level was made which would consist of the whole game",
+    "paragraph_06": "Dovregubben released early 2024 with favorable reviews, though because the game was unfinished it never took properly off",
+    "competence_heading": "COMPETENCE",
+    "competence_item_01": "Godot",
+    "competence_item_02": "GDscript",
+    "competence_item_03": "Github",
+    "competence_item_04": "Git Bash",
+    "competence_item_05": "GIMP",
+    "competence_item_06": "Inkscape",
+    "competence_item_07": "Discord"
+}

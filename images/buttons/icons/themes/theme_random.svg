@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Random theme">
+  <rect x="4" y="4" width="56" height="56" rx="7" fill="#fff" stroke="#000" stroke-width="4"/>
+  <path d="M8 8 H32 V32 H8 Z" fill="#505f91"/>
+  <path d="M32 8 H56 V32 H32 Z" fill="#c38740"/>
+  <path d="M8 32 H32 V56 H8 Z" fill="#7da04b"/>
+  <path d="M32 32 H56 V56 H32 Z" fill="#6e3c91"/>
+  <path d="M18 27 C23 19 34 18 42 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+  <path d="M39 19 L47 24 L40 30" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M46 37 C41 45 30 46 22 40" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+  <path d="M25 45 L17 40 L24 34" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

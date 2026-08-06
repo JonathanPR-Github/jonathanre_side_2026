@@ -1,6 +1,45 @@
+/* ============================================================
+   SITE COLOR THEMES
+   ------------------------------------------------------------
+   theme_manager.js changes data-site-theme on <html>. Only the
+   two requested site colors are replaced; the rest of the visual
+   design remains unchanged.
+   ============================================================ */
+:root {
+    --site-color-primary: rgb(80, 95, 145);
+    --site-color-secondary: #323c64;
+    --site-color-panel: #646464;
+
+    /* THEMED DOT TEXTURE: keeps the original dots on the default theme */
+    --site-background-dots: url("images/background/background_spaced_dots.png");
+}
+
+html[data-site-theme="orange"] {
+    /* ORANGE THEME: darker panel color and a softer dot texture for readability */
+    --site-color-primary: #c38740;
+    --site-color-secondary: #854921;
+    --site-color-panel: #393939;
+    --site-background-dots: url("images/background/background_spaced_dots_orange.png");
+}
+
+html[data-site-theme="green"] {
+    /* GREEN THEME: adjusted secondary color and a matching dot texture */
+    --site-color-primary: #7da04b;
+    --site-color-secondary: #497339;
+    --site-background-dots: url("images/background/background_spaced_dots_green.png");
+}
+
+html[data-site-theme="purple"] {
+    /* PURPLE THEME: darker popup/timeline panels and a matching dot texture */
+    --site-color-primary: #5f5091;
+    --site-color-secondary: #443361;
+    --site-color-panel: #393939;
+    --site-background-dots: url("images/background/background_spaced_dots_purple.png");
+}
+
 body {
     /* COLOR SECTION */
-  background-color: rgb(80, 95, 145);
+  background-color: var(--site-color-primary);
     /* SIZE SECTION */
   width: auto;
   min-height: 120vh;
@@ -10,9 +49,26 @@ body {
   padding: 0;
 
     /* DOTS */
-  background-image: url(images/background/background_spaced_dots.png);
+  background-image: var(--site-background-dots);
   background-size: 3vw;
 
+}
+
+h1, h2, h3 {
+    font-family: Georgia, "Times New Roman", serif;
+    color: wheat;
+}
+
+p {
+    font-family: "Verdana", Geneva, sans-serif;
+    color: wheat;
+}
+
+a {
+    font-family: Georgia, "Times New Roman", serif;
+    color: lightskyblue;
+    font-size: 35px;
+    text-transform: uppercase;
 }
 
 /* TOP SECTION / HEADER */
@@ -27,13 +83,14 @@ body {
     align-items: center;
     justify-content: center;
     
-    background-color: #323c64 ;
+    background-color: var(--site-color-secondary) ;
 
     width: 100vw ;
     max-width: 100% ;
-    height: 8vh ;
+    height: clamp(90px, 8vh, 110px);
     max-height: 100%;
-    
+
+    outline: 5px solid black;
 }
 
 .header_top_fake {
@@ -43,7 +100,7 @@ body {
 
     width: 100vw ;
     max-width: 100% ;
-    height: 8vh ;
+    height: clamp(90px, 8vh, 110px);
     max-height: 100%;
 
     margin-bottom: 4% ;
@@ -51,6 +108,7 @@ body {
 }
 
 
+/* HEADER BUTTONS - REMOVE DEFAULT BROWSER STYLE AND ADD AN INNER OUTLINE */
 .header_top_button {
     display: flex;
     flex-wrap: wrap;
@@ -59,7 +117,16 @@ body {
     align-content: center;
     justify-content: center;
 
-    background-color: #646464 ;
+    /* REMOVE THE OLD DEFAULT BUTTON APPEARANCE */
+    appearance: none;
+    -webkit-appearance: none;
+    border: none;
+    padding: 0;
+
+    /* BLACK OUTLINE DRAWN INSIDE THE BUTTON, WITHOUT CHANGING ITS SIZE */
+    box-shadow: inset 0 0 0 2px black;
+
+    background-color: var(--site-color-panel) ;
     width: 10% ;
     height: 80% ;
 
@@ -74,8 +141,9 @@ body {
 
 .header_top_button:hover {
     cursor: pointer;
-    border: 10px solid black ;
-    border-style: double;
+    outline: 10px solid black;
+    outline-style: double;
+    outline-offset: -10px;
 }
 
 .header_top_button_text {
@@ -88,6 +156,11 @@ body {
     height: 3.5vw ;
     border-radius: 50%;
 
+    /* LANGUAGE BUTTON: remove the browser button style so it keeps the old flag appearance */
+    appearance: none;
+    border: none;
+    padding: 0;
+
     background-color: green;
     background-size: cover;
     box-shadow: black 0vw 0vw 5vw;
@@ -99,7 +172,7 @@ body {
 
 .header_top_language_button:hover {
     cursor: pointer;
-    border: 3px solid black ;
+    outline: 3px solid black;
 }
 
 #language_en {
@@ -112,6 +185,119 @@ body {
     background-position: center;
 }
 
+/* HEADER UTILITY BUTTONS - LANGUAGE AND SITE COLOR THEME */
+.header_utility_buttons {
+    position: absolute;
+    right: clamp(52px, 6vw, 116px);
+    top: 0;
+    bottom: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+/* LANGUAGE BUTTON - RESTORED TO ITS LARGER ORIGINAL HEADER POSITION */
+.header_utility_buttons .header_top_language_button {
+    width: clamp(48px, 4vw, 70px);
+    height: clamp(48px, 4vw, 70px);
+}
+
+/* DESKTOP THEME SELECTOR - LARGE, NOTICEABLE AND FIXED TO THE BOTTOM LEFT */
+.header_theme_selector {
+    position: fixed;
+    left: clamp(14px, 1.2vw, 24px);
+    bottom: clamp(14px, 1.2vw, 24px);
+    z-index: 30;
+}
+
+.header_theme_button {
+    width: clamp(64px, 4.5vw, 84px);
+    height: clamp(64px, 4.5vw, 84px);
+}
+
+.header_theme_button,
+.header_theme_option {
+    appearance: none;
+    -webkit-appearance: none;
+    border: none;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: white;
+    box-shadow: inset 0 0 0 3px black, 0 0 12px rgba(0, 0, 0, 0.45);
+    cursor: pointer;
+}
+
+.header_theme_button:hover,
+.header_theme_button:focus-visible,
+.header_theme_option:hover,
+.header_theme_option:focus-visible {
+    outline: 3px solid black;
+    outline-offset: 2px;
+}
+
+.header_theme_button:active,
+.header_theme_option:active {
+    transform: scale(0.95);
+}
+
+.header_theme_button_icon,
+.header_theme_option img {
+    display: block;
+    width: 88%;
+    height: 88%;
+    object-fit: contain;
+    pointer-events: none;
+}
+
+/* ON DESKTOP THE CHOICES OPEN HORIZONTALLY TO THE RIGHT OF THE BUTTON */
+.header_theme_menu {
+    display: none;
+    position: absolute;
+    top: 50%;
+    right: auto;
+    bottom: auto;
+    left: calc(100% + 10px);
+    transform: translateY(-50%);
+    z-index: 20;
+
+    flex-direction: row;
+    gap: 7px;
+    padding: 8px;
+
+    background-color: var(--site-color-panel);
+    border: 4px solid black;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.55);
+}
+
+.header_theme_selector.theme_menu_open .header_theme_menu {
+    display: flex;
+}
+
+.header_theme_option {
+    width: clamp(52px, 3.6vw, 68px);
+    height: clamp(52px, 3.6vw, 68px);
+}
+
+.header_theme_option[aria-pressed="true"] {
+    outline: 4px solid wheat;
+    outline-offset: 1px;
+}
+
+/* MOBILE HEADER MENU - DESKTOP DEFAULTS */
+.header_navigation_buttons {
+    display: contents;
+}
+
+.header_mobile_menu_button {
+    display: none;
+}
+
 /* ABOUT ME SECTION / INTRO SECTION START */
 
 #container_tab_1 {
@@ -120,11 +306,20 @@ body {
 
 .container_about_me_box {
     display: flex;
+    flex-direction: row;
     justify-content: center;
-    align-items: flex-start ;
 
-    width: fit-content ;
-    height: 100% ;
+    /* KEEP THE LEFT TEXT BOX AND RIGHT COLUMN ALIGNED TO THE SAME HEIGHT */
+    align-items: stretch;
+
+    width: 100%;
+    max-width: 1700px;
+    margin: 0 auto;
+    box-sizing: border-box;
+
+    /* space between the two columns scales with the window */
+    gap: clamp(16px, 3vw, 64px);
+    padding: 0 clamp(12px, 4vw, 70px);
 }
 
 .about_me_box {
@@ -135,21 +330,37 @@ body {
     align-content: flex-start;
     justify-content: flex-start;
 
-    background-color: #646464 ;
-    width: 25% ;
+    background-color: var(--site-color-panel) ;
+
+    /* LEFT COLUMN: 44% of the row, shrinks with the window */
+    flex: 0 1 44%;
+    min-width: 0;
     height: auto ;
+
+    /* THE TEXT IS POSITIONED INSIDE THIS STRETCHED BOX SO ITS BOTTOM
+       STAYS ALIGNED WITH THE RIGHT-HAND COLUMN */
+    position: relative;
 
     word-wrap: break-word;      /* older */
     overflow-wrap: break-word;
-    
-   /*  margin-left: 15% ; */
+
+    outline: 5px solid wheat;
 }
 
+/* ABOUT-ME TEXT BOX - MATCHES THE RIGHT COLUMN WITHOUT A SCROLLBAR */
 .container_about_me_box_text {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     flex-direction: column;
 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    box-sizing: border-box;
     padding: 5%;
 }
 
@@ -165,7 +376,9 @@ body {
 
 .about_me_box_text {
     color: wheat;
-    font-size: 130% ;
+    /* scales with the window, like the picture, so both columns grow together */
+    font-size: clamp(13px, 1.05vw, 21px);
+    line-height: 1.5;
 }
 
 .about_me_line {
@@ -179,21 +392,31 @@ body {
     background-color: wheat;
 
     width: 45% ;
-    height: 0.5vh ;
+    height: clamp(3px, 0.5vh, 7px);
 }
 
 .container_about_me_pl {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-start;
 
-    margin-left: 5% ;
+    /* RIGHT COLUMN: 48% of the row, same growth/shrink rules as the left one */
+    flex: 0 1 48%;
+    min-width: 0;
+
+    /* spacing between picture / links / site info scales with the window */
+    gap: clamp(16px, 3vw, 56px);
 }
 
 .about_me_picture {
 
-    width: 25vw ;
-    height: 25vw ;
+    /* sized from the column, not the viewport, so it tracks the other boxes */
+    width: 82%;
+    max-width: 620px;
+    height: auto;
+    aspect-ratio: 1 / 1;   /* keeps it a perfect circle */
+    flex-shrink: 0;
     border-radius: 50% ;
     background-color: royalblue;
 
@@ -208,14 +431,32 @@ body {
     align-items: center;
     justify-content: space-evenly;
 
-    background-color: #646464 ;
+    background-color: var(--site-color-panel) ;
     width: 100% ;
     height: auto ;
     box-sizing: border-box ;
 
-    margin-top: 10% ;
-
     padding: 4% 5% ;
+
+    outline: 5px solid wheat;
+}
+
+/* CONTACT BUTTON HINT BOXES
+   Shows the service name above each link, matching the project icon hints. */
+.about_me_links a[data-contact] {
+    position: relative;
+    overflow: visible;
+}
+
+.about_me_links a[data-contact]:hover,
+.about_me_links a[data-contact]:focus-visible {
+    z-index: 2;
+}
+
+.about_me_links a[data-contact]:hover::after,
+.about_me_links a[data-contact]:focus-visible::after {
+    opacity: 1;
+    visibility: visible;
 }
 
 .contact_button_1 {
@@ -306,20 +547,22 @@ body {
     align-items: center;
     justify-content: space-around;
 
-    background-color: #646464;
+    background-color: var(--site-color-panel);
     width: 100%;
     height: auto;
     box-sizing: border-box;
 
-    margin-top: 10%;
     padding: 5% 4%;
     gap: 8px;
+
+    outline: 5px solid wheat;
 }
 
+/* ABOUT-ME TECHNOLOGY ICONS - LARGER; BOTH COLUMNS STAY ALIGNED */
 .about_me_box_icon {
     display: flex;
-    width: clamp(36px, 4.2vw, 80px) ;
-    height: clamp(36px, 4.2vw, 80px) ;
+    width: clamp(64px, 6vw, 110px) ;
+    height: clamp(64px, 6vw, 110px) ;
     flex-shrink: 0 ;
     margin-right: 16px;
     margin-left: 16px;
@@ -328,6 +571,7 @@ body {
 .container_about_me_site_info {
     display: flex;
     align-items: center;
+    justify-content: center;
     white-space: nowrap;
 }
 
@@ -343,7 +587,7 @@ body {
 
     flex-basis: 100%;
     width: 45% ;
-    height: 0.5vh ;
+    height: clamp(3px, 0.5vh, 7px);
 
     margin-bottom: 3%;
 }
@@ -364,9 +608,32 @@ body {
     display: none;
 }
 
+/* ============================================================
+   TIMELINE (TAB 2) LAYOUT
+   ------------------------------------------------------------
+   Same idea as the about-me section: one centred column with a
+   maximum width, and everything inside sized with clamp() so the
+   boxes, labels, gaps and text all grow and shrink together
+   instead of the text being the only thing that changes.
+   ============================================================ */
+
+:root {
+    --timeline-column: 1700px;                   /* same column as the about-me section */
+    --timeline-side: clamp(12px, 4vw, 70px);     /* space either side of it */
+    --timeline-box: clamp(64px, 5.5vw, 132px);   /* one project button (was 5.5vw) */
+    --timeline-gap: clamp(12px, 0.625vw, 15px);  /* space between them (was 12px) */
+    --timeline-columns: 5;                       /* buttons per row before wrapping */
+}
+
 .container_timeline_tutorial_box {
     display: flex;
     justify-content: center;
+
+    width: 100%;
+    max-width: var(--timeline-column);
+    margin: 0 auto;
+    padding: 0 var(--timeline-side);
+    box-sizing: border-box;
 }
 
 .timeline_tutorial_box {
@@ -375,12 +642,16 @@ body {
 
     justify-content: center;
 
-    background-color: #646464 ;
-    width: 60%;
-    height: 60%;
+    background-color: var(--site-color-panel) ;
 
-    margin-bottom: 5%;
-    
+    /* fills the column, so it lines up with the timeline below it */
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+
+    margin-bottom: clamp(24px, 5vw, 90px);
+
+    outline: 5px solid wheat;
 }
 
 .container_timeline_tutorial_box_text {
@@ -388,36 +659,45 @@ body {
     justify-content: center;
     flex-direction: column;
 
-    padding: 2%;
+    width: 100%;
+    box-sizing: border-box;
+    padding: clamp(14px, 2.5vw, 40px);
 }
 
 /* TIMELINE START */
 
 .timeline_total_box {
-    background-color: #646464;
-    width: 69%;
-    height: 60%;
-    padding: 3%;
+    background-color: var(--site-color-panel);
 
-    border: 5px solid wheat ;
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    padding: clamp(14px, 2.5vw, 36px);
+
+    outline: 5px solid wheat;
 }
 
 .timeline_total_box_inner {
-    background-color: #323c64;
-    padding: 3%;
-    background-image: url(images/background/background_spaced_dots.png);
-    background-size: 5vw;
+    background-color: var(--site-color-secondary);
+    padding: clamp(14px, 2.5vw, 36px);
+    background-image: var(--site-background-dots);
+    background-size: clamp(40px, 5vw, 90px);
+    outline: 5px solid black;
 }
 
 .container_timeline {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
 
-    gap: 60px;
+    gap: clamp(24px, 4vw, 70px);
 
-    padding-bottom: 5%;
-    margin-left: 20% ;
+    /* same centred column as the tutorial box above */
+    width: 100%;
+    max-width: var(--timeline-column);
+    margin: 0 auto;
+    padding: 0 var(--timeline-side) 5%;
+    box-sizing: border-box;
 }
 
 .timeline-section {
@@ -428,18 +708,23 @@ body {
 
 .timeline-label {
     color: wheat;
-    font-size: 1.6vw;
+    font-size: clamp(13px, 1.6vw, 36px);   /* was 1.6vw */
     font-weight: 900;
     font-family: Impact, 'Arial Black', sans-serif;
     text-transform: uppercase;
     white-space: nowrap;
-    width: 12vw;
+    width: clamp(120px, 12vw, 280px);   /* was 12vw */
     text-align: center;
     flex-shrink: 0;
 
     background-color: black;
-    margin: 2% ;
-    padding: 2% ;
+    outline: 5px solid wheat;
+
+    /* this margin is what puts air between the sections - keep it.
+       clamped in vw so it stays the size it used to be, now that the box
+       around it is wider than it was */
+    margin: clamp(10px, 1.125vw, 26px);
+    padding: clamp(10px, 1.125vw, 26px);
 }
 
 .timeline-line-and-boxes {
@@ -449,27 +734,33 @@ body {
 }
 
 .timeline-line {
-    width: 8px;
+    width: clamp(8px, 0.42vw, 10px);            /* was 8px */
     background-color: black;
     border-radius: 4px;
     flex-shrink: 0;
-    margin-right: 15px;
+    margin-right: clamp(10px, 0.78vw, 18px);    /* was 15px */
 }
 
 .container_timeline_box {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
-    width: calc(6 * 5.5vw + 2 * 12px);
+    gap: var(--timeline-gap);
+
+    /* room for exactly --timeline-columns buttons; add a new project and it
+       simply wraps onto the next row on its own */
+    width: calc(var(--timeline-columns) * var(--timeline-box) +
+                (var(--timeline-columns) - 1) * var(--timeline-gap));
 }
 
 /* TIMELINE BOXES */
 
 .timeline_box {
     display: flex;
-    width: 5.5vw;
-    height: 3.5vw;
-    background-color: #00ff00;
+
+    width: var(--timeline-box);
+    height: auto;
+    aspect-ratio: 5.5 / 3.5;   /* same shape as the old 5.5vw x 3.5vw */
+    background-color: black;
     cursor: pointer;
     transition: transform 0.15s ease;
 
@@ -485,8 +776,14 @@ body {
 
 .timeline_box_icon {
     display: flex;
-    width: 1.2vw ;
-    height: 1.2vw ;
+
+    /* sized from the button so it keeps its proportion. align-self stops the
+       flex row from stretching it down the whole button, which is what pushed
+       it out through the top corner */
+    align-self: flex-start;
+    width: 22%;
+    height: auto;
+    aspect-ratio: 1 / 1;
 
     margin-bottom: 35% ;
     margin-right: 5%;
@@ -498,6 +795,196 @@ body {
     align-items: center;
 }
 
+/* =============================================
+   LAZY <img> REPLACEMENTS FOR BACKGROUND IMAGES
+   ---------------------------------------------
+   Pictures used to be CSS background-image, which browsers cannot
+   lazy-load. They are now real <img> tags with loading="lazy",
+   sitting inside the same boxes as before.
+
+   .lazy_img fills its box and crops the same way the old
+   "background-size: cover; background-position: center" did.
+   ============================================= */
+
+.lazy_img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;        /* = background-size: cover */
+    object-position: center;  /* = background-position: center */
+
+    display: block;
+    border: 0;
+    pointer-events: none;     /* clicks belong to the button/link, not the image */
+}
+
+/* every box that holds a .lazy_img has to be its positioning parent */
+.timeline_box,
+.timeline_box_icon,
+.about_me_box_icon,
+.timeline_popup_box_img,
+.timeline_popup_box_steam,
+.timeline_popup_subheader_box {
+    position: relative;
+    overflow: hidden;
+}
+
+/* the small game icons sit ON TOP of the button image */
+.timeline_box_icon {
+    z-index: 1;
+}
+
+/* ---- the game name that appears when you hover an icon ---- */
+
+/* nothing holding an icon may clip the little name box.
+   their pictures fill them exactly, so nothing else spills out */
+.timeline_box,
+.timeline_box_icon,
+.about_me_box_icon {
+    overflow: visible;
+}
+
+/* hovered button sits above its neighbours, so the name is never
+   covered by the button next to it */
+.timeline_box:hover {
+    z-index: 2;
+}
+
+/* SHARED HINT BOX SHAPE
+   Both hint styles use the same positioning, font and animation.
+   About-me technology icons are intentionally excluded. */
+.timeline_box_icon[data-game]::after,
+.about_me_links a[data-contact]::after {
+    position: absolute;
+    bottom: calc(100% + 8px);   /* just above the icon */
+    left: 50%;
+    transform: translateX(-50%);
+
+    font-family: Impact, 'Arial Black', sans-serif;
+    font-size: clamp(11px, 0.85vw, 18px);
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+    padding: 4px 9px;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.12s ease;
+    pointer-events: none;
+    z-index: 3;
+}
+
+/* ORIGINAL HINT STYLE
+   Used by the game icons inside the timeline. */
+.timeline_box_icon[data-game]::after {
+    content: attr(data-game);
+    background-color: black;
+    color: wheat;
+    outline: 2px solid wheat;
+}
+
+/* INVERTED HINT STYLE
+   Used by the LinkedIn, Email, GitHub and YouTube hints. */
+.about_me_links a[data-contact]::after {
+    content: attr(data-contact);
+    background-color: wheat;
+    color: black;
+    outline: 2px solid black;
+}
+
+.timeline_box_icon[data-game]:hover::after,
+.timeline_box:focus-visible .timeline_box_icon[data-game]::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* a <button> has a default border+padding; the old background image
+   painted underneath it, so remove it and the picture fills the box */
+.timeline_box {
+    border: 0;
+    padding: 0;
+}
+
+/* REMOVE THE BROWSER'S WHITE FOCUS OUTLINE FROM TIMELINE BUTTONS
+   Focus is still communicated by the existing yellow aurora glow. */
+.timeline_box:focus,
+.timeline_box:focus-visible {
+    outline: none;
+}
+
+/* =============================================
+   ANIMATED YELLOW AURORA FOR TIMELINE BUTTONS
+   ---------------------------------------------
+   The glow uses box-shadow, so it does not change the buttons' size,
+   spacing, margin, or the layout of the timeline.
+   ============================================= */
+
+.timeline_box {
+    animation: timeline_button_aurora 2.6s ease-in-out infinite;
+    will-change: box-shadow;
+}
+
+/* Slightly offset the pulses so every project does not flash at once. */
+.timeline_box:nth-child(4n + 2) {
+    animation-delay: -0.65s;
+}
+
+.timeline_box:nth-child(4n + 3) {
+    animation-delay: -1.3s;
+}
+
+.timeline_box:nth-child(4n + 4) {
+    animation-delay: -1.95s;
+}
+
+@keyframes timeline_button_aurora {
+    0%, 100% {
+        box-shadow:
+            0 0 3px rgba(255, 245, 180, 0.45),
+            0 0 8px rgba(255, 220, 70, 0.35),
+            0 0 15px rgba(255, 185, 20, 0.18);
+    }
+
+    50% {
+        box-shadow:
+            0 0 5px rgba(255, 250, 205, 0.95),
+            0 0 13px rgba(255, 225, 75, 0.80),
+            0 0 25px rgba(255, 185, 20, 0.55),
+            0 0 38px rgba(255, 235, 100, 0.22);
+    }
+}
+
+.timeline_box:hover,
+.timeline_box:focus-visible {
+    animation-play-state: paused;
+    box-shadow:
+        0 0 6px rgba(255, 250, 205, 1),
+        0 0 16px rgba(255, 225, 75, 0.95),
+        0 0 30px rgba(255, 185, 20, 0.70),
+        0 0 44px rgba(255, 235, 100, 0.28);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .timeline_box {
+        animation: none;
+        box-shadow:
+            0 0 4px rgba(255, 245, 180, 0.70),
+            0 0 12px rgba(255, 220, 70, 0.50),
+            0 0 20px rgba(255, 185, 20, 0.25);
+    }
+}
+
+/* HIDE A TIMELINE AURORA AFTER ITS BUTTON HAS BEEN OPENED */
+.timeline_box.timeline_box_seen,
+.timeline_box.timeline_box_seen:hover,
+.timeline_box.timeline_box_seen:focus-visible {
+    animation: none;
+    box-shadow: none;
+    will-change: auto;
+}
+
 /* TIMELINE POPUP MESSAGE */
 
 #container_tab_popup {
@@ -507,7 +994,9 @@ body {
 .container_timeline_popup {
     display: flex;
     justify-content: center;
-    z-index: 2;
+
+    /* KEEP THE POPUP ABOVE THE FIXED MOBILE HEADER AND ITS OPEN MENU */
+    z-index: 1000;
 
     /* Overlay setup - only activates when body has popup_active */
     position: fixed;
@@ -517,19 +1006,29 @@ body {
     height: 100%;
 
     background-color: rgba(0, 0, 0, 0);
+    -webkit-backdrop-filter: blur(0);
+    backdrop-filter: blur(0);
     pointer-events: none;
-    transition: background-color 0.3s ease;
+    transition:
+        background-color 0.3s ease,
+        -webkit-backdrop-filter 0.3s ease,
+        backdrop-filter 0.3s ease;
 }
 
-/* When popup is active: dark overlay + block background interaction */
+/*
+    When the popup is active, blur the page through the overlay itself.
+    This keeps fixed controls such as the music and theme buttons anchored
+    to the viewport instead of turning their header into a containing block.
+*/
 body.popup_active .container_timeline_popup {
     background-color: rgba(0, 0, 0, 0.6);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
     pointer-events: auto;
 }
 
-/* Blur all body children EXCEPT the popup overlay when active */
+/* Block interaction with the page behind the popup without moving fixed controls. */
 body.popup_active > *:not(.container_timeline_popup) {
-    filter: blur(5px);
     pointer-events: none;
 }
 
@@ -538,16 +1037,16 @@ body.popup_active {
     overflow: hidden;
 }
 
-/* Also blur the fixed header */
+/* Keep the fixed header disabled while its controls retain their normal positions. */
 body.popup_active .container_header_top {
-    filter: blur(5px);
     pointer-events: none;
 }
 
 .timeline_popup {
     position: fixed;
+    outline: 5px solid wheat;
 
-    background-color: #646464 ;
+    background-color: var(--site-color-panel) ;
     width: 80% ;
     height: 80% ;
 
@@ -573,6 +1072,8 @@ body.popup_active .container_header_top {
 
     background-color: wheat;
 
+    outline: 5px solid var(--site-color-secondary);
+
     color: black;
     font-size: 1.5vw;
     font-weight: bold;
@@ -583,8 +1084,8 @@ body.popup_active .container_header_top {
 
 .timeline_popup_exit:hover {
     cursor: pointer;
-    border: 10px solid black ;
-    border-style: double;
+    outline: 10px solid black;
+    outline-style: double;
 }
 
 .timeline_popup_exit:active {
@@ -651,7 +1152,7 @@ body.popup_active .container_header_top {
     background-color: #232730 ;
     transition: transform 0.15s ease;
     
-    border: 5px solid black ;
+    outline: 5px solid black;
     box-shadow: 0px 0px 20px 2px black;
 }
 
@@ -663,13 +1164,49 @@ body.popup_active .container_header_top {
     transform: scale(1.00);
 }
 
+/* POPUP IMAGE LINKS - GRAY HOVER FILTER THAT SHOWS THEY OPEN AN EXTERNAL LINK */
+.timeline_popup_box_steam {
+    position: relative;
+    overflow: hidden;
+}
+
+.timeline_popup_box_steam::after,
+.timeline_popup_external_link .timeline_popup_subheader_video::after {
+    content: var(--i18n-open-link, "Open to Link");
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgba(90, 90, 90, 0.82);
+    color: wheat;
+    font-family: Impact, 'Arial Black', sans-serif;
+    font-size: clamp(22px, 2.2vw, 42px);
+    text-align: center;
+    text-transform: uppercase;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+.timeline_popup_box_steam:hover::after,
+.timeline_popup_box_steam:focus-visible::after,
+.timeline_popup_external_link:hover .timeline_popup_subheader_video::after,
+.timeline_popup_external_link:focus-visible .timeline_popup_subheader_video::after {
+    opacity: 1;
+}
+
 .timeline_popup_box_img {
     position: relative;
     width: 48%;
     height: 45%;
     background-color: wheat;
 
-    border: 5px solid black ;
+    outline: 5px solid black;
 }
 
 .timeline_popup_box_img iframe {
@@ -704,7 +1241,7 @@ body.popup_active .container_header_top {
 .timeline_popup_textbox_inner {
     flex: 1;
 
-    background-color: #323c64;
+    background-color: var(--site-color-secondary);
     overflow-y: auto;
 
     padding: 5%;
@@ -712,8 +1249,9 @@ body.popup_active .container_header_top {
 
     margin-bottom: 5%;
 
-    background-image: url(images/background/background_spaced_dots.png);
+    background-image: var(--site-background-dots);
     background-size: 4vw;
+    outline: 5px solid black;
 }
 
 /* Webkit scrollbar styling for Chrome/Safari */
@@ -734,6 +1272,7 @@ body.popup_active .container_header_top {
 
 .timeline_popup_text_content {
     width: 100%;
+    backdrop-filter: blur(1.5px);
 }
 
 .timeline_popup_header {
@@ -743,6 +1282,7 @@ body.popup_active .container_header_top {
     font-family: Impact, 'Arial Black', sans-serif;
     text-transform: uppercase;
     margin: 0;
+    margin-bottom: 5%;
 }
 
 .timeline_popup_line {
@@ -756,8 +1296,9 @@ body.popup_active .container_header_top {
 
 .timeline_popup_subheader {
     color: wheat;
-    font-size: 1.1vw;
+    font-size: 0.9vw;
     margin-bottom: 5%;
+    font-family: Georgia, "Times New Roman", serif;
 
 }
 
@@ -766,7 +1307,7 @@ body.popup_active .container_header_top {
     height: 20vh;
     background-color: wheat;
 
-    border: 5px solid black ;
+    outline: 5px solid black;
 
     margin-bottom: 5%;
 }
@@ -784,7 +1325,7 @@ body.popup_active .container_header_top {
     height: 30vh;
     background-color: wheat;
 
-    border: 5px solid black ;
+    outline: 5px solid black;
 
     margin-bottom: 5%;
 }
@@ -823,21 +1364,31 @@ body.popup_active .container_header_top {
         height: 5vw;
     }
 
+    .header_utility_buttons .header_top_language_button {
+        width: clamp(46px, 5vw, 60px);
+        height: clamp(46px, 5vw, 60px);
+    }
+
+    .header_theme_button {
+        width: clamp(62px, 7vw, 78px);
+        height: clamp(62px, 7vw, 78px);
+    }
+
     /* ABOUT ME */
     .about_me_box {
-        width: 40%;
+        flex-basis: 46%;
     }
     .container_about_me_pl {
-        width: 37vw;
-        margin-left: 3%;
+        flex-basis: 48%;
+        margin-left: 0;
     }
     .about_me_picture {
-        width: 35vw;
-        height: 35vw;
+        width: 88%;
+        max-width: none;
     }
     .about_me_box_icon {
-        width: 5.5vw;
-        height: 5.5vw;
+        width: clamp(60px, 8vw, 96px);
+        height: clamp(60px, 8vw, 96px);
         margin-right: 6px;
         margin-left: 0;
     }
@@ -849,35 +1400,35 @@ body.popup_active .container_header_top {
     }
 
     .about_me_box_text {
-    color: wheat;
-    font-size: 100% ;
-}
+        font-size: clamp(12px, 1.5vw, 18px);
+    }
 
-    /* TIMELINE */
-    .timeline_tutorial_box {
-        width: 85%;
-    }
-    .timeline_total_box {
-        width: 90%;
-    }
-    .container_timeline {
-        margin-left: 5%;
-    }
-    .timeline_box {
-        width: 7vw;
-        height: 4.5vw;
-    }
-    .container_timeline_box {
-        width: calc(6 * 7vw + 5 * 12px);
+    /* TIMELINE - one set of numbers, everything follows them */
+    :root {
+        --timeline-side: clamp(10px, 3vw, 34px);
+        --timeline-box: clamp(50px, 7vw, 84px);   /* was 7vw */
+        --timeline-gap: 12px;
+        --timeline-columns: 6;
     }
 
     .timeline_total_box_inner {
-        background-size: 10vw;
+        background-size: clamp(40px, 10vw, 80px);
+    }
+    /* the section boxes sat in a narrower container down here, so their
+       spacing was proportionally bigger - keep that */
+    .timeline-label {
+        margin: clamp(10px, 1.75vw, 26px);
+        padding: clamp(10px, 1.75vw, 26px);
     }
 }
 
 /* --- SMALL (481px – 767px): large phones / small tablets --- */
 @media (max-width: 767px) {
+
+    /* PHONE LINKS - SMALLER TEXT SIZE */
+    a {
+        font-size: 15px;
+    }
 
     body {
         height: auto;
@@ -905,25 +1456,33 @@ body.popup_active .container_header_top {
         flex-direction: column;
         align-items: center;
         width: 100%;
+        padding: 0 5%;
     }
     .about_me_box {
+        flex: 0 1 auto;
         width: 90%;
         height: auto;
     }
+    /* stacked: box grows with its text again */
+    .container_about_me_box_text {
+        position: static;
+        height: auto;
+        overflow-y: visible;
+    }
     .container_about_me_pl {
+        flex: 0 1 auto;
         margin-left: 0;
-        margin-top: 5%;
         align-items: center;
         width: 90%;
     }
     .about_me_picture {
         width: 55vw;
-        height: 55vw;  /* keep square for circle crop */
+        max-width: 100%;   /* keep square for circle crop */
     }
 
     .about_me_box_icon {
-        width: 8vw;
-        height: 8vw;
+        width: clamp(58px, 12vw, 82px);
+        height: clamp(58px, 12vw, 82px);
     }
     .about_me_site_info_text {
         font-size: 3.5vw;
@@ -932,33 +1491,23 @@ body.popup_active .container_header_top {
         font-size: 3.5vw;
     }
     .about_me_box_text {
-        font-size: 110%;
+        font-size: clamp(13px, 2.6vw, 18px);
     }
 
     /* TIMELINE */
-    .container_timeline_tutorial_box {
-        width: 100%;
+    :root {
+        --timeline-side: clamp(8px, 3vw, 20px);
+        --timeline-box: clamp(48px, 10vw, 77px);  /* was 10vw */
+        --timeline-gap: 12px;
+        --timeline-columns: 4;
     }
-    .timeline_tutorial_box {
-        width: 90%;
-    }
-    .timeline_total_box {
-        width: 95%;
-    }
+
     .container_timeline {
-        margin-left: 2%;
         gap: 35px;
     }
     .timeline-label {
-        font-size: 2.8vw;
-        width: 18vw;
-    }
-    .timeline_box {
-        width: 10vw;
-        height: 6.5vw;
-    }
-    .container_timeline_box {
-        width: calc(4 * 10vw + 3 * 12px);
+        font-size: clamp(11px, 2.8vw, 18px);
+        width: clamp(80px, 18vw, 130px);
     }
 
     /* POPUP */
@@ -1033,28 +1582,171 @@ body.popup_active .container_header_top {
         background-size: 15vw;
     }
 
-    /* HEADER */
+    /* MOBILE HEADER MENU - ONE LARGE MENU BUTTON WITH A DROP-DOWN PANEL */
+    .container_header_top {
+        width: 100%;
+        z-index: 5;
+    }
+
     .header_top {
-        height: 10vh;
-        justify-content: space-around;
+        position: relative;
+        height: clamp(108px, 26vw, 124px);
+        min-height: 108px;
+        max-height: 124px;
+        justify-content: center;
     }
+
     .header_top_fake {
-        height: 10vh;
+        height: clamp(108px, 26vw, 124px);
     }
-    .header_top_button {
-        width: 28%;
-        height: 65%;
-        margin-right: 2%;
-        margin-left: 2%;
+
+    .header_mobile_menu_button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        appearance: none;
+        -webkit-appearance: none;
+        border: none;
+        padding: 0;
+
+        width: clamp(92px, 25vw, 132px);
+        height: clamp(62px, 15vw, 82px);
+        background-color: var(--site-color-panel);
+        box-shadow: inset 0 0 0 4px black;
+        cursor: pointer;
     }
-    .header_top_button_text {
-        font-size: 75%;
+
+    .header_mobile_menu_button:active {
+        transform: scale(0.95);
     }
-    .header_top_language_button {
-        width: 9vw;
-        height: 9vw;
-        min-width: 32px;
-        min-height: 32px;
+
+    .header_mobile_menu_button:hover,
+    .header_mobile_menu_button:focus-visible {
+        outline: 6px double black;
+        outline-offset: -6px;
+    }
+
+    .header_mobile_menu_button_text {
+        color: wheat;
+        font-family: Impact, 'Arial Black', sans-serif;
+        font-size: clamp(28px, 8vw, 48px);
+        line-height: 1;
+    }
+
+    .header_navigation_buttons {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 2%;
+        right: 2%;
+        z-index: 6;
+
+        flex-direction: column;
+        gap: clamp(10px, 3vw, 16px);
+        box-sizing: border-box;
+        padding: clamp(10px, 3vw, 16px);
+
+        background-color: var(--site-color-primary);
+
+        /* MOBILE MENU PANEL - NO TOP BORDER */
+        outline: none;
+        border-right: 5px solid black;
+        border-bottom: 5px solid black;
+        border-left: 5px solid black;
+    }
+
+    .header_top.mobile_menu_open .header_navigation_buttons {
+        display: flex;
+    }
+
+    .header_navigation_buttons .header_top_button {
+        width: 100%;
+        height: clamp(92px, 27vw, 132px);
+        margin: 0;
+        box-shadow: inset 0 0 0 5px black;
+    }
+
+    .header_navigation_buttons .header_top_button_text {
+        margin: 0;
+        font-family: Impact, 'Arial Black', sans-serif;
+        font-size: clamp(38px, 13vw, 68px);
+        line-height: 1;
+    }
+
+    .header_utility_buttons {
+        right: 5%;
+        top: 0;
+        bottom: 0;
+        transform: none;
+    }
+
+    .header_utility_buttons .header_top_language_button {
+        position: static;
+        width: clamp(46px, 12vw, 58px);
+        height: clamp(46px, 12vw, 58px);
+        min-width: 46px;
+        min-height: 46px;
+    }
+
+    /* PHONE THEME SELECTOR - LEFT SIDE OF THE HEADER, BESIDE THE MENU BUTTON */
+    .header_theme_selector {
+        position: fixed;
+        left: 5%;
+        top: clamp(10px, 6vw, 36px);
+        bottom: auto;
+        z-index: 8;
+    }
+
+    .header_theme_button {
+        position: static;
+        width: clamp(58px, 16vw, 72px);
+        height: clamp(58px, 16vw, 72px);
+        min-width: 58px;
+        min-height: 58px;
+    }
+
+    /* ON PHONES THE THEME CHOICES OPEN DOWNWARD FROM THE LEFT-SIDE BUTTON */
+    .header_theme_menu {
+        top: calc(100% + 7px);
+        right: auto;
+        bottom: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        flex-direction: column;
+        gap: 6px;
+        padding: 7px;
+    }
+
+    .header_theme_option {
+        width: clamp(50px, 14vw, 62px);
+        height: clamp(50px, 14vw, 62px);
+    }
+
+    /* PHONE HEADER BUTTONS - KEEP THEIR SIZE FIXED ON HOVER AND PRESS */
+    .header_mobile_menu_button:hover,
+    .header_mobile_menu_button:focus-visible,
+    .header_mobile_menu_button:active,
+    .header_navigation_buttons .header_top_button:hover,
+    .header_navigation_buttons .header_top_button:focus-visible,
+    .header_navigation_buttons .header_top_button:active,
+    .header_top_language_button:hover,
+    .header_top_language_button:focus-visible,
+    .header_top_language_button:active,
+    .header_theme_button:hover,
+    .header_theme_button:focus-visible,
+    .header_theme_button:active,
+    .header_theme_option:hover,
+    .header_theme_option:focus-visible,
+    .header_theme_option:active {
+        outline: none;
+        transform: none;
+    }
+
+    .header_navigation_buttons .header_top_button_text {
+        max-width: 100%;
+        white-space: nowrap;
+        text-align: center;
     }
 
     /* ABOUT ME — single column */
@@ -1065,82 +1757,139 @@ body.popup_active .container_header_top {
         padding-bottom: 5%;
     }
     .about_me_box {
+        flex: 0 1 auto;
         width: 95%;
         height: auto;
         padding-bottom: 3%;
     }
+    .container_about_me_box_text {
+        position: static;
+        height: auto;
+        overflow-y: visible;
+    }
+    /* PHONE ABOUT-ME ORDER
+       Flatten the right-hand column into the phone stack so the profile
+       picture can appear above the main about-me text box. */
     .container_about_me_pl {
-        margin-left: 0;
-        margin-top: 4%;
-        align-items: center;
+        display: contents;
+    }
+
+    .about_me_picture {
+        order: 1;
+        width: 65vw;
+        max-width: 100%;
+    }
+
+    .about_me_box {
+        order: 2;
+    }
+
+    .about_me_links {
+        order: 3;
         width: 95%;
     }
-    .about_me_picture {
-        width: 65vw;
-        height: 65vw;
-    }
-    .about_me_links {
-        margin-top: 5%;
-    }
+
     .about_me_site_info {
-        margin-top: 5%;
+        order: 4;
+        width: 95%;
     }
     .about_me_box_icon {
-        width: 10vw;
-        height: 10vw;
+        width: clamp(52px, 16vw, 72px);
+        height: clamp(52px, 16vw, 72px);
         margin-left: 3%;
         margin-right: 2%;
     }
     .about_me_site_info_text {
         font-size: 4.5vw;
     }
+
+    /* PHONE HEADINGS - CENTERED */
+    h1,
+    h2,
+    h3 {
+        text-align: center;
+    }
+
     .header_about_me_box_text {
         font-size: 5vw;
+        text-align: center;
     }
     .about_me_box_text {
-        font-size: 100%;
+        font-size: clamp(13px, 3.6vw, 17px);
     }
     .about_me_line {
-        width: 60%;
+        width: 100%;
     }
     .about_me_site_info_line {
         width: 60%;
     }
 
-    /* TIMELINE TUTORIAL BOX */
-    .container_timeline_tutorial_box {
-        width: 100%;
-        padding: 0 2%;
-        box-sizing: border-box;
+    /* PHONE TIMELINE - LARGE TWO-COLUMN PROJECT GRID */
+    :root {
+        /* MATCH THE LEFT AND RIGHT SPACE USED BY THE PHONE INTRO TAB */
+        --timeline-side: 5%;
+        --timeline-box: clamp(112px, 31vw, 150px);
+        --timeline-gap: 12px;
+        --timeline-columns: 2;
     }
-    .timeline_tutorial_box {
-        width: 100%;
-        box-sizing: border-box;
-    }
+
     .timeline_total_box {
-        width: 100%;
-        box-sizing: border-box;
+        height: auto;
         padding: 3% 2%;
     }
+
+    .timeline_total_box_inner {
+        height: auto;
+        padding: 6% 4%;
+    }
+
     .container_timeline {
-        margin-left: 1%;
-        gap: 25px;
+        /* EXTRA SPACE BETWEEN MODS/PROJECTS, GAMES AND MIX ON PHONES */
+        gap: clamp(44px, 12vw, 64px);
     }
+
     .timeline-section {
-        flex-wrap: wrap;
+        width: 100%;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+        gap: 0;
     }
+
+    /* PHONE TIMELINE - SPACE BETWEEN THE END OF ONE PROJECT GRID AND THE NEXT HEADER */
+    .timeline-section + .timeline-section {
+        margin-top: clamp(28px, 8vw, 44px);
+    }
+
     .timeline-label {
-        font-size: 3.5vw;
-        width: 22vw;
-        padding: 2%;
+        /* MATCH THE WIDTH AND CENTRE OF THE TWO-COLUMN BUTTON GRID */
+        width: calc((2 * var(--timeline-box)) + var(--timeline-gap));
+        max-width: 100%;
+        margin: 0 auto clamp(20px, 5vw, 28px);
+        padding: 10px 12px;
+        box-sizing: border-box;
+        font-size: clamp(18px, 5vw, 26px);
+        white-space: normal;
     }
-    .timeline_box {
-        width: 12vw;
-        height: 8vw;
+
+    .timeline-line-and-boxes {
+        display: block;
+        width: 100%;
     }
+
+    /* THE VERTICAL TIMELINE LINE IS NOT USED IN THE PHONE LAYOUT */
+    .timeline-line {
+        display: none;
+    }
+
     .container_timeline_box {
-        width: calc(4 * 12vw + 3 * 10px);
-        gap: 10px;
+        display: grid;
+        grid-template-columns: repeat(2, var(--timeline-box));
+        justify-content: center;
+        width: calc((2 * var(--timeline-box)) + var(--timeline-gap));
+        max-width: 100%;
+        margin: 0 auto;
+        gap: var(--timeline-gap);
     }
 
     /* POPUP — full-screen on mobile */
@@ -1156,38 +1905,68 @@ body.popup_active .container_header_top {
     .timeline_popup_content {
         flex-direction: column;
         height: auto;
-        gap: 4%;
+        gap: clamp(18px, 5vw, 26px);
         margin-top: 8%;
     }
-    .timeline_popup_boxes {
-        display: grid !important;
-        grid-template-columns: 1fr 1fr;
-        width: 100%;
-        height: auto;
-        gap: 6px;
-    }
+
+    /* PHONE POPUP MEDIA GRID
+       Keep popups with either two or four image links evenly divided,
+       centred, and aligned with the rest of the popup. */
+    .timeline_popup_boxes,
     .timeline_popup_boxes_half {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: stretch;
+        justify-content: center;
+
         width: 100%;
+        max-width: 100%;
+        height: auto;
+
+        margin: 0 auto;
+        padding: 0 clamp(4px, 1.5vw, 8px);
+        gap: clamp(10px, 3vw, 16px);
+        box-sizing: border-box;
     }
+
     .timeline_popup_box,
     .timeline_popup_box_steam,
     .timeline_popup_box_img {
-        width: 41vw;
-        height: 28vw;
+        width: 100%;
+        min-width: 0;
+        height: auto;
+        aspect-ratio: 3 / 2;
         flex: unset;
+        box-sizing: border-box;
+
+        /* PHONE POPUP MEDIA - KEEP ALL FOUR BLACK EDGES VISIBLE */
+        outline: none;
+        border: 5px solid black;
     }
     .timeline_popup_textbox {
         width: 100%;
         height: auto;
         margin-bottom: 0;
+
+        /* THE BORDER BELONGS TO THE INNER CONTENT BOX SO ITS SIDE EDGES
+           STOP AT THE SAME POINT AS THE TEXT INSTEAD OF EXTENDING BELOW IT. */
+        border: none;
+        box-sizing: border-box;
     }
     .timeline_popup_textbox_inner {
         max-height: none;
         overflow-y: visible;
         background-size: 15vw;
+
+        margin-bottom: 0;
+        outline: none;
+        border: 5px solid black;
+        box-sizing: border-box;
     }
+    /* PHONE POPUP TEXT HEADING ALIGNMENT */
     .timeline_popup_header {
         font-size: 5vw;
+        text-align: center;
     }
     .timeline_popup_subheader {
         font-size: 3.5vw;
@@ -1207,10 +1986,339 @@ body.popup_active .container_header_top {
         height: 35vw;
     }
     .timeline_popup_line {
-        width: 80%;
+        width: 100%;
     }
 
     .timeline_total_box_inner {
         background-size: 15vw;
+    }
+}
+
+/* POPUP STILL IMAGES - GRAY HOVER FILTER AND FULL-SIZE IMAGE LINK */
+.timeline_popup_image_opener {
+    position: relative;
+    overflow: hidden;
+    cursor: zoom-in;
+}
+
+.timeline_popup_image_opener::after {
+    content: var(--i18n-open-image, "Open Image");
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgba(90, 90, 90, 0.82);
+    color: wheat;
+    font-family: Impact, 'Arial Black', sans-serif;
+    font-size: clamp(22px, 2.2vw, 42px);
+    text-align: center;
+    text-transform: uppercase;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+.timeline_popup_image_opener:hover::after,
+.timeline_popup_image_opener:focus-visible::after {
+    opacity: 1;
+}
+
+.timeline_popup_image_opener:focus-visible {
+    outline-offset: 4px;
+}
+
+/* ============================================================
+   SITE COLOR THEME HINT BOXES
+   ------------------------------------------------------------
+   Shows the name of the theme selector and each theme choice on
+   mouse hover or keyboard focus. The visible labels are supplied
+   through shared localization strings in index.html.
+   ============================================================ */
+.header_theme_button[data-theme-hint],
+.header_theme_option[data-theme-hint] {
+    position: relative;
+    overflow: visible;
+}
+
+.header_theme_button[data-theme-hint]::after,
+.header_theme_option[data-theme-hint]::after {
+    content: attr(data-theme-hint);
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+
+    padding: 5px 10px;
+    background-color: black;
+    color: wheat;
+    outline: 2px solid wheat;
+
+    font-family: Impact, 'Arial Black', sans-serif;
+    font-size: clamp(12px, 0.9vw, 18px);
+    letter-spacing: 0.03em;
+    line-height: 1.1;
+    white-space: nowrap;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.12s ease;
+    z-index: 60;
+}
+
+.header_theme_button[data-theme-hint]:hover::after,
+.header_theme_button[data-theme-hint]:focus-visible::after,
+.header_theme_option[data-theme-hint]:hover::after,
+.header_theme_option[data-theme-hint]:focus-visible::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Once the menu is open, hide the selector's own hint so it does not
+   cover the theme choices. */
+.header_theme_selector.theme_menu_open .header_theme_button::after {
+    opacity: 0;
+    visibility: hidden;
+}
+
+@media (max-width: 480px) {
+    /* Show the selector label below the phone button while its menu is closed. */
+    .header_theme_button[data-theme-hint]::after {
+        top: calc(100% + 8px);
+        bottom: auto;
+    }
+
+    /* The phone menu is vertical, so place each choice label beside it. */
+    .header_theme_option[data-theme-hint]::after {
+        top: 50%;
+        right: auto;
+        bottom: auto;
+        left: calc(100% + 10px);
+        transform: translateY(-50%);
+        font-size: clamp(12px, 3.7vw, 16px);
+    }
+}
+
+/* ============================================================
+   DESKTOP MUSIC PLAYER
+   ------------------------------------------------------------
+   The music button sits above the theme selector on desktop.
+   Its enabled state is never saved, and the entire control is
+   hidden on phones and other narrow screens.
+   ============================================================ */
+.site_music_player {
+    position: fixed;
+    left: clamp(14px, 1.2vw, 24px);
+    bottom: calc(clamp(14px, 1.2vw, 24px) + clamp(64px, 4.5vw, 84px) + 14px);
+    z-index: 30;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.site_music_button {
+    appearance: none;
+    -webkit-appearance: none;
+    border: none;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: clamp(64px, 4.5vw, 84px);
+    height: clamp(64px, 4.5vw, 84px);
+
+    background-color: white;
+    box-shadow: inset 0 0 0 3px black, 0 0 12px rgba(0, 0, 0, 0.45);
+    cursor: pointer;
+}
+
+.site_music_button:hover,
+.site_music_button:focus-visible {
+    outline: 3px solid black;
+    outline-offset: 2px;
+}
+
+.site_music_button:active {
+    transform: scale(0.95);
+}
+
+.site_music_button_icon {
+    display: block;
+    width: 88%;
+    height: 88%;
+    object-fit: contain;
+    pointer-events: none;
+}
+
+.site_music_info {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    min-width: clamp(170px, 12vw, 235px);
+    min-height: clamp(64px, 4.5vw, 84px);
+    max-width: clamp(210px, 16vw, 310px);
+    box-sizing: border-box;
+    padding: 8px 12px;
+
+    background-color: wheat;
+    border: 4px solid black;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.45);
+
+    color: black;
+    font-family: Impact, 'Arial Black', sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 1.05;
+}
+
+.site_music_player.music_is_on .site_music_info {
+    display: flex;
+}
+
+.site_music_artist {
+    font-size: clamp(13px, 0.9vw, 18px);
+}
+
+.site_music_title {
+    margin-top: 3px;
+    font-size: clamp(15px, 1.05vw, 21px);
+}
+
+.site_music_album {
+    margin-top: 3px;
+    font-size: clamp(12px, 0.8vw, 16px);
+}
+
+/* The music player is deliberately available on desktop only. */
+@media (max-width: 767px) {
+    .site_music_player {
+        display: none !important;
+    }
+}
+
+/* ============================================================
+   POPUP TEXT LINK BOX
+   ------------------------------------------------------------
+   Gives text-only website links their own media-style box without
+   placing a background color on every <a> element on the site.
+   popup_loader.js reduces long titles until they fit this box.
+   ============================================================ */
+.timeline_popup_text_link {
+    display: block;
+    width: 100%;
+    margin-bottom: 5%;
+    text-decoration: none;
+}
+
+.timeline_popup_text_link_box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    width: 100%;
+    min-height: clamp(58px, 5vw, 96px);
+    padding: clamp(10px, 1vw, 18px) clamp(12px, 1.4vw, 26px);
+    box-sizing: border-box;
+
+    background-color: wheat;
+    outline: 5px solid black;
+
+    transition: transform 0.15s ease;
+}
+
+/* TEXT LINK HOVER FILTER - MATCHES THE OTHER POPUP EXTERNAL LINKS */
+.timeline_popup_text_link_box::after {
+    content: var(--i18n-open-link, "Open to Link");
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgba(90, 90, 90, 0.82);
+    color: wheat;
+    font-family: Impact, 'Arial Black', sans-serif;
+    font-size: clamp(22px, 2.2vw, 42px);
+    line-height: 1;
+    text-align: center;
+    text-transform: uppercase;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+.timeline_popup_text_link:hover .timeline_popup_text_link_box::after,
+.timeline_popup_text_link:focus-visible .timeline_popup_text_link_box::after {
+    opacity: 1;
+}
+
+.timeline_popup_text_link_title {
+    display: block;
+    width: 100%;
+
+    color: black;
+    font-family: Impact, 'Arial Black', sans-serif;
+    font-size: clamp(24px, 2.2vw, 44px);
+    font-weight: 900;
+    line-height: 1;
+    text-align: center;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.timeline_popup_text_link:hover .timeline_popup_text_link_box,
+.timeline_popup_text_link:focus-visible .timeline_popup_text_link_box {
+    transform: scale(1.02);
+}
+
+.timeline_popup_text_link:active .timeline_popup_text_link_box {
+    transform: scale(1);
+}
+
+.timeline_popup_text_link:focus-visible {
+    outline: none;
+}
+
+@media (max-width: 767px) {
+    .timeline_popup_text_link_box {
+        min-height: clamp(54px, 14vw, 78px);
+        padding: clamp(8px, 2.5vw, 14px) clamp(10px, 3vw, 18px);
+    }
+
+    .timeline_popup_text_link_title {
+        font-size: clamp(20px, 6vw, 34px);
+    }
+}
+
+/* ============================================================
+   PHONE POPUP LINK/IMAGE OVERLAYS
+   ------------------------------------------------------------
+   Touching a popup link or image on a phone opens it directly.
+   The desktop "Open to Link" and "Open Image" hover overlays are
+   disabled so they cannot remain visible after a tap.
+   ============================================================ */
+@media (max-width: 767px) {
+    .timeline_popup_box_steam::after,
+    .timeline_popup_external_link .timeline_popup_subheader_video::after,
+    .timeline_popup_text_link_box::after,
+    .timeline_popup_image_opener::after {
+        content: none;
+        display: none;
+        opacity: 0 !important;
     }
 }

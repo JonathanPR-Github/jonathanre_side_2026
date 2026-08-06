@@ -1,0 +1,9 @@
+{
+    "_comment": "Norske strenger kun for Tidslinje-fanen.",
+    "about.heading": "OM TIDSLINJEN",
+    "about.paragraph_01": "Tidslinjen består av flere seksjoner og rader med utviklingsarbeid jeg har gjort gjennom karrieren min. Her finner du modifikasjoner jeg har laget til videospill, prosjekter jeg har deltatt i gjennom de siste årene, og annet arbeid jeg har utført.<br>Radene med bildebokser viser prosjektene mine, og ikonene øverst i hver boks viser hvilket spill prosjektet er knyttet til. Når du klikker på en boks, åpnes et popup-vindu med relevant informasjon om prosjektet.",
+    "about.paragraph_02": "Popup-vinduene inneholder informasjon om hva prosjektet dreide seg om, bilder og videoforklaringer, lenker til nettsteder som Steam, hvor lenge utviklingen varte, og hva prosjektet ble kodet i.<br>Nederst finnes det en seksjon for kompetansen som ble brukt i prosjektet, for eksempel programmeringsspråk.",
+    "categories.mods_projects": "PROSJEKTER",
+    "categories.games": "SPILL",
+    "categories.mix": "BLANDET"
+}

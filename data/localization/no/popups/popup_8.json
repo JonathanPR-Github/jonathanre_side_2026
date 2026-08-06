@@ -1,0 +1,17 @@
+{
+    "_comment": "Norske strenger for popup 8. Denne filen styrer kun teksten i popup_8.html.",
+    "title": "\"SWBF2 (2017)-SAMLINGEN\"",
+    "date": "2025",
+    "paragraph_01": "Star Wars Battlefront II er et action- og skytespill fra 2017, utviklet av DICE og utgitt av Electronic Arts. Spillet er basert på Star Wars-universet, er det fjerde hovedspillet i Star Wars: Battlefront-serien og en oppfølger til nyutgivelsen fra 2015.",
+    "paragraph_02": "Sent i 2025, etter at jeg hadde vendt tilbake til spillet og spilt det mye, fikk jeg en idé til en modifikasjon som både var risikabel og givende. Modifikasjoner til spill utgitt av EA kan dessverre medføre risiko for utestengelse, så jeg var forsiktig i begynnelsen.",
+    "paragraph_03": "Senere bestemte jeg meg for å lære hvordan slike modifikasjoner til EA-spill blir laget, noe som krevde at jeg lærte Frosty Modding Tools. Med mine egne ord kan opplevelsen beskrives som ganske forvirrende og lite nybegynnervennlig.",
+    "paragraph_04": "Det tok noen dager med studier av verktøyet og spørsmål til andre som hadde laget lignende modifikasjoner, før jeg fikk et oppsett jeg kunne arbeide videre med. Da jeg først forsto systemet, klarte jeg å lage noe interessant.",
+    "paragraph_05": "Mot slutten av den uken laget jeg «Simple Crosshairs» ved å grave meg gjennom programstrukturen og erstatte en ressurs slik at den ble vist over en annen. Modifikasjonen gir spilleren et utvalg av egendefinerte sikter laget både av meg og hentet fra andre spill.",
+    "paragraph_06": "Modifikasjonen fikk gode tilbakemeldinger, siden mange spillere ønsket muligheten til å velge mellom egendefinerte sikter.",
+    "paragraph_07": "I månedene etterpå ble jeg kontaktet av flere utviklere som ønsket å gjenskape modifikasjonen. Jeg hjalp dem gjerne, og siden den gang har det blitt laget flere under-modifikasjoner som tilbyr flere egendefinerte sikter.",
+    "competence_heading": "KOMPETANSE",
+    "competence_item_01": "Frosty Modding Tools",
+    "competence_item_02": "GIMP",
+    "competence_item_03": "Inkscape",
+    "competence_item_04": "DaVinci Resolve"
+}

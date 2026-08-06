@@ -1,0 +1,15 @@
+{
+    "_comment": "English strings for popup 7. This file only controls the text inside popup_7.html.",
+    "title": "\"S.T.A.L.K.E.R ANOMALY COLLECTION\"",
+    "date": "2025",
+    "paragraph_01": "S.T.A.L.K.E.R. Anomaly is a standalone, fan-made modification mod built on the engine of the original S.T.A.L.K.E.R.: Call of Pripyat. It expands the S.T.A.L.K.E.R. experience into a large, open-ended sandbox set in the dangerous, post-apocalyptic “Zone” surrounding the Chernobyl Nuclear Power Plant.",
+    "paragraph_02": "In 2025 when I finally decided to play the mod, I decided to make a mod for it for something I found quite frustrating with its design choice as a casual player",
+    "paragraph_03": "This mod over the span of a few days of learning how Stalker Anomaly worked, became \"PDA Map Location Names\", which is a mod that that adds location names on the map used in the game to traverse around the Chernobyl zone",
+    "paragraph_04": "PDA Map Location Names released to positive receptions, as people similarly also wanted a mod to traverse the world better. While it wasn't exactly possible to make it so the map mode would dynamically appear and disappear like it does in Stalker 2, people seemed to have enjoyed it nonetheless.",
+    "paragraph_05": "Unbeknownst to me however, people have also made submods of this mod for localization and modpack reasons, which a quick backwards search will reveal. Which shows that this mod worked as intended",
+    "competence_heading": "COMPETENCE",
+    "competence_item_01": "Stalker ANOMALY language",
+    "competence_item_02": "Mod Organizer",
+    "competence_item_03": "GIMP",
+    "competence_item_04": "Inkscape"
+}

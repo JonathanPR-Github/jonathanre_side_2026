@@ -1,0 +1,17 @@
+{
+    "_comment": "English strings for popup 16. This file only controls the text inside popup_16.html.",
+    "title": "\"STELLARIS COLLECTION\"",
+    "date": "2026",
+    "paragraph_01": "After having returned to Stellaris during its 4.3.0 performance update after being absent from the game since 2023, I gained a new interest in the game after having tried it again. Having been a vivid HOI4 modder for a while, I felt like I had to create a mod around something that had bugged me since the first time I tried the game.",
+    "paragraph_02": "There are always something about the flag of the interstellar empire you were playing that bugged me off in the fact that it didn't look like a flag at all, so I wished to make it so that it would look like a flag. And since all Paradox games shares the same bracket language, this would be quite an easy job",
+    "paragraph_03": "The difficult part of creating the mod would not to find the backgrounds in Stellaris localization, it would be to apply the flag overlay.<br>I would first try to make a transparent background that could be applied to any background on a flag, but that did not work, so in the end I ended up finding a white flag, scaling that up, then placing that in a layer set to be \"Hard Light\". This essentially makes it so the layer/image is lighted on the layer below it per its color.<br>I would sit for a bit on the mod to try perfect it, going from different types of overlays, like curtains to see what could make the best display for a flag.",
+    "paragraph_04": "And when I had finished a background layer for the flag, instead of having to manually apply that for every single 50 or so flags that were in Stellaris, I had Claude take the flag overlay, then apply that for me for all the flags under 10 seconds, saving me a few hours of me doing it instead. And as such I had made the \"Flag Overlay\" mod for Stellaris",
+    "paragraph_05": "There are always something about the flag of the interstellar empire you were playing that bugged me off in the fact that it didn't look like a flag at all, so I wished to make it so that it would look like a flag. And since all Paradox games shares the same bracket language, this would be quite an easy job",
+    "paragraph_06": "The \"Flag Overlay\" mod released to positive receptions, with players liking the small but significant change to the game's empire flags",
+    "paragraph_07": "Over the coming weeks I would continue to make submods of other mods with flags, so I could give them the same overlay treatment based upon players requests",
+    "competence_heading": "COMPETENCE",
+    "competence_item_01": "Paradox Bracket Language",
+    "competence_item_02": "GIMP",
+    "competence_item_03": "Inkscape",
+    "competence_item_04": "Claude"
+}

@@ -1,0 +1,13 @@
+{
+    "_comment": "Norske strenger for popup 9. Denne filen styrer kun teksten i popup_9.html.",
+    "title": "\"LEFT 4 DEAD-MODSAMLINGEN\"",
+    "date": "2025",
+    "paragraph_01": "Som en stor tilhenger av Left 4 Dead 2 var det nesten uunngåelig at jeg til slutt kom til å lage noe til spillet. Det var alltid noe ved våpnene som irriterte meg, særlig at L4D1 hadde en unik pistol som ikke var den samme som i L4D2. Jeg liker også at førstepersonsmodellen ligger lavere under armen, siden det frigjør mer plass på skjermen.",
+    "paragraph_02": "Tidlig i 2025 satte jeg meg derfor ned og lærte hvordan våpnene fungerte i L4D2. Siden systemet var svært likt det i TF2, klarte jeg å lage modifikasjonen ganske raskt. Modellen fantes allerede i spillet, så jeg måtte bare erstatte standardmodellen, tilpasse riggen til animasjonene og justere utgangspunktet slik at våpenet lå lenger nede foran spilleren.",
+    "paragraph_03": "«Minmode - Glock» fikk gode tilbakemeldinger, og det virket som om spillerne satte pris på den enkle modifikasjonen. Kort tid senere fullførte jeg en forespørsel og laget en lignende modifikasjon til en annen animasjonsmod.",
+    "competence_heading": "KOMPETANSE",
+    "competence_item_01": "SDK Hammer-motoren",
+    "competence_item_02": "GIMP",
+    "competence_item_03": "Inkscape",
+    "competence_item_04": "Blender"
+}
