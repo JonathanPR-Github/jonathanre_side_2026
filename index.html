@@ -22,7 +22,7 @@
         <script defer="" src="data/i18n.js"></script>
         <script defer="" src="popups/popup_loader.js"></script>
         <script defer="" src="data/url_router.js"></script>
-        <title data-i18n-file="shared" data-i18n-key="site_title">Document</title>
+        <title data-i18n-file="shared" data-i18n-key="site_title">Jonrep</title>
     </head>
     <!-- BODY VISUALS ARE DONE BY CSS -->
     <body>
@@ -129,10 +129,14 @@
                         <button aria-label="Turn site music on" aria-pressed="false" class="site_music_button" data-i18n-attr-aria-label="music.turn_on" data-i18n-attr-title="music.turn_on" data-i18n-file="shared" id="site_music_button" onclick="OnClickSound()" onmousedown="OnHoldSound()" onmouseenter="OnHoverSound()" title="Turn site music on" type="button">
                             <img alt="" class="site_music_button_icon" id="site_music_button_icon" src="images/buttons/icons/music/music_off.svg">
                         </button>
-                        <div aria-label="Now playing" aria-live="polite" class="site_music_info" data-i18n-attr-aria-label="music.track_info" data-i18n-file="shared" id="site_music_info" role="status">
-                            <span class="site_music_artist" id="site_music_artist">Kevin MacLeod</span>
-                            <span class="site_music_title" id="site_music_title"></span>
-                            <span class="site_music_album" id="site_music_album"></span>
+                        <!-- NOW PLAYING BOX: can be hidden without stopping the music -->
+                        <div class="site_music_info_group" id="site_music_info_group">
+                            <div aria-label="Now playing" aria-live="polite" class="site_music_info" data-i18n-attr-aria-label="music.track_info" data-i18n-file="shared" id="site_music_info" role="status">
+                                <span class="site_music_artist" id="site_music_artist">Kevin MacLeod</span>
+                                <span class="site_music_title" id="site_music_title"></span>
+                                <span class="site_music_album" id="site_music_album"></span>
+                            </div>
+                            <button aria-label="Hide track information" class="site_music_info_close" data-i18n-attr-aria-label="music.hide_track_info" data-i18n-attr-title="music.hide_track_info" data-i18n-file="shared" id="site_music_info_close" onclick="OnClickSound()" onmousedown="OnHoldSound()" onmouseenter="OnHoverSound()" title="Hide track information" type="button">X</button>
                         </div>
                         <audio id="site_music_audio" preload="metadata"></audio>
                     </div>

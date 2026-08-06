@@ -1,6 +1,6 @@
 {
     "_comment": "Felles norske grensesnittstrenger brukt av toppmenyen, språk-, tema- og musikkontrollene, kontaktknappene, popup-overleggene og lastingsfeil.",
-    "site_title": "Dokument",
+    "site_title": "Jonrep",
     "popup_template_header": "OVERSKRIFT",
     "popup_template_body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor sit amet.",
     "header.menu": "MENY",
@@ -25,6 +25,7 @@
     "music.turn_on": "Slå på musikken",
     "music.turn_off": "Slå av musikken",
     "music.track_info": "Spilles nå",
+    "music.hide_track_info": "Skjul sporinformasjon",
     "contact.linkedin": "LinkedIn",
     "contact.email": "E-post",
     "contact.github": "GitHub",

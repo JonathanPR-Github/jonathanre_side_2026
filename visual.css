@@ -89,8 +89,7 @@ a {
     max-width: 100% ;
     height: clamp(90px, 8vh, 110px);
     max-height: 100%;
-
-    outline: 5px solid black;
+    
 }
 
 .header_top_fake {
@@ -2158,8 +2157,18 @@ body.popup_active .container_header_top {
     pointer-events: none;
 }
 
-.site_music_info {
+/* NOW-PLAYING GROUP - HOLDS THE TRACK BOX AND ITS CLOSE BUTTON */
+.site_music_info_group {
+    position: relative;
     display: none;
+}
+
+.site_music_player.music_is_on:not(.music_info_dismissed) .site_music_info_group {
+    display: block;
+}
+
+.site_music_info {
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -2181,8 +2190,44 @@ body.popup_active .container_header_top {
     line-height: 1.05;
 }
 
-.site_music_player.music_is_on .site_music_info {
+/* CLOSE BUTTON - HIDES THE INFORMATION BOX WITHOUT STOPPING THE MUSIC */
+.site_music_info_close {
+    position: absolute;
+    top: clamp(-22px, -1.2vw, -12px);
+    right: clamp(-22px, -1.2vw, -12px);
+    z-index: 2;
+
+    appearance: none;
+    -webkit-appearance: none;
+    border: none;
+    outline: 4px solid white;
+    padding: 0;
+
     display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: clamp(42px, 3vw, 48px);
+    height: clamp(42px, 3vw, 48px);
+
+    background-color: var(--site-color-primary);
+    color: wheat;
+    box-shadow: inset 0 0 0 3px black, 0 0 10px rgba(0, 0, 0, 0.45);
+
+    font-family: Impact, 'Arial Black', sans-serif;
+    font-size: clamp(24px, 1.8vw, 36px);
+    line-height: 1;
+    cursor: pointer;
+}
+
+.site_music_info_close:hover,
+.site_music_info_close:focus-visible {
+    outline: 3px solid black;
+    outline-offset: 2px;
+}
+
+.site_music_info_close:active {
+    transform: scale(0.95);
 }
 
 .site_music_artist {

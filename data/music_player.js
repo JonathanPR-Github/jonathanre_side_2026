@@ -138,9 +138,10 @@
         var artistText = document.getElementById('site_music_artist');
         var titleText = document.getElementById('site_music_title');
         var albumText = document.getElementById('site_music_album');
+        var infoCloseButton = document.getElementById('site_music_info_close');
         var phoneMedia = window.matchMedia(PHONE_QUERY);
 
-        if (!player || !button || !buttonIcon || !audio || !artistText || !titleText || !albumText) {
+        if (!player || !button || !buttonIcon || !audio || !artistText || !titleText || !albumText || !infoCloseButton) {
             return;
         }
 
@@ -358,6 +359,8 @@
             cancelVolumeFade();
             audio.volume = activeYouTubeFrames.length > 0 ? 0 : BACKGROUND_VOLUME;
 
+            // Restarting the music always restores the now-playing box.
+            player.classList.remove('music_info_dismissed');
             player.classList.add('music_is_on');
             button.setAttribute('aria-pressed', 'true');
             buttonIcon.src = ON_ICON;
@@ -391,6 +394,15 @@
             } else {
                 enableMusic();
             }
+        });
+
+        // Hides only the artist/title/album box. The current track continues
+        // playing, and the box returns the next time the music is started.
+        infoCloseButton.addEventListener('click', function () {
+            if (!enabled) return;
+
+            player.classList.add('music_info_dismissed');
+            button.focus();
         });
 
         audio.addEventListener('ended', playNextTrack);
