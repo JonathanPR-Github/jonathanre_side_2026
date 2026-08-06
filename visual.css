@@ -2303,3 +2303,21 @@ body.popup_active .container_header_top {
         font-size: clamp(20px, 6vw, 34px);
     }
 }
+
+/* ============================================================
+   PHONE POPUP LINK/IMAGE OVERLAYS
+   ------------------------------------------------------------
+   Touching a popup link or image on a phone opens it directly.
+   The desktop "Open to Link" and "Open Image" hover overlays are
+   disabled so they cannot remain visible after a tap.
+   ============================================================ */
+@media (max-width: 767px) {
+    .timeline_popup_box_steam::after,
+    .timeline_popup_external_link .timeline_popup_subheader_video::after,
+    .timeline_popup_text_link_box::after,
+    .timeline_popup_image_opener::after {
+        content: none;
+        display: none;
+        opacity: 0 !important;
+    }
+}
