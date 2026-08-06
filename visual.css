@@ -1271,6 +1271,7 @@ body.popup_active .container_header_top {
 
 .timeline_popup_text_content {
     width: 100%;
+    backdrop-filter: blur(1.5px);
 }
 
 .timeline_popup_header {
