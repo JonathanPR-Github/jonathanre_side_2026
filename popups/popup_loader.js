@@ -45,14 +45,14 @@
     var defaultFullImage = 'images/large/first_tries_big_1.jpg';
 
 
-    /* ---------- AUTOMATIC POPUP TITLE SIZING ----------
+    /* ---------- AUTOMATIC POPUP AND TEXT-LINK TITLE SIZING ----------
        Popup headings normally use the full font size defined in visual.css.
        On desktop, a heading that is too wide is reduced only as much as needed
        to remain on one line. Extremely long headings may still wrap after the
        minimum size is reached, preventing them from overflowing the text box.
 
-       Phone and tablet layouts keep their existing responsive font sizes and
-       wrapping behaviour.
+       Phone and tablet popup headings keep their responsive font sizes. Text
+       link titles are measured at every size so they remain inside their box.
        ------------------------------------------------------------ */
 
     var popupTitleDesktopQuery = window.matchMedia('(min-width: 768px)');
@@ -111,12 +111,70 @@
         }
     }
 
+    function fitPopupLinkTitle(title) {
+        if (!title) return;
+
+        title.style.removeProperty('font-size');
+        title.style.removeProperty('white-space');
+
+        if (!title.getClientRects().length) return;
+
+        var box = title.closest('.timeline_popup_text_link_box');
+        if (!box) return;
+
+        var boxStyle = window.getComputedStyle(box);
+        var horizontalPadding =
+            parseFloat(boxStyle.paddingLeft || 0) +
+            parseFloat(boxStyle.paddingRight || 0);
+        var availableWidth = box.clientWidth - horizontalPadding;
+
+        if (availableWidth <= 0) return;
+
+        var normalSize = parseFloat(window.getComputedStyle(title).fontSize);
+        if (!normalSize) return;
+
+        var minimumSize = Math.max(12, normalSize * 0.5);
+        var lowerSize = minimumSize;
+        var upperSize = normalSize;
+        var bestSize = minimumSize;
+
+        title.style.whiteSpace = 'nowrap';
+        title.style.fontSize = normalSize + 'px';
+
+        if (title.scrollWidth <= availableWidth) return;
+
+        for (var i = 0; i < 10; i++) {
+            var testSize = (lowerSize + upperSize) / 2;
+            title.style.fontSize = testSize + 'px';
+
+            if (title.scrollWidth <= availableWidth) {
+                bestSize = testSize;
+                lowerSize = testSize;
+            } else {
+                upperSize = testSize;
+            }
+        }
+
+        title.style.fontSize = bestSize + 'px';
+
+        // A title that is still too long at the minimum size wraps inside the
+        // child box rather than overflowing beyond its black outline.
+        if (title.scrollWidth > availableWidth) {
+            title.style.whiteSpace = 'normal';
+        }
+    }
+
     function fitPopupHeaders(root) {
         if (!root || !root.querySelectorAll) return;
 
         var headers = root.querySelectorAll('.timeline_popup_header');
         for (var i = 0; i < headers.length; i++) {
             fitPopupHeader(headers[i]);
+        }
+
+        var linkTitles = root.querySelectorAll('.timeline_popup_text_link_title');
+        for (var j = 0; j < linkTitles.length; j++) {
+            fitPopupLinkTitle(linkTitles[j]);
         }
     }
 

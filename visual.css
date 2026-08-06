@@ -2204,3 +2204,102 @@ body.popup_active .container_header_top {
         display: none !important;
     }
 }
+
+/* ============================================================
+   POPUP TEXT LINK BOX
+   ------------------------------------------------------------
+   Gives text-only website links their own media-style box without
+   placing a background color on every <a> element on the site.
+   popup_loader.js reduces long titles until they fit this box.
+   ============================================================ */
+.timeline_popup_text_link {
+    display: block;
+    width: 100%;
+    margin-bottom: 5%;
+    text-decoration: none;
+}
+
+.timeline_popup_text_link_box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    width: 100%;
+    min-height: clamp(58px, 5vw, 96px);
+    padding: clamp(10px, 1vw, 18px) clamp(12px, 1.4vw, 26px);
+    box-sizing: border-box;
+
+    background-color: wheat;
+    outline: 5px solid black;
+
+    transition: transform 0.15s ease;
+}
+
+/* TEXT LINK HOVER FILTER - MATCHES THE OTHER POPUP EXTERNAL LINKS */
+.timeline_popup_text_link_box::after {
+    content: var(--i18n-open-link, "Open to Link");
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgba(90, 90, 90, 0.82);
+    color: wheat;
+    font-family: Impact, 'Arial Black', sans-serif;
+    font-size: clamp(22px, 2.2vw, 42px);
+    line-height: 1;
+    text-align: center;
+    text-transform: uppercase;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+.timeline_popup_text_link:hover .timeline_popup_text_link_box::after,
+.timeline_popup_text_link:focus-visible .timeline_popup_text_link_box::after {
+    opacity: 1;
+}
+
+.timeline_popup_text_link_title {
+    display: block;
+    width: 100%;
+
+    color: black;
+    font-family: Impact, 'Arial Black', sans-serif;
+    font-size: clamp(24px, 2.2vw, 44px);
+    font-weight: 900;
+    line-height: 1;
+    text-align: center;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.timeline_popup_text_link:hover .timeline_popup_text_link_box,
+.timeline_popup_text_link:focus-visible .timeline_popup_text_link_box {
+    transform: scale(1.02);
+}
+
+.timeline_popup_text_link:active .timeline_popup_text_link_box {
+    transform: scale(1);
+}
+
+.timeline_popup_text_link:focus-visible {
+    outline: none;
+}
+
+@media (max-width: 767px) {
+    .timeline_popup_text_link_box {
+        min-height: clamp(54px, 14vw, 78px);
+        padding: clamp(8px, 2.5vw, 14px) clamp(10px, 3vw, 18px);
+    }
+
+    .timeline_popup_text_link_title {
+        font-size: clamp(20px, 6vw, 34px);
+    }
+}
